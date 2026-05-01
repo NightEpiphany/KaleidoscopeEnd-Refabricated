@@ -1,0 +1,41 @@
+{
+  "type": "kaleidoscope_cookery:pot",
+  "carrier": {
+    "item": "minecraft:bowl"
+  },
+  "ingredients": [
+    {
+      "tag": "c:shulker_meat"
+    },
+    {
+      "tag": "c:shulker_meat"
+    },
+    {
+      "item": "kaleidoscope_end:ender_mint"
+    },
+    {
+      "item": "kaleidoscope_end:ender_mint"
+    },
+    [
+      {
+        "tag": "c:fruits/chorus"
+      },
+      {
+        "item": "kaleidoscope_end:chorus_seed"
+      }
+    ],
+    [
+      {
+        "tag": "c:fruits/chorus"
+      },
+      {
+        "item": "kaleidoscope_end:chorus_seed"
+      }
+    ]
+  ],
+  "result": {
+    "id":  "kaleidoscope_end:mint_sauce_shulker_meat"
+  },
+  "stir_fry_count": 5,
+  "time": 300
+}

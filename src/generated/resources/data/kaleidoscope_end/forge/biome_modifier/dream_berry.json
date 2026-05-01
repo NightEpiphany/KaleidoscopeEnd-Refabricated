@@ -1,6 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": "#minecraft:is_end",
-  "features": "kaleidoscope_end:dream_berry",
-  "step": "underground_decoration"
-}

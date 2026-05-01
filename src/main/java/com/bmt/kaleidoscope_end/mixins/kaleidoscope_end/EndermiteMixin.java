@@ -35,13 +35,13 @@ public abstract class EndermiteMixin extends Monster implements IEndermiteExtens
     }
 
     @Inject(method = "addAdditionalSaveData", at = @At("RETURN"))
-    public void addAdditionalSaveData(CompoundTag tag, CallbackInfo ci) {
-        tag.put("ke_endermite_info", ke$endermiteInfo.serializeNBT());
+    public void addAdditionalSaveData(CompoundTag compound, CallbackInfo ci) {
+        compound.put("ke_endermite_info", ke$endermiteInfo.serializeNBT());
     }
 
     @Inject(method = "readAdditionalSaveData", at = @At("RETURN"))
-    public void readAdditionalSaveData(CompoundTag tag, CallbackInfo ci) {
-        ke$endermiteInfo.deserializeNBT(tag.getCompound("ke_endermite_info"));
+    public void readAdditionalSaveData(CompoundTag compound, CallbackInfo ci) {
+        ke$endermiteInfo.deserializeNBT(compound.getCompound("ke_endermite_info"));
     }
 
     @Inject(method = "aiStep", at = @At("RETURN"))

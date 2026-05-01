@@ -1,24 +1,35 @@
 package com.bmt.kaleidoscope_end.init;
 
 import com.bmt.kaleidoscope_end.KaleidoscopeEnd;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.registries.ForgeRegistries;
 
-public interface KETags {
-    interface Enchantments {
-        TagKey<Enchantment> KE_ENCHANTMENTS = registry("ke_enchantments");
+public final class KETags {
+    private KETags() {
+    }
 
-        private static TagKey<Enchantment> registry(String id) {
-            return TagKey.create(ForgeRegistries.ENCHANTMENTS.getRegistryKey(), KaleidoscopeEnd.id(id));
+    public static final class Items {
+        public static final TagKey<Item> MOD_ITEMS = TagKey.create(Registries.ITEM, KaleidoscopeEnd.id("mod_items"));
+        public static final TagKey<Item> ENCHANTING_FUELS = TagKey.create(Registries.ITEM, KaleidoscopeEnd.id("enchanting_fuels"));
+
+        private Items() {
         }
     }
 
-    interface Blocks{
-        TagKey<Block> END_STONE_GROWABLE = registry("end_stone_growable");
-        private static TagKey<Block> registry(String id) {
-            return TagKey.create(ForgeRegistries.BLOCKS.getRegistryKey(), KaleidoscopeEnd.id(id));
+    public static final class Enchantments {
+        public static final TagKey<Enchantment> KE_ENCHANTMENTS = TagKey.create(Registries.ENCHANTMENT, KaleidoscopeEnd.id("ke_enchantments"));
+
+        private Enchantments() {
+        }
+    }
+
+    public static final class Blocks {
+        public static final TagKey<Block> END_STONE_GROWABLE = TagKey.create(Registries.BLOCK, KaleidoscopeEnd.id("end_stone_growable"));
+
+        private Blocks() {
         }
     }
 }

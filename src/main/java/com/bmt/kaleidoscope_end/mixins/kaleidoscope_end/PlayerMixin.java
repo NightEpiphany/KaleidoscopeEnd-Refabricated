@@ -10,20 +10,20 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.material.FluidState;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Player.class)
 public abstract class PlayerMixin extends LivingEntity {
-
-    protected PlayerMixin(EntityType<? extends LivingEntity> p_20966_, Level p_20967_) {
-        super(p_20966_, p_20967_);
+    protected PlayerMixin(EntityType<? extends LivingEntity> entityType, Level level) {
+        super(entityType, level);
     }
 
     @WrapOperation(method = "travel", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/material/FluidState;isEmpty()Z"))
-    private boolean travel(FluidState instance, Operation<Boolean> original) {
-        if (this.hasEffect(KEEffects.DREAM.get())) {
+    private boolean kaleidoscope_end$travel(FluidState instance, Operation<Boolean> original) {
+        if (this.hasEffect(KEEffects.DREAM)) {
             return false;
         }
         return original.call(instance);
     }
-
 }

@@ -1,0 +1,34 @@
+{
+  "parent": "kaleidoscope_end:dragon_dust",
+  "criteria": {
+    "dragon_egg_shell": {
+      "conditions": {
+        "items": [
+          {
+            "items": "kaleidoscope_end:dragon_egg_shell"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.kaleidoscope_end.dragon_egg_shell.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "count": 1,
+      "id": "kaleidoscope_end:dragon_egg_shell"
+    },
+    "title": {
+      "translate": "advancements.kaleidoscope_end.dragon_egg_shell.title"
+    }
+  },
+  "requirements": [
+    [
+      "dragon_egg_shell"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

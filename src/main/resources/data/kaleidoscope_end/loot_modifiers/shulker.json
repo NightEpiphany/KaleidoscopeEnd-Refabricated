@@ -1,7 +1,10 @@
 {
-  "type": "kaleidoscope_cookery:addition",
-  "conditions": [],
-  "loot_table_add": "kaleidoscope_end:shulker",
-  "loot_table_id": "minecraft:entities/shulker",
-  "loot_table_type": "minecraft:entity"
+  "type": "neoforge:add_table",
+  "conditions": [
+    {
+      "condition": "neoforge:loot_table_id",
+      "loot_table_id": "minecraft:entities/shulker"
+    }
+  ],
+  "table": "kaleidoscope_end:shulker"
 }

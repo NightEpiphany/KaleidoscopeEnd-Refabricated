@@ -1,0 +1,30 @@
+{
+  "required": true,
+  "package": "com.bmt.kaleidoscope_end.mixins.kaleidoscope_end",
+  "compatibilityLevel": "JAVA_21",
+  "plugin": "com.bmt.kaleidoscope_end.mixins.MainMixinPlugin",
+  "mixins": [
+    "BlockEntityTypeMixin",
+    "EnchantmentMenuMixin",
+    "EnchantmentSlotMixin",
+    "EndDragonFightMixin",
+    "EnderManMixin",
+    "EndermiteMixin",
+    "EntityMixin",
+    "LivingEntityMixin",
+    "MobEffectInstanceMixin",
+    "NearestAttackableTargetGoalMixin",
+    "PlayerMixin"
+  ],
+  "client": [
+    "client.EnchantmentScreenMixin",
+    "client.LocalPlayerMixin",
+    "client.PlayerRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+	}
+}

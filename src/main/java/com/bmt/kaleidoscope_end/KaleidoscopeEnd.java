@@ -1,57 +1,40 @@
 package com.bmt.kaleidoscope_end;
 
-import com.bmt.kaleidoscope_end.config.Config;
+import com.bmt.kaleidoscope_end.config.MainConfig;
+import com.bmt.kaleidoscope_end.event.ChorusFlowerInteractionHandler;
+import com.bmt.kaleidoscope_end.event.KEExtraLootTableDrop;
+import com.bmt.kaleidoscope_end.event.KEPlayerEvents;
 import com.bmt.kaleidoscope_end.init.*;
-import net.minecraft.core.registries.Registries;
+import com.bmt.kaleidoscope_end.worldgen.KEWorldgen;
+import fuzs.forgeconfigapiport.fabric.api.neoforge.v4.NeoForgeConfigRegistry;
+import net.fabricmc.api.ModInitializer;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.Item;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.config.ModConfig;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.fml.config.ModConfig;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-@Mod(KaleidoscopeEnd.MODID)
-public class KaleidoscopeEnd {
-    public static final String MODID = "kaleidoscope_end";
+public class KaleidoscopeEnd implements ModInitializer {
+    public static final String MOD_ID = "kaleidoscope_end";
+    public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
-    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
-    public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
-
-    public KaleidoscopeEnd(FMLJavaModLoadingContext context) {
-        IEventBus modEventBus = context.getModEventBus();
-
-        modEventBus.addListener(this::commonSetup);
-
-        ITEMS.register(modEventBus);
-        CREATIVE_MODE_TABS.register(modEventBus);
-        KEEffects.register(modEventBus);
-        KEBlocks.register(modEventBus);
-//        KEBlockEntityType.register(modEventBus);
-        KEItem.register(modEventBus);
-    //    KEPaintings.register(modEventBus);
-        KECreativeTabs.register(modEventBus);
-        KEEnchantments.register(modEventBus);
-        MinecraftForge.EVENT_BUS.register(this);
-
-        context.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
-
+    @Override
+    public void onInitialize() {
+        NeoForgeConfigRegistry.INSTANCE.register(MOD_ID, ModConfig.Type.COMMON, MainConfig.init());
+        KEEffects.registerEffects();
+        KEFoods.init();
+        KEBlocks.registerBlocks();
+        KEItem.registerItems();
         KEFoodBiteRegistry.init();
+        KECreativeTabs.registerTabs();
+        KESoupBases.registerAll();LOGGER.info("Kaleidoscope End Initialized");
+        ChorusFlowerInteractionHandler.register();
+        KEPlayerEvents.register();
+        KEExtraLootTableDrop.register();
+        KEWorldgen.register();
+        LOGGER.info("Kaleidoscope End Initialized");
     }
 
-    private void commonSetup(FMLCommonSetupEvent event) {
-        event.enqueueWork(KESoupBases::registerAll);
-    }
-
-    public static ResourceLocation id(String name) {
-        return ResourceLocation.tryBuild(MODID, name);
-    }
-
-    public static ResourceLocation fromNamespaceAndPath(String namespace, String id) {
-        return ResourceLocation.tryBuild(namespace, id);
+    public static ResourceLocation id(String path) {
+        return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
     }
 }

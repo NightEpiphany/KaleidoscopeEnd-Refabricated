@@ -1,7 +1,10 @@
 {
-  "type": "kaleidoscope_cookery:addition",
-  "conditions": [],
-  "loot_table_add": "kaleidoscope_end:blocks/chorus_plant",
-  "loot_table_id": "minecraft:blocks/chorus_plant",
-  "loot_table_type": "minecraft:block"
+  "type": "neoforge:add_table",
+  "conditions": [
+    {
+      "condition": "neoforge:loot_table_id",
+      "loot_table_id": "minecraft:blocks/chorus_plant"
+    }
+  ],
+  "table": "kaleidoscope_end:blocks/chorus_plant"
 }

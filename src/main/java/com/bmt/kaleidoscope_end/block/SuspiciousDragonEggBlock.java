@@ -4,16 +4,15 @@ import com.bmt.kaleidoscope_end.KaleidoscopeEnd;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.item.FallingBlockEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
@@ -24,79 +23,73 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BrushableBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.border.WorldBorder;
-import net.minecraft.world.level.pathfinder.PathComputationType;
-import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class SuspiciousDragonEggBlock extends BrushableBlock implements Fallable {
-    protected static final VoxelShape SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
+    private static final VoxelShape SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
 
-    public SuspiciousDragonEggBlock(Block block, Properties properties, SoundEvent soundEvent1, SoundEvent soundEvent2) {
-        super(block, properties, soundEvent1, soundEvent2);
+    public SuspiciousDragonEggBlock(Block turnsInto, SoundEvent brushSound, SoundEvent brushCompletedSound, Properties properties) {
+        super(turnsInto, brushSound, brushCompletedSound, properties);
     }
 
-    public void onPlace(BlockState p_53233_, Level p_53234_, BlockPos p_53235_, BlockState p_53236_, boolean p_53237_) {
-        p_53234_.scheduleTick(p_53235_, this, this.getDelayAfterPlace());
+    @Override
+    public void onPlace(BlockState state, Level level, BlockPos pos, BlockState oldState, boolean movedByPiston) {
+        level.scheduleTick(pos, this, getDelayAfterPlace());
     }
 
-    public BlockState updateShape(BlockState p_53226_, Direction p_53227_, BlockState p_53228_, LevelAccessor p_53229_, BlockPos p_53230_, BlockPos p_53231_) {
-        p_53229_.scheduleTick(p_53230_, this, this.getDelayAfterPlace());
-        return super.updateShape(p_53226_, p_53227_, p_53228_, p_53229_, p_53230_, p_53231_);
+    @Override
+    public @NotNull BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor level, BlockPos pos, BlockPos neighborPos) {
+        level.scheduleTick(pos, this, getDelayAfterPlace());
+        return super.updateShape(state, direction, neighborState, level, pos, neighborPos);
     }
 
-    public void tick(BlockState p_221124_, ServerLevel p_221125_, BlockPos p_221126_, RandomSource p_221127_) {
-        if (isFree(p_221125_.getBlockState(p_221126_.below())) && p_221126_.getY() >= p_221125_.getMinBuildHeight()) {
-            FallingBlockEntity.fall(p_221125_, p_221126_, p_221124_);
+    @Override
+    public void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+        if (isFree(level.getBlockState(pos.below())) && pos.getY() >= level.getMinBuildHeight()) {
+            FallingBlockEntity.fall(level, pos, state);
         }
     }
 
-    public static boolean isFree(BlockState p_53242_) {
-        return p_53242_.isAir() || p_53242_.is(BlockTags.FIRE) || p_53242_.liquid() || p_53242_.canBeReplaced();
+    public static boolean isFree(BlockState state) {
+        return state.isAir() || state.is(BlockTags.FIRE) || state.liquid() || state.canBeReplaced();
     }
 
-    public VoxelShape getShape(BlockState p_52930_, BlockGetter p_52931_, BlockPos p_52932_, CollisionContext p_52933_) {
+    @Override
+    public @NotNull VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         return SHAPE;
     }
 
-    public InteractionResult use(BlockState p_52923_, Level p_52924_, BlockPos p_52925_, Player player, InteractionHand p_52927_, BlockHitResult p_52928_) {
-        if (!(player.getMainHandItem().is(Items.BRUSH) || player.getOffhandItem().is(Items.BRUSH))) {
-            this.teleport(p_52923_, p_52924_, p_52925_);
-        }
-        return InteractionResult.sidedSuccess(p_52924_.isClientSide);
+    @Override
+    public void attack(BlockState state, Level level, BlockPos pos, Player player) {
+        teleport(state, level, pos);
     }
 
-    public void attack(BlockState p_52918_, Level p_52919_, BlockPos p_52920_, Player p_52921_) {
-        this.teleport(p_52918_, p_52919_, p_52920_);
-    }
-
-    private void teleport(BlockState blockState, Level level, BlockPos blockPos) {
-        WorldBorder worldborder = level.getWorldBorder();
-
+    private void teleport(BlockState state, Level level, BlockPos pos) {
+        WorldBorder worldBorder = level.getWorldBorder();
         for (int i = 0; i < 1000; ++i) {
-            BlockPos blockpos = blockPos.offset(level.random.nextInt(16) - level.random.nextInt(16), level.random.nextInt(8) - level.random.nextInt(8), level.random.nextInt(16) - level.random.nextInt(16));
-            if (level.getBlockState(blockpos).isAir() && worldborder.isWithinBounds(blockpos)) {
+            BlockPos targetPos = pos.offset(level.random.nextInt(16) - level.random.nextInt(16), level.random.nextInt(8) - level.random.nextInt(8), level.random.nextInt(16) - level.random.nextInt(16));
+            if (level.getBlockState(targetPos).isAir() && worldBorder.isWithinBounds(targetPos)) {
                 if (level.isClientSide) {
                     for (int j = 0; j < 128; ++j) {
-                        double d0 = level.random.nextDouble();
-                        float f = (level.random.nextFloat() - 0.5F) * 0.2F;
-                        float f1 = (level.random.nextFloat() - 0.5F) * 0.2F;
-                        float f2 = (level.random.nextFloat() - 0.5F) * 0.2F;
-                        double d1 = Mth.lerp(d0, blockpos.getX(), blockPos.getX()) + (level.random.nextDouble() - 0.5D) + 0.5D;
-                        double d2 = Mth.lerp(d0, blockpos.getY(), blockPos.getY()) + level.random.nextDouble() - 0.5D;
-                        double d3 = Mth.lerp(d0, blockpos.getZ(), blockPos.getZ()) + (level.random.nextDouble() - 0.5D) + 0.5D;
-                        level.addParticle(ParticleTypes.PORTAL, d1, d2, d3, f, f1, f2);
+                        double progress = level.random.nextDouble();
+                        float xSpeed = (level.random.nextFloat() - 0.5F) * 0.2F;
+                        float ySpeed = (level.random.nextFloat() - 0.5F) * 0.2F;
+                        float zSpeed = (level.random.nextFloat() - 0.5F) * 0.2F;
+                        double x = Mth.lerp(progress, targetPos.getX(), pos.getX()) + (level.random.nextDouble() - 0.5D) + 0.5D;
+                        double y = Mth.lerp(progress, targetPos.getY(), pos.getY()) + level.random.nextDouble() - 0.5D;
+                        double z = Mth.lerp(progress, targetPos.getZ(), pos.getZ()) + (level.random.nextDouble() - 0.5D) + 0.5D;
+                        level.addParticle(ParticleTypes.PORTAL, x, y, z, xSpeed, ySpeed, zSpeed);
                     }
                 } else {
-                    level.setBlock(blockpos, blockState, 2);
-                    level.removeBlock(blockPos, false);
+                    level.setBlock(targetPos, state, 2);
+                    level.removeBlock(pos, false);
                 }
-
                 return;
             }
         }
-
     }
 
     protected int getDelayAfterPlace() {
@@ -104,13 +97,11 @@ public class SuspiciousDragonEggBlock extends BrushableBlock implements Fallable
     }
 
     @Override
-    public @Nullable BlockEntity newBlockEntity(BlockPos p_277683_, BlockState p_277381_) {
-        @Nullable BrushableBlockEntity blockEntity = (BrushableBlockEntity) super.newBlockEntity(p_277683_, p_277381_);
-        blockEntity.setLootTable(KaleidoscopeEnd.id("archaeology/suspicious_dragon_egg"), 0);
+    public @Nullable BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+        BrushableBlockEntity blockEntity = (BrushableBlockEntity) super.newBlockEntity(pos, state);
+        if (blockEntity != null) {
+            blockEntity.setLootTable(ResourceKey.create(Registries.LOOT_TABLE, KaleidoscopeEnd.id("archaeology/suspicious_dragon_egg")), 0L);
+        }
         return blockEntity;
-    }
-
-    public boolean isPathfindable(BlockState p_52913_, BlockGetter p_52914_, BlockPos p_52915_, PathComputationType p_52916_) {
-        return false;
     }
 }

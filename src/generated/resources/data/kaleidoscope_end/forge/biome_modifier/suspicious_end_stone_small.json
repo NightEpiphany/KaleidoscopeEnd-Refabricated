@@ -1,6 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": "#minecraft:is_end",
-  "features": "kaleidoscope_end:suspicious_end_stone_small",
-  "step": "underground_ores"
-}

@@ -1,0 +1,13 @@
+{
+  "type": "kaleidoscope_cookery:pot",
+  "ingredients": [
+    {
+      "item": "kaleidoscope_end:dragon_egg_liquid"
+    }
+  ],
+  "result": {
+    "id":  "kaleidoscope_end:fried_dragon_egg"
+  },
+  "stir_fry_count": 3,
+  "time": 200
+}

@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "tag": "c:milk"
+    },
+    "B": {
+      "item": "kaleidoscope_end:dream_berry"
+    },
+    "C": {
+      "item": "minecraft:ice"
+    },
+    "D": {
+      "item": "kaleidoscope_end:dragon_egg_shell"
+    },
+    "E": {
+      "item": "minecraft:chorus_fruit"
+    }
+  },
+  "pattern": [
+    "ABA",
+    "CEC",
+    " D "
+  ],
+  "result": {
+    "id": "kaleidoscope_end:dragon_egg_ice_cream"
+  },
+  "show_notification": true
+}

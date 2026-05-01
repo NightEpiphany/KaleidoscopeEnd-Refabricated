@@ -1,0 +1,32 @@
+{
+  "parent": "kaleidoscope_end:void_conch",
+  "criteria": {
+    "void_erosion": {
+      "conditions": {
+        "effects": {
+          "kaleidoscope_end:void_erosion": {}
+        }
+      },
+      "trigger": "minecraft:effects_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.kaleidoscope_end.void_erosion.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "count": 1,
+      "id": "kaleidoscope_end:void_conch_noodle_soup"
+    },
+    "title": {
+      "translate": "advancements.kaleidoscope_end.void_erosion.title"
+    }
+  },
+  "requirements": [
+    [
+      "void_erosion"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

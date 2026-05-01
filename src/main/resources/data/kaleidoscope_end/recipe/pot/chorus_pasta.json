@@ -1,0 +1,46 @@
+{
+  "type": "kaleidoscope_cookery:pot",
+  "carrier": {
+    "item": "minecraft:bowl"
+  },
+  "ingredients": [
+    [
+      {
+        "tag": "c:fruits/chorus"
+      },
+      {
+        "item": "kaleidoscope_end:chorus_seed"
+      }
+    ],
+    [
+      {
+        "tag": "c:fruits/chorus"
+      },
+      {
+        "item": "kaleidoscope_end:chorus_seed"
+      }
+    ],
+    [
+      {
+        "tag": "c:fruits/chorus"
+      },
+      {
+        "item": "kaleidoscope_end:chorus_seed"
+      }
+    ],
+    {
+      "tag": "c:pasta"
+    },
+    {
+      "tag": "c:pasta"
+    },
+    {
+      "tag": "c:pasta"
+    }
+  ],
+  "result": {
+    "id":  "kaleidoscope_end:chorus_pasta"
+  },
+  "stir_fry_count": 4,
+  "time": 350
+}

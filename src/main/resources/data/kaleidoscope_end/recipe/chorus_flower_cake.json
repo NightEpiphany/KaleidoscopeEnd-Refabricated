@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "tag": "c:milk"
+    },
+    "B": {
+      "item": "kaleidoscope_end:chorus_petal"
+    },
+    "C": {
+      "item": "minecraft:chorus_fruit"
+    },
+    "D": {
+      "tag": "c:flour"
+    }
+  },
+  "pattern": [
+    "ABA",
+    "CCC",
+    "DDD"
+  ],
+  "result": {
+    "id": "kaleidoscope_end:chorus_flower_cake"
+  },
+  "show_notification": true
+}

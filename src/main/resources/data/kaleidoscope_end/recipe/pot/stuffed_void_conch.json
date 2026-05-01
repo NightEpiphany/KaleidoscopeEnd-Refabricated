@@ -1,0 +1,28 @@
+{
+  "type": "kaleidoscope_cookery:pot",
+  "carrier": {
+    "item": "kaleidoscope_end:void_conch"
+  },
+  "ingredients": [
+    {
+      "tag": "c:raw_ender_mite_meat"
+    },
+    {
+      "tag": "c:raw_ender_mite_meat"
+    },
+    {
+      "tag": "c:raw_ender_mite_meat"
+    },
+    {
+      "item": "kaleidoscope_end:ender_mint"
+    },
+    {
+      "item": "kaleidoscope_end:ender_mint"
+    }
+  ],
+  "result": {
+    "id": "kaleidoscope_end:stuffed_void_conch"
+  },
+  "stir_fry_count": 6,
+  "time": 650
+}

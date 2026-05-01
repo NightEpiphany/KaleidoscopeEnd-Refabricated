@@ -1,7 +1,10 @@
 {
-  "type": "kaleidoscope_cookery:addition",
-  "conditions": [],
-  "loot_table_add": "kaleidoscope_end:enderman",
-  "loot_table_id": "minecraft:entities/enderman",
-  "loot_table_type": "minecraft:entity"
+  "type": "neoforge:add_table",
+  "conditions": [
+    {
+      "condition": "neoforge:loot_table_id",
+      "loot_table_id": "minecraft:entities/enderman"
+    }
+  ],
+  "table": "kaleidoscope_end:enderman"
 }

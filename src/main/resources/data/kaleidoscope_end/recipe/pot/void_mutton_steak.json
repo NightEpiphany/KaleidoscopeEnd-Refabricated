@@ -1,0 +1,25 @@
+{
+  "type": "kaleidoscope_cookery:pot",
+  "carrier": {
+    "item": "minecraft:bowl"
+  },
+  "ingredients": [
+    {
+      "tag": "c:foods/raw_mutton"
+    },
+    {
+      "tag": "c:foods/raw_mutton"
+    },
+    {
+      "tag": "c:foods/raw_mutton"
+    },
+    {
+      "item": "kaleidoscope_end:void_conch"
+    }
+  ],
+  "result": {
+    "id": "kaleidoscope_end:void_mutton_steak"
+  },
+  "stir_fry_count": 3,
+  "time": 300
+}

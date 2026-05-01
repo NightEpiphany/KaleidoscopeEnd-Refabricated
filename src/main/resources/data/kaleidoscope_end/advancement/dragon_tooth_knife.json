@@ -1,0 +1,35 @@
+{
+  "parent": "kaleidoscope_end:dragon_dust",
+  "criteria": {
+    "dragon_tooth_knife": {
+      "conditions": {
+        "items": [
+          {
+            "items": "kaleidoscope_end:dragon_tooth_knife"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.kaleidoscope_end.dragon_tooth_knife.description"
+    },
+    "frame": "challenge",
+    "hidden": true,
+    "icon": {
+      "count": 1,
+      "id": "kaleidoscope_end:dragon_tooth_knife"
+    },
+    "title": {
+      "translate": "advancements.kaleidoscope_end.dragon_tooth_knife.title"
+    }
+  },
+  "requirements": [
+    [
+      "dragon_tooth_knife"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

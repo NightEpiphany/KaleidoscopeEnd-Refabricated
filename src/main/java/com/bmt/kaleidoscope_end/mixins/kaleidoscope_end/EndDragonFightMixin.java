@@ -12,6 +12,6 @@ public class EndDragonFightMixin {
 
     @ModifyArg(method = "setDragonKilled", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/level/ServerLevel;setBlockAndUpdate(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)Z"), index = 1)
     private BlockState replaceEgg(BlockState par2) {
-        return KEBlocks.SUSPICIOUS_DRAGON_EGG.get().defaultBlockState();
+        return KEBlocks.SUSPICIOUS_DRAGON_EGG.defaultBlockState();
     }
 }

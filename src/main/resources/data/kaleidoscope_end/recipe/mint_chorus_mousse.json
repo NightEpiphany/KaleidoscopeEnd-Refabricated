@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "kaleidoscope_end:ender_mint"
+    },
+    "B": {
+      "tag": "c:milk"
+    },
+    "C": [
+      {
+        "tag": "c:fruits/chorus"
+      },
+      {
+        "item": "kaleidoscope_end:chorus_seed"
+      }
+    ],
+    "D": {
+      "tag": "c:flour"
+    }
+  },
+  "pattern": [
+    "AB",
+    "CC",
+    "DD"
+  ],
+  "result": {
+    "id":  "kaleidoscope_end:mint_chorus_mousse"
+  },
+  "show_notification": true
+}

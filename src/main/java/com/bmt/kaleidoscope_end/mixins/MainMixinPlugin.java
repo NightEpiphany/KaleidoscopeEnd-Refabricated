@@ -1,26 +1,18 @@
 package com.bmt.kaleidoscope_end.mixins;
 
-import com.mojang.logging.LogUtils;
-import me.jellysquid.mods.sodium.mixin.MixinConfig;
-import net.minecraftforge.fml.loading.FMLLoader;
+import com.bmt.kaleidoscope_end.KaleidoscopeEnd;
+import net.fabricmc.loader.api.FabricLoader;
 import org.objectweb.asm.tree.ClassNode;
-import org.slf4j.Logger;
-import org.spongepowered.asm.mixin.extensibility.IMixinConfig;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
-import org.spongepowered.asm.mixin.refmap.IReferenceMapper;
 
 import java.util.List;
 import java.util.Set;
 
 public class MainMixinPlugin implements IMixinConfigPlugin {
 
-    private static final Logger LOGGER = LogUtils.getLogger();
-
     @Override
-    public void onLoad(String mixinPackage) {
-        LOGGER.info("Initializing Kaleidoscope End Mixins");
-    }
+    public void onLoad(String mixinPackage) {}
 
     @Override
     public String getRefMapperConfig() {
@@ -30,8 +22,8 @@ public class MainMixinPlugin implements IMixinConfigPlugin {
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
         String[] split = mixinClassName.split("\\.");
-        for (int i = 0; i < split.length; i++) {
-            if (split[i].equals("mixins") && FMLLoader.getLoadingModList().getModFileById(split[i + 1]) != null) {
+        for (String s : split) {
+            if (s.equals("mixins") && FabricLoader.getInstance().isModLoaded(KaleidoscopeEnd.MOD_ID)) {
                 return true;
             }
         }
@@ -39,9 +31,7 @@ public class MainMixinPlugin implements IMixinConfigPlugin {
     }
 
     @Override
-    public void acceptTargets(Set<String> myTargets, Set<String> otherTargets) {
-
-    }
+    public void acceptTargets(Set<String> myTargets, Set<String> otherTargets) {}
 
     @Override
     public List<String> getMixins() {
@@ -49,11 +39,8 @@ public class MainMixinPlugin implements IMixinConfigPlugin {
     }
 
     @Override
-    public void preApply(String targetClassName, org.objectweb.asm.tree.ClassNode targetClass, String mixinClassName, IMixinInfo mixinInfo) {
+    public void preApply(String targetClassName, ClassNode targetClass, String mixinClassName, IMixinInfo mixinInfo) {}
 
-    }
     @Override
-    public void postApply(String targetClassName, ClassNode targetClass, String mixinClassName, IMixinInfo mixinInfo) {
-
-    }
+    public void postApply(String targetClassName, ClassNode targetClass, String mixinClassName, IMixinInfo mixinInfo) {}
 }

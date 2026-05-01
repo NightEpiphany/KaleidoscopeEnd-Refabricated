@@ -1,0 +1,33 @@
+{
+  "parent": "kaleidoscope_end:dragon_dust",
+  "criteria": {
+    "void_conch": {
+      "conditions": {
+        "items": [
+          {
+            "items": "kaleidoscope_end:void_conch"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.kaleidoscope_end.void_conch.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "kaleidoscope_end:void_conch"
+    },
+    "title": {
+      "translate": "advancements.kaleidoscope_end.void_conch.title"
+    }
+  },
+  "requirements": [
+    [
+      "void_conch"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

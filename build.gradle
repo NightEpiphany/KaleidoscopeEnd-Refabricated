@@ -1,169 +1,91 @@
 plugins {
-    id 'eclipse'
-    id 'idea'
-    id 'maven-publish'
-    id 'net.minecraftforge.gradle' version '[6.0,6.2)'
-    id 'org.spongepowered.mixin' version '0.7.+'
+	id 'net.fabricmc.fabric-loom-remap' version "${loom_version}"
+	id 'maven-publish'
 }
 
-version = mod_version
-group = mod_group_id
-
-base {
-    archivesName = mod_id
-}
-
-java.toolchain.languageVersion = JavaLanguageVersion.of(17)
-
-println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
-minecraft {
-    mappings channel: mapping_channel, version: mapping_version
-    copyIdeResources = true
-    runs {
-        configureEach {
-            workingDirectory project.file('run')
-            property 'forge.logging.markers', 'REGISTRIES'
-            property 'forge.logging.console.level', 'debug'
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
-
-            mods {
-                "${mod_id}" {
-                    source sourceSets.main
-                }
-            }
-        }
-
-        client {
-            property 'forge.enabledGameTestNamespaces', mod_id
-        }
-
-        server {
-            property 'forge.enabledGameTestNamespaces', mod_id
-            args '--nogui'
-        }
-
-        gameTestServer {
-            property 'forge.enabledGameTestNamespaces', mod_id
-        }
-
-        data {
-            workingDirectory project.file('run-data')
-            args '--mod', mod_id, '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
-        }
-    }
-}
-
-sourceSets.main.resources { srcDir 'src/generated/resources' }
+version = project.mod_version
+group = project.maven_group
 
 repositories {
-    flatDir {
-        dir 'libs'
+	maven {
+        url "https://cursemaven.com"
+        content {
+            includeGroup "curse.maven"
+        }
     }
     maven {
-        url "https://cursemaven.com"
+        // location of the maven that hosts JEI files since January 2023
+        // Patchouli
+        name = "Jared's maven"
+        url = "https://maven.blamejared.com/"
     }
+    maven {
+        // location of a maven mirror for JEI files, as a fallback
+        name = "ModMaven"
+        url = "https://modmaven.dev"
+    }
+	maven {
+		name = "Fuzs Mod Resources"
+		url = "https://raw.githubusercontent.com/Fuzss/modresources/main/maven/"
+	}
 }
 
 dependencies {
-    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
-
-    implementation(annotationProcessor("io.github.llamalad7:mixinextras-common:0.5.0"))
-    implementation(jarJar("io.github.llamalad7:mixinextras-forge:0.5.0")) {
-        jarJar.ranged(it, "[0.5.0,)")
-    }
-
-    implementation fg.deobf("blank:kaleidoscope_nether:1.0.6-1.20.1")
-    //implementation fg.deobf("blank:imblocker:5.4.6.1-forge+1.17-1.20.4")
-    implementation fg.deobf("blank:kaleidoscopetavern:1.0.0-forge+mc1.20.1")
-
-    implementation fg.deobf("curse.maven:kaleidoscope-cookery-1309203:7473809")
-    //implementation fg.deobf("curse.maven:alexs-mobs-426558:5698791")
-    implementation fg.deobf("curse.maven:citadel-331936:6702068")
-    implementation fg.deobf("curse.maven:jei-238222:7361881")
-    implementation fg.deobf("curse.maven:jade-324717:6855440")
-    //implementation fg.deobf("curse.maven:imblocker-483760:7188270")
-    implementation fg.deobf("curse.maven:just-enough-effect-descriptions-jeed-532286:6172935")
-    //这个模组会导致数据生成失败
-    //我的obtips（哭
-    //    implementation fg.deobf("curse.maven:obscure-tooltips-715660:4686579")
-
-    implementation fg.deobf("curse.maven:appleskin-248787:4770828")
-    implementation fg.deobf("curse.maven:embeddium-908741:5681725")
-    implementation fg.deobf("curse.maven:radium-reforged-570017:5706069")
-    //这个模组也会导致数据生成失败
-//        implementation fg.deobf("curse.maven:modern-ui-352491:6956345")
-    implementation fg.deobf("curse.maven:i18nupdatemod-297404:7173159")
-    implementation fg.deobf("curse.maven:mmmmmmmmmmmm-225738:6860192")
-    implementation fg.deobf("curse.maven:selene-499980:7388296")
-    //implementation fg.deobf("curse.maven:apothic-attributes-898963:5634071")
-    implementation fg.deobf("curse.maven:inventory-hud-forge-357540:5639966")
-    //implementation fg.deobf("curse.maven:artifacts-312353:6351716")
-    implementation fg.deobf("curse.maven:damage-number-998849:7060656")
-    implementation fg.deobf("curse.maven:curios-309927:6418456")
-    implementation fg.deobf("curse.maven:kaleidoscope-doll-1233277:7201584")
-    implementation fg.deobf("curse.maven:farmers-delight-398521:6917255")
-    implementation fg.deobf("curse.maven:kubejs-238086:5853326")
-    implementation fg.deobf("curse.maven:rhino-416294:6186971")
-    implementation fg.deobf("curse.maven:architectury-api-419699:5137938")
-    implementation fg.deobf("curse.maven:lendercataclysm-551586:6906993")
-    implementation fg.deobf("curse.maven:lionfish-api-1001614:5922047")
-    implementation fg.deobf("curse.maven:screenshot-to-clipboard-326950:3643026")
-    implementation fg.deobf("curse.maven:scannable-266784:4763070")
-
-    annotationProcessor 'org.spongepowered:mixin:0.8.7:processor'
-
+	
+	minecraft "com.mojang:minecraft:${project.minecraft_version}"
+	mappings loom.officialMojangMappings()
+	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+	modImplementation("mezz.jei:jei-${project.minecraft_version}-fabric:${project.jei_version}")
+	modImplementation "curse.maven:kaleidoscope-cookery-refabricated-1394201:7966794"
+	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+	modImplementation "fuzs.forgeconfigapiport:forgeconfigapiport-fabric:21.1.6"
 }
 
-tasks.named('processResources', ProcessResources).configure {
-    var replaceProperties = [
-            minecraft_version: minecraft_version, minecraft_version_range: minecraft_version_range,
-            forge_version: forge_version, forge_version_range: forge_version_range,
-            loader_version_range: loader_version_range,
-            mod_id: mod_id, mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
-            mod_authors: mod_authors, mod_description: mod_description,
-    ]
-    inputs.properties replaceProperties
+processResources {
+	def version = project.version
+	inputs.property "version", version
 
-    filesMatching(['META-INF/mods.toml', 'pack.mcmeta']) {
-        expand replaceProperties + [project: project]
-    }
-}
-
-tasks.named('jar', Jar).configure {
-    manifest {
-        attributes([
-                'Specification-Title'     : mod_id,
-                'Specification-Vendor'    : mod_authors,
-                'Specification-Version'   : '1', // We are version 1 of ourselves
-                'Implementation-Title'    : project.name,
-                'Implementation-Version'  : project.jar.archiveVersion,
-                'Implementation-Vendor'   : mod_authors,
-                'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
-        ])
-    }
-
-    finalizedBy 'reobfJar'
-}
-
-publishing {
-    publications {
-        register('mavenJava', MavenPublication) {
-            artifact jar
-        }
-    }
-    repositories {
-        maven {
-            url "file://${project.projectDir}/mcmodsrepo"
-        }
-    }
+	filesMatching("fabric.mod.json") {
+		expand "version": version
+	}
 }
 
 tasks.withType(JavaCompile).configureEach {
-    options.encoding = 'UTF-8'
+	it.options.release = 21
 }
 
-mixin {
-    add sourceSets.main, "kaleidoscope_end.refmap.json"
-    config "mixins.kaleidoscope_end.json"
+java {
+	// Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
+	// if it is present.
+	// If you remove this line, sources will not be generated.
+	withSourcesJar()
+
+	sourceCompatibility = JavaVersion.VERSION_21
+	targetCompatibility = JavaVersion.VERSION_21
+}
+
+jar {
+	def projectName = project.name
+	inputs.property "projectName", projectName
+
+	from("LICENSE") {
+		rename { "${it}_$projectName"}
+	}
+}
+
+// configure the maven publication
+publishing {
+	publications {
+		create("mavenJava", MavenPublication) {
+			from components.java
+		}
+	}
+
+	// See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
+	repositories {
+		// Add repositories to publish to here.
+		// Notice: This block does NOT have the same function as the block in the top level.
+		// The repositories here will be used for publishing your artifact, not for
+		// retrieving dependencies.
+	}
 }

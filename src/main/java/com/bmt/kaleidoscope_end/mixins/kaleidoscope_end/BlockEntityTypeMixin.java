@@ -14,8 +14,8 @@ public class BlockEntityTypeMixin {
     private void isValid(BlockState blockState, CallbackInfoReturnable<Boolean> cir) {
         BlockEntityType<?> blockEntityType = (BlockEntityType<?>) (Object) this;
         if (blockEntityType == BlockEntityType.BRUSHABLE_BLOCK) {
-            if (blockState.getBlock() == KEBlocks.SUSPICIOUS_END_STONE.get()
-                    || blockState.getBlock() == KEBlocks.SUSPICIOUS_DRAGON_EGG.get()) {
+            if (blockState.getBlock() == KEBlocks.SUSPICIOUS_END_STONE
+                    || blockState.getBlock() == KEBlocks.SUSPICIOUS_DRAGON_EGG) {
                 cir.setReturnValue(true);
             }
         }

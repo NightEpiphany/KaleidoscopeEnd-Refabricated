@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "tag": "c:milk"
+    },
+    "B": {
+      "tag": "c:berries"
+    },
+    "C": {
+      "item": "minecraft:ice"
+    },
+    "D": {
+      "item": "minecraft:shulker_shell"
+    }
+  },
+  "pattern": [
+    "ABA",
+    "CCC",
+    " D "
+  ],
+  "result": {
+    "id":  "kaleidoscope_end:shulker_ice_cream"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,38 @@
+{
+	"schemaVersion": 1,
+	"id": "kaleidoscope_end",
+	"version": "${version}",
+	"name": "Kaleidoscope End Refabricated",
+	"description": "Brought an expansion about the End to Kaleidoscope Cookery.",
+	"authors": [
+		"BmtUltra", "NightEpiphany"
+	],
+	"contact": {
+		"homepage": "https://www.curseforge.com/minecraft/mc-mods/kaleidoscope-end",
+		"sources": "https://github.com/NightEpiphany/KaleidoscopeEnd-Refabricated"
+	},
+	"license": "MIT",
+	"icon": "assets/kaleidoscope_end/cover.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.bmt.kaleidoscope_end.KaleidoscopeEnd"
+		],
+		"client": [
+			"com.bmt.kaleidoscope_end.KaleidoscopeEndClient"
+		],
+		"jei_mod_plugin": [
+			"com.bmt.kaleidoscope_end.compat.jei.KEInfo"
+		]
+	},
+	"mixins": [
+		"kaleidoscope_end.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.18",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
+		"fabric-api": "*",
+		"kaleidoscope_cookery": "*"
+	}
+}

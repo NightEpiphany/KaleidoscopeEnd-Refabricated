@@ -1,0 +1,40 @@
+{
+  "type": "kaleidoscope_cookery:pot",
+  "carrier": {
+    "item": "minecraft:bowl"
+  },
+  "ingredients": [
+    {
+      "item": "kaleidoscope_cookery:sashimi"
+    },
+    {
+      "item": "kaleidoscope_cookery:sashimi"
+    },
+    {
+      "item": "kaleidoscope_cookery:sashimi"
+    },
+    {
+      "item": "kaleidoscope_cookery:sashimi"
+    },
+    {
+      "item": "kaleidoscope_end:ender_mint"
+    },
+    {
+      "item": "kaleidoscope_end:ender_mint"
+    },
+    {
+      "item": "kaleidoscope_end:ender_mint"
+    },
+    {
+      "item": "kaleidoscope_end:ender_mint"
+    },
+    {
+      "item": "kaleidoscope_end:end_caterpillar"
+    }
+  ],
+  "result": {
+    "id": "kaleidoscope_end:end_caterpillar_sashimi"
+  },
+  "stir_fry_count": 3,
+  "time": 300
+}

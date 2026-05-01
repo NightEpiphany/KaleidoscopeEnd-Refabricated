@@ -1,43 +1,42 @@
 package com.bmt.kaleidoscope_end.init;
 
 import com.bmt.kaleidoscope_end.KaleidoscopeEnd;
+import net.minecraft.core.Holder;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
-import org.jetbrains.annotations.NotNull;
 
-public class KEEffects {
-    private static final DeferredRegister<MobEffect> EFFECTS = DeferredRegister.create(ForgeRegistries.MOB_EFFECTS, KaleidoscopeEnd.MODID);
+public final class KEEffects {
+    public static Holder<MobEffect> DREAM;
+    public static Holder<MobEffect> VOID_EROSION;
+    public static Holder<MobEffect> MINT;
 
-    // 梦境
-    public static final RegistryObject<MobEffect> DREAM = EFFECTS.register("dream",
-            () -> new MobEffect(MobEffectCategory.BENEFICIAL, 0xFFFFFF) {
-                @Override
-                public void applyEffectTick(@NotNull LivingEntity living, int p_19468_) {
-                    living.fallDistance = 1;
-                }
+    private KEEffects() {
+    }
 
-                @Override
-                public boolean isDurationEffectTick(int p_19455_, int p_19456_) {
-                    return true;
-                }
-            });
+    public static void registerEffects() {
+        DREAM = Registry.registerForHolder(BuiltInRegistries.MOB_EFFECT, id("dream"), new MobEffect(MobEffectCategory.BENEFICIAL, 0xFFFFFF) {
+            @Override
+            public boolean applyEffectTick(LivingEntity livingEntity, int amplifier) {
+                livingEntity.fallDistance = 1.0F;
+                return true;
+            }
 
-    // 虚空侵蚀
-    public static final RegistryObject<MobEffect> VOID_EROSION = EFFECTS.register("void_erosion",
-            () -> new MobEffect(MobEffectCategory.BENEFICIAL, 0x4B0082) {
-            });
+            @Override
+            public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
+                return true;
+            }
+        });
+        VOID_EROSION = Registry.registerForHolder(BuiltInRegistries.MOB_EFFECT, id("void_erosion"), new MobEffect(MobEffectCategory.BENEFICIAL, 0x4B0082) {
+        });
+        MINT = Registry.registerForHolder(BuiltInRegistries.MOB_EFFECT, id("mint"), new MobEffect(MobEffectCategory.BENEFICIAL, 0xDA70D6) {
+        });
+    }
 
-    // 薄荷
-    public static final RegistryObject<MobEffect> MINT = EFFECTS.register("mint",
-            () -> new MobEffect(MobEffectCategory.BENEFICIAL, 0xDA70D6) {
-            });
-
-    public static void register(IEventBus eventBus) {
-        EFFECTS.register(eventBus);
+    private static ResourceLocation id(String path) {
+        return KaleidoscopeEnd.id(path);
     }
 }
