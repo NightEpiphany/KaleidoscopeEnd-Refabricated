@@ -3,19 +3,19 @@
   "category": "misc",
   "key": {
     "#": [
-      {
-        "item": "minecraft:obsidian"
-      },
-      {
-        "item": "minecraft:crying_obsidian"
-      }
+      
+        "minecraft:obsidian"
+      ,
+      
+        "minecraft:crying_obsidian"
+      
     ],
-    "C": {
-      "item": "kaleidoscope_end:dragon_dust"
-    },
-    "S": {
-      "item": "minecraft:netherite_upgrade_smithing_template"
-    }
+    "C": 
+      "kaleidoscope_end:dragon_dust"
+    ,
+    "S": 
+      "minecraft:netherite_upgrade_smithing_template"
+    
   },
   "pattern": [
     "#S#",

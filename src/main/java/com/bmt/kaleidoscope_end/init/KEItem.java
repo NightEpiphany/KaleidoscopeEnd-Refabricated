@@ -11,13 +11,11 @@ import com.github.ysbbbbbb.kaleidoscopecookery.item.BowlFoodOnlyItem;
 import com.github.ysbbbbbb.kaleidoscopecookery.item.FoodWithEffectsItem;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.network.chat.Component;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
-import net.minecraft.world.item.SmithingTemplateItem;
-
-import java.util.List;
 
 public final class KEItem {
     public static DragonToothKnifeItem DRAGON_TOOTH_KNIFE;
@@ -28,7 +26,7 @@ public final class KEItem {
     public static BlockItem END_STOVE_ITEM;
     public static BlockItem SUSPICIOUS_END_STONE_ITEM;
     public static BlockItem SUSPICIOUS_DRAGON_EGG_ITEM;
-    public static SmithingTemplateItem ENDER_DRAGON_SMITHING_TEMPLATE;
+    public static Item ENDER_DRAGON_SMITHING_TEMPLATE;
     public static Item DRAGON_EGG_SHELL;
     public static BowlFoodOnlyItem DRAGON_BREATH_CHORUS_SOUP_ITEM;
     public static ShulkerShellFoodItem STUFFED_SHULKER_ITEM;
@@ -69,59 +67,50 @@ public final class KEItem {
     }
 
     public static synchronized void registerItems() {
-
-        DRAGON_TOOTH_KNIFE = new DragonToothKnifeItem();
-        ENDER_MINT = new KEBlockItem(KEBlocks.ENDER_MINT, new Item.Properties());
-        VOID_CONCH = new Item(new Item.Properties());
-        DRAGON_DUST = new DragonDustItem(new Item.Properties());
-        DRAGON_TOOTH = new Item(new Item.Properties());
-        END_STOVE_ITEM = new BlockItem(KEBlocks.END_STOVE, new Item.Properties());
-        SUSPICIOUS_END_STONE_ITEM = new BlockItem(KEBlocks.SUSPICIOUS_END_STONE, new Item.Properties());
-        SUSPICIOUS_DRAGON_EGG_ITEM = new BlockItem(KEBlocks.SUSPICIOUS_DRAGON_EGG, new Item.Properties().rarity(Rarity.EPIC));
-        ENDER_DRAGON_SMITHING_TEMPLATE = new SmithingTemplateItem(
-                Component.translatable("item.kaleidoscope_end.ender_dragon_smithing_template.upgrade_description"),
-                Component.translatable("item.kaleidoscope_end.ender_dragon_smithing_template.applies_to_description"),
-                Component.translatable("item.kaleidoscope_end.ender_dragon_smithing_template.ingredients_description"),
-                Component.translatable("item.kaleidoscope_end.ender_dragon_smithing_template.base_slot_description"),
-                Component.translatable("item.kaleidoscope_end.ender_dragon_smithing_template.additions_slot_description"),
-                List.of(),
-                List.of()
-        );
-        DRAGON_EGG_SHELL = new Item(new Item.Properties());
-        DRAGON_BREATH_CHORUS_SOUP_ITEM = new BowlFoodOnlyItem(KEFoods.DRAGON_BREATH_CHORUS_SOUP);
-        STUFFED_SHULKER_ITEM = new ShulkerShellFoodItem(KEFoods.STUFFED_SHULKER);
-        CHORUS_PASTA_ITEM = new BowlFoodOnlyItem(KEFoods.CHORUS_PASTA);
-        RAW_ENDER_DRAGON_MEAT_ITEM = new Item(new Item.Properties().food(KEFoods.RAW_ENDER_DRAGON_MEAT));
-        COOKED_ENDER_DRAGON_MEAT_ITEM = new Item(new Item.Properties().food(KEFoods.COOKED_ENDER_DRAGON_MEAT));
-        DREAM_BERRY_ITEM = new KEBlockItem(KEBlocks.DREAM_BERRY_HEAD, new Item.Properties().food(KEFoods.DREAM_BERRY));
-        MINT_CHORUS_MOUSSE_ITEM = new FoodWithEffectsItem(KEFoods.MINT_CHORUS_MOUSSE);
-        OPTIC_NERVE_ITEM = new Item(new Item.Properties().food(KEFoods.OPTIC_NERVE));
-        SHULKER_SHELL_MEAT_ITEM = new Item(new Item.Properties().food(KEFoods.SHULKER_SHELL_MEAT));
-        SHULKER_SHELL_STEW_ITEM = new BowlFoodOnlyItem(KEFoods.SHULKER_SHELL_STEW);
-        SHULKER_ICE_CREAM_ITEM = new ShulkerShellFoodItem(KEFoods.SHULKER_ICE_CREAM);
-        VOID_CONCH_NOODLE_SOUP_ITEM = new BowlFoodOnlyItem(KEFoods.VOID_CONCH_NOODLE_SOUP);
-        STIR_FRIED_ENDERMITE_MEAT_ITEM = new BowlFoodOnlyItem(KEFoods.STIR_FRIED_ENDERMITE_MEAT);
-        STIR_FRIED_ENDERMITE_MEAT_RICE_BOWL_ITEM = new BowlFoodOnlyItem(KEFoods.STIR_FRIED_ENDERMITE_MEAT_RICE_BOWL);
-        RAW_ENDERMITE_MEAT_ITEM = new Item(new Item.Properties().food(KEFoods.RAW_ENDERMITE_MEAT));
-        ROASTED_ENDERMITE_MEAT_ITEM = new Item(new Item.Properties().food(KEFoods.ROASTED_ENDERMITE_MEAT));
-        END_CATERPILLAR_ITEM = new Item(new Item.Properties().food(KEFoods.END_CATERPILLAR));
-        DRAGON_BREATH_MIXED_STEW_ITEM = new ShulkerShellFoodItem(KEFoods.DRAGON_BREATH_MIXED_STEW);
-        MINT_NOODLE_SOUP_ITEM = new BowlFoodOnlyItem(KEFoods.MINT_NOODLE_SOUP);
-        MINT_SAUCE_SHULKER_MEAT_ITEM = new BowlFoodOnlyItem(KEFoods.MINT_SAUCE_SHULKER_MEAT);
-        MINT_SAUCE_SHULKER_MEAT_RICE_BOWL_ITEM = new BowlFoodOnlyItem(KEFoods.MINT_SAUCE_SHULKER_MEAT_RICE_BOWL);
-        ENDER_MINT_CANDY_ITEM = new FoodWithEffectsItem(KEFoods.ENDER_MINT_CANDY);
-        DRAGON_SOUFFLE_ITEM = new BowlFoodOnlyItem(KEFoods.DRAGON_SOUFFLE);
-        DRAGON_EGG_LIQUID = new Item(new Item.Properties().food(KEFoods.DRAGON_EGG_LIQUID_FOOD));
-        CHORUS_SEED = new Item(new Item.Properties().food(KEFoods.CHORUS_SEED_FOOD));
-        CHORUS_PETAL = new Item(new Item.Properties());
-        FRIED_DRAGON_EGG_ITEM = new FoodWithEffectsItem(KEFoods.FRIED_DRAGON_EGG);
-        CHORUS_FLOWER_TEA_ITEM = new BowlFoodOnlyItem(KEFoods.CHORUS_FLOWER_TEA);
-        CHORUS_FLOWER_CAKE_ITEM = new FoodWithEffectsItem(KEFoods.CHORUS_FLOWER_CAKE);
-        CHORUS_SEED_COOKIE_ITEM = new FoodWithEffectsItem(KEFoods.CHORUS_SEED_COOKIE);
-        DRAGON_EGG_ICE_CREAM_ITEM = new DragonEggShellFoodItem(KEFoods.DRAGON_EGG_ICE_CREAM);
-        STUFFED_VOID_CONCH_ITEM = new FoodWithEffectsItem(KEFoods.STUFFED_VOID_CONCH);
-        END_CATERPILLAR_SASHIMI_ITEM = new BowlFoodOnlyItem(KEFoods.END_CATERPILLAR_SASHIMI);
-        DRAGON_BREATH_BUCKET_ITEM = new DragonBreathBucket(new Item.Properties());
+        DRAGON_TOOTH_KNIFE = new DragonToothKnifeItem(properties("dragon_tooth_knife"));
+        ENDER_MINT = new KEBlockItem(KEBlocks.ENDER_MINT, blockProperties("ender_mint"));
+        VOID_CONCH = new Item(properties("void_conch"));
+        DRAGON_DUST = new DragonDustItem(properties("dragon_dust"));
+        DRAGON_TOOTH = new Item(properties("dragon_tooth"));
+        END_STOVE_ITEM = new BlockItem(KEBlocks.END_STOVE, blockProperties("end_stove"));
+        SUSPICIOUS_END_STONE_ITEM = new BlockItem(KEBlocks.SUSPICIOUS_END_STONE, blockProperties("suspicious_end_stone"));
+        SUSPICIOUS_DRAGON_EGG_ITEM = new BlockItem(KEBlocks.SUSPICIOUS_DRAGON_EGG, blockProperties("suspicious_dragon_egg").rarity(Rarity.EPIC));
+        ENDER_DRAGON_SMITHING_TEMPLATE = new Item(properties("ender_dragon_smithing_template"));
+        DRAGON_EGG_SHELL = new Item(properties("dragon_egg_shell"));
+        DRAGON_BREATH_CHORUS_SOUP_ITEM = new BowlFoodOnlyItem(properties("dragon_breath_chorus_soup"), KEFoods.DRAGON_BREATH_CHORUS_SOUP, KEConsumables.DRAGON_BREATH_CHORUS_SOUP);
+        STUFFED_SHULKER_ITEM = new ShulkerShellFoodItem(properties("stuffed_shulker"), KEFoods.STUFFED_SHULKER, KEConsumables.STUFFED_SHULKER);
+        CHORUS_PASTA_ITEM = new BowlFoodOnlyItem(properties("chorus_pasta"), KEFoods.CHORUS_PASTA, KEConsumables.CHORUS_PASTA);
+        RAW_ENDER_DRAGON_MEAT_ITEM = new Item(properties("raw_ender_dragon_meat").food(KEFoods.RAW_ENDER_DRAGON_MEAT, KEConsumables.RAW_ENDER_DRAGON_MEAT));
+        COOKED_ENDER_DRAGON_MEAT_ITEM = new Item(properties("cooked_ender_dragon_meat").food(KEFoods.COOKED_ENDER_DRAGON_MEAT, KEConsumables.COOKED_ENDER_DRAGON_MEAT));
+        DREAM_BERRY_ITEM = new KEBlockItem(KEBlocks.DREAM_BERRY_HEAD, blockProperties("dream_berry").food(KEFoods.DREAM_BERRY, KEConsumables.DREAM_BERRY));
+        MINT_CHORUS_MOUSSE_ITEM = new FoodWithEffectsItem(properties("mint_chorus_mousse"), KEFoods.MINT_CHORUS_MOUSSE, KEConsumables.MINT_CHORUS_MOUSSE);
+        OPTIC_NERVE_ITEM = new Item(properties("optic_nerve").food(KEFoods.OPTIC_NERVE, KEConsumables.OPTIC_NERVE));
+        SHULKER_SHELL_MEAT_ITEM = new Item(properties("shulker_shell_meat").food(KEFoods.SHULKER_SHELL_MEAT, KEConsumables.SHULKER_SHELL_MEAT));
+        SHULKER_SHELL_STEW_ITEM = new BowlFoodOnlyItem(properties("shulker_shell_stew"), KEFoods.SHULKER_SHELL_STEW, KEConsumables.SHULKER_SHELL_STEW);
+        SHULKER_ICE_CREAM_ITEM = new ShulkerShellFoodItem(properties("shulker_ice_cream"), KEFoods.SHULKER_ICE_CREAM, KEConsumables.SHULKER_ICE_CREAM);
+        VOID_CONCH_NOODLE_SOUP_ITEM = new BowlFoodOnlyItem(properties("void_conch_noodle_soup"), KEFoods.VOID_CONCH_NOODLE_SOUP, KEConsumables.VOID_CONCH_NOODLE_SOUP);
+        STIR_FRIED_ENDERMITE_MEAT_ITEM = new BowlFoodOnlyItem(properties("stir_fried_endermite_meat"), KEFoods.STIR_FRIED_ENDERMITE_MEAT, KEConsumables.STIR_FRIED_ENDERMITE_MEAT);
+        STIR_FRIED_ENDERMITE_MEAT_RICE_BOWL_ITEM = new BowlFoodOnlyItem(properties("stir_fried_endermite_meat_rice_bowl"), KEFoods.STIR_FRIED_ENDERMITE_MEAT_RICE_BOWL, KEConsumables.STIR_FRIED_ENDERMITE_MEAT_RICE_BOWL);
+        RAW_ENDERMITE_MEAT_ITEM = new Item(properties("raw_endermite_meat").food(KEFoods.RAW_ENDERMITE_MEAT, KEConsumables.RAW_ENDERMITE_MEAT));
+        ROASTED_ENDERMITE_MEAT_ITEM = new Item(properties("roasted_endermite_meat").food(KEFoods.ROASTED_ENDERMITE_MEAT, KEConsumables.ROASTED_ENDERMITE_MEAT));
+        END_CATERPILLAR_ITEM = new Item(properties("end_caterpillar").food(KEFoods.END_CATERPILLAR, KEConsumables.END_CATERPILLAR));
+        DRAGON_BREATH_MIXED_STEW_ITEM = new ShulkerShellFoodItem(properties("dragon_breath_mixed_stew"), KEFoods.DRAGON_BREATH_MIXED_STEW, KEConsumables.DRAGON_BREATH_MIXED_STEW);
+        MINT_NOODLE_SOUP_ITEM = new BowlFoodOnlyItem(properties("mint_noodle_soup"), KEFoods.MINT_NOODLE_SOUP, KEConsumables.MINT_NOODLE_SOUP);
+        MINT_SAUCE_SHULKER_MEAT_ITEM = new BowlFoodOnlyItem(properties("mint_sauce_shulker_meat"), KEFoods.MINT_SAUCE_SHULKER_MEAT, KEConsumables.MINT_SAUCE_SHULKER_MEAT);
+        MINT_SAUCE_SHULKER_MEAT_RICE_BOWL_ITEM = new BowlFoodOnlyItem(properties("mint_sauce_shulker_meat_rice_bowl"), KEFoods.MINT_SAUCE_SHULKER_MEAT_RICE_BOWL, KEConsumables.MINT_SAUCE_SHULKER_MEAT_RICE_BOWL);
+        ENDER_MINT_CANDY_ITEM = new FoodWithEffectsItem(properties("ender_mint_candy"), KEFoods.ENDER_MINT_CANDY, KEConsumables.ENDER_MINT_CANDY);
+        DRAGON_SOUFFLE_ITEM = new BowlFoodOnlyItem(properties("dragon_souffle"), KEFoods.DRAGON_SOUFFLE, KEConsumables.DRAGON_SOUFFLE);
+        DRAGON_EGG_LIQUID = new Item(properties("dragon_egg_liquid").food(KEFoods.DRAGON_EGG_LIQUID_FOOD, KEConsumables.DRAGON_EGG_LIQUID_FOOD));
+        CHORUS_SEED = new Item(properties("chorus_seed").food(KEFoods.CHORUS_SEED_FOOD, KEConsumables.CHORUS_SEED_FOOD));
+        CHORUS_PETAL = new Item(properties("chorus_petal"));
+        FRIED_DRAGON_EGG_ITEM = new FoodWithEffectsItem(properties("fried_dragon_egg"), KEFoods.FRIED_DRAGON_EGG, KEConsumables.FRIED_DRAGON_EGG);
+        CHORUS_FLOWER_TEA_ITEM = new BowlFoodOnlyItem(properties("chorus_flower_tea"), KEFoods.CHORUS_FLOWER_TEA, KEConsumables.CHORUS_FLOWER_TEA);
+        CHORUS_FLOWER_CAKE_ITEM = new FoodWithEffectsItem(properties("chorus_flower_cake"), KEFoods.CHORUS_FLOWER_CAKE, KEConsumables.CHORUS_FLOWER_CAKE);
+        CHORUS_SEED_COOKIE_ITEM = new FoodWithEffectsItem(properties("chorus_seed_cookie"), KEFoods.CHORUS_SEED_COOKIE, KEConsumables.CHORUS_SEED_COOKIE);
+        DRAGON_EGG_ICE_CREAM_ITEM = new DragonEggShellFoodItem(properties("dragon_egg_ice_cream"), KEFoods.DRAGON_EGG_ICE_CREAM, KEConsumables.DRAGON_EGG_ICE_CREAM);
+        STUFFED_VOID_CONCH_ITEM = new FoodWithEffectsItem(properties("stuffed_void_conch"), KEFoods.STUFFED_VOID_CONCH, KEConsumables.STUFFED_VOID_CONCH);
+        END_CATERPILLAR_SASHIMI_ITEM = new BowlFoodOnlyItem(properties("end_caterpillar_sashimi"), KEFoods.END_CATERPILLAR_SASHIMI, KEConsumables.END_CATERPILLAR_SASHIMI);
+        DRAGON_BREATH_BUCKET_ITEM = new DragonBreathBucket(properties("dragon_breath_bucket"));
 
         register("dragon_tooth_knife", DRAGON_TOOTH_KNIFE);
         register("ender_mint", ENDER_MINT);
@@ -171,5 +160,13 @@ public final class KEItem {
 
     private static void register(String path, Item item) {
         Registry.register(BuiltInRegistries.ITEM, KaleidoscopeEnd.id(path), item);
+    }
+
+    private static Item.Properties properties(String path) {
+        return new Item.Properties().setId(ResourceKey.create(Registries.ITEM, KaleidoscopeEnd.id(path)));
+    }
+
+    private static Item.Properties blockProperties(String path) {
+        return properties(path).useBlockDescriptionPrefix();
     }
 }

@@ -1,9 +1,9 @@
 {
   "type": "kaleidoscope_cookery:pot",
   "ingredients": [
-    {
-      "item": "kaleidoscope_end:raw_ender_dragon_meat"
-    }
+    
+      "kaleidoscope_end:raw_ender_dragon_meat"
+    
   ],
   "result": {
     "id":  "kaleidoscope_end:cooked_ender_dragon_meat"

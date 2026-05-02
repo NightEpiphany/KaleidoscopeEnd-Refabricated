@@ -2,12 +2,12 @@
   "type": "minecraft:crafting_shaped",
   "category": "redstone",
   "key": {
-    "#": {
-      "item": "minecraft:end_stone_bricks"
-    },
-    "F": {
-      "item": "minecraft:campfire"
-    }
+    "#": 
+      "minecraft:end_stone_bricks"
+    ,
+    "F": 
+      "minecraft:campfire"
+    
   },
   "pattern": [
     "###",

@@ -3,16 +3,16 @@
   "category": "misc",
   "key": {
     "#": [
-      {
-        "item": "minecraft:obsidian"
-      },
-      {
-        "item": "minecraft:crying_obsidian"
-      }
+      
+        "minecraft:obsidian"
+      ,
+      
+        "minecraft:crying_obsidian"
+      
     ],
-    "C": {
-      "item": "kaleidoscope_end:dragon_dust"
-    }
+    "C": 
+      "kaleidoscope_end:dragon_dust"
+    
   },
   "pattern": [
     "#C#",

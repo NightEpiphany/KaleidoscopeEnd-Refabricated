@@ -9,7 +9,7 @@ import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.util.random.SimpleWeightedRandomList;
+import net.minecraft.util.random.WeightedList;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -56,8 +56,18 @@ public class ModFeatures {
         FeatureUtils.register(context, SUSPICIOUS_END_STONE_LARGE, Feature.ORE, new OreConfiguration(list2, 12, 0.7F));
         FeatureUtils.register(context, SUSPICIOUS_END_STONE_BURIED, Feature.ORE, new OreConfiguration(list2, 8, 1.0F));
 
-        RandomizedIntStateProvider dreamBerryHead = new RandomizedIntStateProvider(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(KEBlocks.DREAM_BERRY_HEAD.defaultBlockState(), 4).add(KEBlocks.DREAM_BERRY_HEAD.defaultBlockState().setValue(CaveVines.BERRIES, true), 1).build()), CaveVinesBlock.AGE, UniformInt.of(23, 25));
-        WeightedStateProvider dreamBerryPlant = new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(KEBlocks.DREAM_BERRY_PLANT.defaultBlockState(), 1).add(KEBlocks.DREAM_BERRY_PLANT.defaultBlockState().setValue(CaveVines.BERRIES, true), 1));
+        RandomizedIntStateProvider dreamBerryHead = new RandomizedIntStateProvider(
+                new WeightedStateProvider(WeightedList.<BlockState>builder()
+                        .add(KEBlocks.DREAM_BERRY_HEAD.defaultBlockState(), 4)
+                        .add(KEBlocks.DREAM_BERRY_HEAD.defaultBlockState().setValue(CaveVines.BERRIES, true), 1)
+                        .build()),
+                CaveVinesBlock.AGE,
+                UniformInt.of(23, 25)
+        );
+        WeightedStateProvider dreamBerryPlant = new WeightedStateProvider(WeightedList.<BlockState>builder()
+                .add(KEBlocks.DREAM_BERRY_PLANT.defaultBlockState(), 1)
+                .add(KEBlocks.DREAM_BERRY_PLANT.defaultBlockState().setValue(CaveVines.BERRIES, true), 1)
+                .build());
 
 
         FeatureUtils.register(
@@ -66,7 +76,7 @@ public class ModFeatures {
                 Feature.BLOCK_COLUMN,
                 new BlockColumnConfiguration(List.of(
                         BlockColumnConfiguration.layer(
-                                new WeightedListInt(SimpleWeightedRandomList.<IntProvider>builder()
+                                new WeightedListInt(WeightedList.<IntProvider>builder()
                                         .add(UniformInt.of(0, 19), 1)
                                         .add(UniformInt.of(0, 2), 3)
                                         .add(UniformInt.of(0, 6), 10)

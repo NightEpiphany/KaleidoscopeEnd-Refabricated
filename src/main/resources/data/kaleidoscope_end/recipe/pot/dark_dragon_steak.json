@@ -1,27 +1,27 @@
 {
   "type": "kaleidoscope_cookery:pot",
-  "carrier": {
-    "item": "minecraft:bowl"
-  },
+  "carrier": 
+    "minecraft:bowl"
+  ,
   "ingredients": [
-    {
-      "tag": "c:raw_dragon_meat"
-    },
-    {
-      "item": "kaleidoscope_end:optic_nerve"
-    },
-    {
-      "item": "kaleidoscope_end:optic_nerve"
-    },
-    {
-      "item": "kaleidoscope_end:ender_mint"
-    },
-    {
-      "item": "kaleidoscope_end:ender_mint"
-    },
-    {
-      "item": "kaleidoscope_end:ender_mint"
-    }
+    
+      "#c:raw_dragon_meat"
+    ,
+    
+      "kaleidoscope_end:optic_nerve"
+    ,
+    
+      "kaleidoscope_end:optic_nerve"
+    ,
+    
+      "kaleidoscope_end:ender_mint"
+    ,
+    
+      "kaleidoscope_end:ender_mint"
+    ,
+    
+      "kaleidoscope_end:ender_mint"
+    
   ],
   "result": {
     "id":  "kaleidoscope_end:dark_dragon_steak"

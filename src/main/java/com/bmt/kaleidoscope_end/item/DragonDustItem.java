@@ -4,6 +4,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BiomeTags;
 import net.minecraft.tags.BlockTags;
@@ -34,30 +35,30 @@ public class DragonDustItem extends BoneMealItem {
         BlockPos blockpos1 = blockpos.relative(context.getClickedFace());
 
         if (applyDragonDust(context.getItemInHand(), level, blockpos, context.getPlayer())) {
-            if (!level.isClientSide) {
+            if (!level.isClientSide()) {
                 level.levelEvent(1505, blockpos, 0);
             }
 
             Player player = context.getPlayer();
             if (player != null) {
-                player.getCooldowns().addCooldown(this, 100);
+                player.getCooldowns().addCooldown(context.getItemInHand(), 100);
             }
 
-            return InteractionResult.sidedSuccess(level.isClientSide);
+            return level.isClientSide() ? InteractionResult.SUCCESS : InteractionResult.SUCCESS_SERVER;
         } else {
             BlockState blockstate = level.getBlockState(blockpos);
             boolean flag = blockstate.isFaceSturdy(level, blockpos, context.getClickedFace());
             if (flag && growWaterPlantWithoutConsume(context.getItemInHand(), level, blockpos1, context.getClickedFace())) {
-                if (!level.isClientSide) {
+                if (!level.isClientSide()) {
                     level.levelEvent(1505, blockpos1, 0);
                 }
 
                 Player player = context.getPlayer();
                 if (player != null) {
-                    player.getCooldowns().addCooldown(this, 100);
+                    player.getCooldowns().addCooldown(context.getItemInHand(), 100);
                 }
 
-                return InteractionResult.sidedSuccess(level.isClientSide);
+                return level.isClientSide() ? InteractionResult.SUCCESS : InteractionResult.SUCCESS_SERVER;
             } else {
                 return InteractionResult.PASS;
             }
@@ -102,12 +103,20 @@ public class DragonDustItem extends BoneMealItem {
                     Holder<Biome> holder = level.getBiome(blockpos);
                     if (holder.is(BiomeTags.PRODUCES_CORALS_FROM_BONEMEAL)) {
                         if (i == 0 && direction != null && direction.getAxis().isHorizontal()) {
-                            blockstate = BuiltInRegistries.BLOCK.getTag(BlockTags.WALL_CORALS).flatMap((p_204098_) -> p_204098_.getRandomElement(level.random)).map((p_204100_) -> p_204100_.value().defaultBlockState()).orElse(blockstate);
+                            blockstate = level.registryAccess().lookupOrThrow(Registries.BLOCK)
+                                    .get(BlockTags.WALL_CORALS)
+                                    .flatMap(holders -> holders.getRandomElement(level.random))
+                                    .map(blockHolder -> blockHolder.value().defaultBlockState())
+                                    .orElse(blockstate);
                             if (blockstate.hasProperty(BaseCoralWallFanBlock.FACING)) {
                                 blockstate = blockstate.setValue(BaseCoralWallFanBlock.FACING, direction);
                             }
                         } else if (randomsource.nextInt(4) == 0) {
-                            blockstate = BuiltInRegistries.BLOCK.getTag(BlockTags.UNDERWATER_BONEMEALS).flatMap((p_204091_) -> p_204091_.getRandomElement(level.random)).map((p_204095_) -> p_204095_.value().defaultBlockState()).orElse(blockstate);
+                            blockstate = level.registryAccess().lookupOrThrow(Registries.BLOCK)
+                                    .get(BlockTags.UNDERWATER_BONEMEALS)
+                                    .flatMap(holders -> holders.getRandomElement(level.random))
+                                    .map(blockHolder -> blockHolder.value().defaultBlockState())
+                                    .orElse(blockstate);
                         }
                     }
 

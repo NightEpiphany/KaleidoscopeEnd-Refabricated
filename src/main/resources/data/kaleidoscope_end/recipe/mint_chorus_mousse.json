@@ -2,23 +2,16 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "A": {
-      "item": "kaleidoscope_end:ender_mint"
-    },
-    "B": {
-      "tag": "c:milk"
-    },
-    "C": [
-      {
-        "tag": "c:fruits/chorus"
-      },
-      {
-        "item": "kaleidoscope_end:chorus_seed"
-      }
-    ],
-    "D": {
-      "tag": "c:flour"
-    }
+    "A": 
+      "kaleidoscope_end:ender_mint"
+    ,
+    "B": 
+      "#c:milk"
+    ,
+    "C": "kaleidoscope_end:chorus_seed",
+    "D": 
+      "#c:flour"
+    
   },
   "pattern": [
     "AB",

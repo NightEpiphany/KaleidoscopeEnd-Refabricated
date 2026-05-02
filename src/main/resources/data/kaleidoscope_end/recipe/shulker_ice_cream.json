@@ -2,18 +2,18 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "A": {
-      "tag": "c:milk"
-    },
-    "B": {
-      "tag": "c:berries"
-    },
-    "C": {
-      "item": "minecraft:ice"
-    },
-    "D": {
-      "item": "minecraft:shulker_shell"
-    }
+    "A": 
+      "#c:milk"
+    ,
+    "B": 
+      "#c:berries"
+    ,
+    "C": 
+      "minecraft:ice"
+    ,
+    "D": 
+      "minecraft:shulker_shell"
+    
   },
   "pattern": [
     "ABA",

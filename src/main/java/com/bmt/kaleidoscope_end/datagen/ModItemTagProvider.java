@@ -2,27 +2,24 @@ package com.bmt.kaleidoscope_end.datagen;
 
 import java.util.concurrent.CompletableFuture;
 
+import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
-import com.bmt.kaleidoscope_end.KaleidoscopeEnd;
 import com.bmt.kaleidoscope_end.init.KEItem;
 import com.bmt.kaleidoscope_end.init.KETags;
 
 import net.minecraft.core.HolderLookup;
-import net.minecraft.data.PackOutput;
-import net.minecraft.data.tags.ItemTagsProvider;
-import net.minecraft.world.level.block.Block;
-public class ModItemTagProvider extends ItemTagsProvider {
-    public ModItemTagProvider(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> completableFuture1, CompletableFuture<TagLookup<Block>> completableFuture2) {
-        super(packOutput, completableFuture1, completableFuture2);
+public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
+    public ModItemTagProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
+        super(output, registriesFuture);
     }
 
     @Override
     protected void addTags(HolderLookup.@NotNull Provider provider) {
 
 
-        tag(KETags.Items.MOD_ITEMS)
+        valueLookupBuilder(KETags.Items.MOD_ITEMS)
                 .add(KEItem.ENDER_MINT)
                 .add(KEItem.ENDER_MINT_CANDY_ITEM)
                 .add(KEItem.CHORUS_PETAL)

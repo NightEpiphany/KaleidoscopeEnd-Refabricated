@@ -4,7 +4,8 @@ import com.bmt.kaleidoscope_end.KaleidoscopeEnd;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
@@ -20,7 +21,7 @@ public final class KEEffects {
     public static void registerEffects() {
         DREAM = Registry.registerForHolder(BuiltInRegistries.MOB_EFFECT, id("dream"), new MobEffect(MobEffectCategory.BENEFICIAL, 0xFFFFFF) {
             @Override
-            public boolean applyEffectTick(LivingEntity livingEntity, int amplifier) {
+            public boolean applyEffectTick(ServerLevel serverLevel, LivingEntity livingEntity, int amplifier) {
                 livingEntity.fallDistance = 1.0F;
                 return true;
             }
@@ -36,7 +37,7 @@ public final class KEEffects {
         });
     }
 
-    private static ResourceLocation id(String path) {
+    private static Identifier id(String path) {
         return KaleidoscopeEnd.id(path);
     }
 }

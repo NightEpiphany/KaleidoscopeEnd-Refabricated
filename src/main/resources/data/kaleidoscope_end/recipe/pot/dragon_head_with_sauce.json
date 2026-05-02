@@ -1,34 +1,34 @@
 {
   "type": "kaleidoscope_cookery:pot",
-  "carrier": {
-    "item": "minecraft:bowl"
-  },
+  "carrier": 
+    "minecraft:bowl"
+  ,
   "ingredients": [
-    {
-      "item": "minecraft:dragon_head"
-    },
+    
+      "minecraft:dragon_head"
+    ,
     [
-      {
-        "tag": "c:fruits/chorus"
-      },
-      {
-        "item": "kaleidoscope_end:chorus_seed"
-      }
+      
+        "#c:fruits/chorus"
+      ,
+      
+        "kaleidoscope_end:chorus_seed"
+      
     ],
     [
-      {
-        "tag": "c:fruits/chorus"
-      },
-      {
-        "item": "kaleidoscope_end:chorus_seed"
-      }
+      
+        "#c:fruits/chorus"
+      ,
+      
+        "kaleidoscope_end:chorus_seed"
+      
     ],
-    {
-      "item": "kaleidoscope_end:ender_mint"
-    },
-    {
-      "item": "kaleidoscope_end:ender_mint"
-    }
+    
+      "kaleidoscope_end:ender_mint"
+    ,
+    
+      "kaleidoscope_end:ender_mint"
+    
   ],
   "result": {
     "id":  "kaleidoscope_end:dragon_head_with_sauce"

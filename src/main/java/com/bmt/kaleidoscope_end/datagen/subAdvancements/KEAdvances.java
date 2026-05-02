@@ -6,11 +6,13 @@ import com.bmt.kaleidoscope_end.init.KEFoodBiteRegistry;
 import com.bmt.kaleidoscope_end.init.KEItem;
 import com.bmt.kaleidoscope_end.init.KETags;
 import net.minecraft.advancements.*;
-import net.minecraft.advancements.critereon.*;
+import net.minecraft.advancements.criterion.*;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.HolderLookup.RegistryLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 import org.jetbrains.annotations.NotNull;
 
@@ -21,17 +23,18 @@ public class KEAdvances {
 
 
     public void generate(HolderLookup.@NotNull Provider provider, @NotNull Consumer<AdvancementHolder> consumer) {
+        RegistryLookup<Item> itemLookup = provider.lookupOrThrow(Registries.ITEM);
         AdvancementHolder root = Advancement.Builder.advancement()
                 .display(
                         KEItem.ENDER_MINT,
                         Component.translatable("advancements.kaleidoscope_end.root.title"),
                         Component.translatable("advancements.kaleidoscope_end.root.description"),
-                        ResourceLocation.fromNamespaceAndPath(KaleidoscopeEnd.MOD_ID, "textures/advancement/background.png"),
+                        Identifier.fromNamespaceAndPath(KaleidoscopeEnd.MOD_ID, "textures/advancement/background.png"),
                         AdvancementType.TASK,
                         true, true, false
                 )
                 .addCriterion("mod_items", InventoryChangeTrigger.TriggerInstance.hasItems(
-                        ItemPredicate.Builder.item().of(KETags.Items.MOD_ITEMS).build()
+                        ItemPredicate.Builder.item().of(itemLookup, KETags.Items.MOD_ITEMS).build()
                 ))
                 .save(consumer, KaleidoscopeEnd.MOD_ID + ":root");
 
@@ -65,8 +68,8 @@ public class KEAdvances {
                 ))
                 .save(consumer, KaleidoscopeEnd.MOD_ID + ":dragon_egg_shell");
 
-        Item darkDragonEggStewItem = BuiltInRegistries.ITEM.get(KEFoodBiteRegistry.DARK_DRAGON_EGG_STEW);
-        Item dragonEggCustardItem = BuiltInRegistries.ITEM.get(KEFoodBiteRegistry.DRAGON_EGG_CUSTARD);
+        Item darkDragonEggStewItem = BuiltInRegistries.ITEM.getValue(KEFoodBiteRegistry.DARK_DRAGON_EGG_STEW);
+        Item dragonEggCustardItem = BuiltInRegistries.ITEM.getValue(KEFoodBiteRegistry.DRAGON_EGG_CUSTARD);
         
         Advancement.Builder.advancement()
                 .parent(dragonEggShell)
@@ -79,10 +82,10 @@ public class KEAdvances {
                         true, true, false
                 )
                 .addCriterion("dark_dragon_egg_stew", ConsumeItemTrigger.TriggerInstance.usedItem(
-                        darkDragonEggStewItem
+                        ItemPredicate.Builder.item().of(itemLookup, darkDragonEggStewItem)
                 ))
                 .addCriterion("dragon_egg_custard", ConsumeItemTrigger.TriggerInstance.usedItem(
-                        dragonEggCustardItem
+                        ItemPredicate.Builder.item().of(itemLookup, dragonEggCustardItem)
                 ))
                 .requirements(AdvancementRequirements.Strategy.AND)
                 .save(consumer, KaleidoscopeEnd.MOD_ID + ":dragon_egg_diet");

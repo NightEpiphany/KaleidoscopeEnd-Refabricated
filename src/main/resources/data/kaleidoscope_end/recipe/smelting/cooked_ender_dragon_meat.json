@@ -3,9 +3,8 @@
   "category": "food",
   "cookingtime": 200,
   "experience": 0.35,
-  "ingredient": {
-    "item": "kaleidoscope_end:raw_ender_dragon_meat"
-  },
+  "ingredient": 
+    "kaleidoscope_end:raw_ender_dragon_meat",
   "result": {
     "id": "kaleidoscope_end:cooked_ender_dragon_meat"
   }

@@ -1,34 +1,34 @@
 {
   "type": "kaleidoscope_cookery:stockpot",
-  "carrier": {
-    "item": "minecraft:bowl"
-  },
+  "carrier": 
+    "minecraft:bowl"
+  ,
   "cooking_bubble_color": 16772291,
   "cooking_texture": "kaleidoscope_cookery:stockpot/default_cooking",
   "finished_bubble_color": 16034443,
   "finished_texture": "kaleidoscope_cookery:stockpot/default_finished",
   "ingredients": [
-    {
-      "tag": "c:shulker_meat"
-    },
-    {
-      "tag": "c:shulker_meat"
-    },
-    {
-      "tag": "c:shulker_meat"
-    },
-    {
-      "item": "kaleidoscope_end:optic_nerve"
-    },
-    {
-      "item": "kaleidoscope_end:optic_nerve"
-    },
-    {
-      "item": "kaleidoscope_end:optic_nerve"
-    },
-    {
-      "item": "minecraft:shulker_shell"
-    }
+    
+      "#c:shulker_meat"
+    ,
+    
+      "#c:shulker_meat"
+    ,
+    
+      "#c:shulker_meat"
+    ,
+    
+      "kaleidoscope_end:optic_nerve"
+    ,
+    
+      "kaleidoscope_end:optic_nerve"
+    ,
+    
+      "kaleidoscope_end:optic_nerve"
+    ,
+    
+      "minecraft:shulker_shell"
+    
   ],
   "result": {
     "count": 3,

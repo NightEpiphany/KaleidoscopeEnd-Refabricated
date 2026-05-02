@@ -35,7 +35,7 @@ public class KECaveVinesPlantBlock extends CaveVinesPlantBlock {
     }
 
     @Override
-    public ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state) {
+    protected ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state, boolean includeData) {
         return new ItemStack(fruitItem.get());
     }
 

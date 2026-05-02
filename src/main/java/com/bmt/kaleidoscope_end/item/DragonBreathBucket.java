@@ -8,6 +8,7 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.AreaEffectCloud;
+import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.boss.enderdragon.EnderDragon;
 import net.minecraft.world.entity.player.Player;
@@ -31,23 +32,25 @@ public class DragonBreathBucket extends Item {
     public InteractionResult useOn(UseOnContext context) {
         Level level = context.getLevel();
         if (fakeDragon == null) {
-            fakeDragon = EntityType.ENDER_DRAGON.create(level);
+            fakeDragon = EntityType.ENDER_DRAGON.create(level, EntitySpawnReason.MOB_SUMMONED);
+        }
+        if (fakeDragon == null) {
+            return InteractionResult.PASS;
         }
 
         Vec3 clickLocation = context.getClickLocation();
         AreaEffectCloud areaEffectCloud = new AreaEffectCloud(level, clickLocation.x(), clickLocation.y(), clickLocation.z());
-        areaEffectCloud.setParticle(ParticleTypes.DRAGON_BREATH);
 
         float radius = 3.0F;
         CustomData customData = context.getItemInHand().get(DataComponents.CUSTOM_DATA);
         if (customData != null) {
-            radius = customData.copyTag().getFloat("radius");
+            radius = customData.copyTag().getFloat("radius").orElse(radius);
         }
 
         areaEffectCloud.setRadius(radius);
         areaEffectCloud.setDuration(600);
         areaEffectCloud.setRadiusPerTick((7.0F - areaEffectCloud.getRadius()) / areaEffectCloud.getDuration());
-        areaEffectCloud.addEffect(new MobEffectInstance(MobEffects.HARM, 1, 1));
+        areaEffectCloud.addEffect(new MobEffectInstance(MobEffects.INSTANT_DAMAGE, 1, 1));
         areaEffectCloud.setOwner(fakeDragon);
         level.addFreshEntity(areaEffectCloud);
 

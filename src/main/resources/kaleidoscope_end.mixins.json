@@ -8,11 +8,9 @@
     "EnchantmentMenuMixin",
     "EnchantmentSlotMixin",
     "EndDragonFightMixin",
-    "EnderManMixin",
     "EndermiteMixin",
     "EntityMixin",
     "LivingEntityMixin",
-    "MobEffectInstanceMixin",
     "NearestAttackableTargetGoalMixin",
     "PlayerMixin"
   ],

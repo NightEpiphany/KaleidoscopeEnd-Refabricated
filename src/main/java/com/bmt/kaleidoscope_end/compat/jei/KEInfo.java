@@ -7,7 +7,7 @@ import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.registration.IRecipeRegistration;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
@@ -16,8 +16,8 @@ import org.jetbrains.annotations.NotNull;
 public class KEInfo implements IModPlugin {
 
     @Override
-    public @NotNull ResourceLocation getPluginUid() {
-        return ResourceLocation.tryBuild(KaleidoscopeEnd.MOD_ID, "jei_plugin");
+    public @NotNull Identifier getPluginUid() {
+        return Identifier.fromNamespaceAndPath(KaleidoscopeEnd.MOD_ID, "jei_plugin");
     }
 
     @Override

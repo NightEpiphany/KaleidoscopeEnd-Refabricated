@@ -23,7 +23,7 @@ public final class MainConfig {
                     value -> value instanceof String
             );
 
-    private static final ModConfigSpec SPEC = BUILDER.build();
+    public static final ModConfigSpec SPEC = BUILDER.build();
 
     private MainConfig() {
     }

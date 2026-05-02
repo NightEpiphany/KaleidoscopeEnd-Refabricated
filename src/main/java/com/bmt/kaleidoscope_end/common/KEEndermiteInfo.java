@@ -6,6 +6,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.monster.Endermite;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
@@ -39,21 +40,21 @@ public class KEEndermiteInfo {
     }
 
     public void deserializeNBT(CompoundTag nbt) {
-        fed = nbt.getBoolean("fed");
-        inLove = nbt.getInt("inLove");
-        loveTime = nbt.getInt("loveTime");
-        cooldown = nbt.getInt("cooldown");
+        fed = nbt.getBoolean("fed").orElse(false);
+        inLove = nbt.getInt("inLove").orElse(0);
+        loveTime = nbt.getInt("loveTime").orElse(0);
+        cooldown = nbt.getInt("cooldown").orElse(0);
     }
 
     public void aiStep() {
-        if (!endermite.level().isClientSide) {
+        if (!endermite.level().isClientSide()) {
             if (isInLove()) {
                 findValidBreedPartner(endermite).ifPresent(target -> {
                     endermite.getNavigation().moveTo(target, 1.0D);
                     endermite.lookAt(target, 30.0F, 30.0F);
                     ++loveTime;
                     if (loveTime >= 60 && endermite.distanceToSqr(target) < 9.0D) {
-                        Entity child = endermite.getType().create(endermite.level());
+                        Entity child = endermite.getType().create(endermite.level(), EntitySpawnReason.BREEDING);
                         if (child != null) {
                             child.setPos(endermite.getPosition(1.0F));
                             endermite.level().addFreshEntity(child);

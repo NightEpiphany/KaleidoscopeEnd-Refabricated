@@ -2,18 +2,18 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "A": {
-      "tag": "c:milk"
-    },
-    "B": {
-      "item": "kaleidoscope_end:chorus_petal"
-    },
-    "C": {
-      "item": "minecraft:chorus_fruit"
-    },
-    "D": {
-      "tag": "c:flour"
-    }
+    "A": 
+      "#c:milk"
+    ,
+    "B": 
+      "kaleidoscope_end:chorus_petal"
+    ,
+    "C": 
+      "minecraft:chorus_fruit"
+    ,
+    "D": 
+      "#c:flour"
+    
   },
   "pattern": [
     "ABA",

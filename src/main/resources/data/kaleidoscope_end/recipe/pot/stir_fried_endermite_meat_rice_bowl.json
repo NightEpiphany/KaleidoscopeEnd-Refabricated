@@ -1,24 +1,24 @@
 {
   "type": "kaleidoscope_cookery:pot",
-  "carrier": {
-    "tag": "c:cooked_rice"
-  },
+  "carrier": 
+    "#c:cooked_rice"
+  ,
   "ingredients": [
-    {
-      "tag": "c:raw_ender_mite_meat"
-    },
-    {
-      "item": "kaleidoscope_end:optic_nerve"
-    },
-    {
-      "item": "kaleidoscope_end:optic_nerve"
-    },
-    {
-      "tag": "c:vegetables/chilipepper"
-    },
-    {
-      "tag": "c:vegetables/chilipepper"
-    }
+    
+      "#c:raw_ender_mite_meat"
+    ,
+    
+      "kaleidoscope_end:optic_nerve"
+    ,
+    
+      "kaleidoscope_end:optic_nerve"
+    ,
+    
+      "#c:vegetables/chilipepper"
+    ,
+    
+      "#c:vegetables/chilipepper"
+    
   ],
   "result": {
     "id":  "kaleidoscope_end:stir_fried_endermite_meat_rice_bowl"

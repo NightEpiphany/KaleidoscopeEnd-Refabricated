@@ -9,12 +9,13 @@ import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.component.Consumable;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
 public class ShulkerShellFoodItem extends FoodWithEffectsItem implements IHasContainer {
-    public ShulkerShellFoodItem(FoodProperties properties) {
-        super(properties);
+    public ShulkerShellFoodItem(Item.Properties properties, FoodProperties food, Consumable consumable) {
+        super(properties, food, consumable);
     }
 
     @Override

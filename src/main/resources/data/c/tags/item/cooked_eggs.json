@@ -1,7 +1,7 @@
 {
   "values": [
-    "farmersdelight:fried_egg",
-    "mynethersdelight:boiled_egg",
+    { "id": "farmersdelight:fried_egg", "required": false},
+    { "id": "mynethersdelight:boiled_egg", "required": false},
     "kaleidoscope_cookery:fried_egg"
   ]
 }

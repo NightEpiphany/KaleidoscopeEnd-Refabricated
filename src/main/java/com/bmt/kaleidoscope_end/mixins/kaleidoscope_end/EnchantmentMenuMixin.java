@@ -5,7 +5,6 @@ import com.bmt.kaleidoscope_end.init.KETags;
 import net.minecraft.core.Holder;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Container;
@@ -68,12 +67,12 @@ public abstract class EnchantmentMenuMixin {
             
             for (int j = 0; j < olds.size(); j++) {
                 EnchantmentInstance e2 = olds.get(j);
-                if (e2.enchantment.equals(e1.enchantment)) {
+                if (e2.enchantment().equals(e1.enchantment())) {
                     found = true;
-                    if (e1.level > e2.level) {
+                    if (e1.level() > e2.level()) {
                         olds.set(j, e1);
-                    } else if (e1.level == e2.level) {
-                        olds.set(j, new EnchantmentInstance(e1.enchantment, e1.level + 1));
+                    } else if (e1.level() == e2.level()) {
+                        olds.set(j, new EnchantmentInstance(e1.enchantment(), e1.level() + 1));
                     }
                     break;
                 }
@@ -82,7 +81,7 @@ public abstract class EnchantmentMenuMixin {
             if (!found && i == news.size() - 1) {
                 boolean compatible = true;
                 for (EnchantmentInstance old : olds) {
-                    if (!Enchantment.areCompatible(e1.enchantment, old.enchantment)) {
+                    if (!Enchantment.areCompatible(e1.enchantment(), old.enchantment())) {
                         compatible = false;
                         break;
                     }
@@ -96,8 +95,8 @@ public abstract class EnchantmentMenuMixin {
         olds.addAll(toAdd);
 
         if (random.nextFloat() <= 0.6F) {
-            var enchantmentRegistry = registryAccess.registryOrThrow(Registries.ENCHANTMENT);
-            enchantmentRegistry.getTag(KETags.Enchantments.KE_ENCHANTMENTS).ifPresent(holders -> {
+            var enchantmentRegistry = registryAccess.lookupOrThrow(Registries.ENCHANTMENT);
+            enchantmentRegistry.get(KETags.Enchantments.KE_ENCHANTMENTS).ifPresent(holders -> {
                 List<Holder<Enchantment>> holderList = holders.stream().toList();
                 if (!holderList.isEmpty()) {
                     Holder<Enchantment> holder = holderList.get(random.nextInt(holderList.size()));

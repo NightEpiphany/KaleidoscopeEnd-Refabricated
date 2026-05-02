@@ -1,27 +1,27 @@
 {
   "type": "kaleidoscope_cookery:pot",
-  "carrier": {
-    "item": "minecraft:bowl"
-  },
+  "carrier": 
+    "minecraft:bowl"
+  ,
   "ingredients": [
-    {
-      "tag": "c:flour"
-    },
-    {
-      "item": "kaleidoscope_end:dream_berry"
-    },
-    {
-      "item": "kaleidoscope_end:dream_berry"
-    },
-    {
-      "item": "kaleidoscope_end:dragon_dust"
-    },
-    {
-      "item": "kaleidoscope_end:dragon_dust"
-    },
-    {
-      "item": "kaleidoscope_end:dragon_dust"
-    }
+    
+      "#c:flour"
+    ,
+    
+      "kaleidoscope_end:dream_berry"
+    ,
+    
+      "kaleidoscope_end:dream_berry"
+    ,
+    
+      "kaleidoscope_end:dragon_dust"
+    ,
+    
+      "kaleidoscope_end:dragon_dust"
+    ,
+    
+      "kaleidoscope_end:dragon_dust"
+    
   ],
   "result": {
     "id":  "kaleidoscope_end:dragon_souffle"

@@ -1,9 +1,9 @@
 {
   "type": "kaleidoscope_cookery:pot",
   "ingredients": [
-    {
-      "item": "kaleidoscope_end:raw_endermite_meat"
-    }
+    
+      "kaleidoscope_end:raw_endermite_meat"
+    
   ],
   "result": {
     "id":  "kaleidoscope_end:roasted_endermite_meat"

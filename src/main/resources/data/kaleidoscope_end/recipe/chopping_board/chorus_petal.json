@@ -1,9 +1,8 @@
 {
   "type": "kaleidoscope_cookery:chopping_board",
   "cut_count": 3,
-  "ingredient": {
-    "item": "minecraft:chorus_flower"
-  },
+  "ingredient": 
+    "minecraft:chorus_flower",
   "model_id": "kaleidoscope_end:chorus_flower",
   "result": {
     "count": 2,

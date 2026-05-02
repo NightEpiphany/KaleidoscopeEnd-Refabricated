@@ -1,21 +1,21 @@
 {
   "type": "kaleidoscope_cookery:pot",
-  "carrier": {
-    "item": "minecraft:bowl"
-  },
+  "carrier": 
+    "minecraft:bowl"
+  ,
   "ingredients": [
-    {
-      "tag": "c:foods/raw_mutton"
-    },
-    {
-      "tag": "c:foods/raw_mutton"
-    },
-    {
-      "tag": "c:foods/raw_mutton"
-    },
-    {
-      "item": "kaleidoscope_end:void_conch"
-    }
+    
+      "#c:foods/raw_mutton"
+    ,
+    
+      "#c:foods/raw_mutton"
+    ,
+    
+      "#c:foods/raw_mutton"
+    ,
+    
+      "kaleidoscope_end:void_conch"
+    
   ],
   "result": {
     "id": "kaleidoscope_end:void_mutton_steak"

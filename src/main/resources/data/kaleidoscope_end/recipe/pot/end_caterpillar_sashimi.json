@@ -1,36 +1,36 @@
 {
   "type": "kaleidoscope_cookery:pot",
-  "carrier": {
-    "item": "minecraft:bowl"
-  },
+  "carrier": 
+    "minecraft:bowl"
+  ,
   "ingredients": [
-    {
-      "item": "kaleidoscope_cookery:sashimi"
-    },
-    {
-      "item": "kaleidoscope_cookery:sashimi"
-    },
-    {
-      "item": "kaleidoscope_cookery:sashimi"
-    },
-    {
-      "item": "kaleidoscope_cookery:sashimi"
-    },
-    {
-      "item": "kaleidoscope_end:ender_mint"
-    },
-    {
-      "item": "kaleidoscope_end:ender_mint"
-    },
-    {
-      "item": "kaleidoscope_end:ender_mint"
-    },
-    {
-      "item": "kaleidoscope_end:ender_mint"
-    },
-    {
-      "item": "kaleidoscope_end:end_caterpillar"
-    }
+    
+      "kaleidoscope_cookery:sashimi"
+    ,
+    
+      "kaleidoscope_cookery:sashimi"
+    ,
+    
+      "kaleidoscope_cookery:sashimi"
+    ,
+    
+      "kaleidoscope_cookery:sashimi"
+    ,
+    
+      "kaleidoscope_end:ender_mint"
+    ,
+    
+      "kaleidoscope_end:ender_mint"
+    ,
+    
+      "kaleidoscope_end:ender_mint"
+    ,
+    
+      "kaleidoscope_end:ender_mint"
+    ,
+    
+      "kaleidoscope_end:end_caterpillar"
+    
   ],
   "result": {
     "id": "kaleidoscope_end:end_caterpillar_sashimi"

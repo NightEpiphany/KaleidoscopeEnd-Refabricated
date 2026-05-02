@@ -9,12 +9,13 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.component.Consumable;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
 public class DragonEggShellFoodItem extends FoodWithEffectsItem implements IHasContainer {
-    public DragonEggShellFoodItem(FoodProperties properties) {
-        super(properties);
+    public DragonEggShellFoodItem(Item.Properties properties, FoodProperties food, Consumable consumable) {
+        super(properties, food, consumable);
     }
 
     @Override

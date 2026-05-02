@@ -7,11 +7,11 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.CreativeModeTab;
 
 public final class KECreativeTabs {
-    private static final ResourceLocation MAIN_ICON_ID = KaleidoscopeEnd.id("ender_mint");
+    private static final Identifier MAIN_ICON_ID = KaleidoscopeEnd.id("ender_mint");
 
     private static final ResourceKey<CreativeModeTab> COOKERY_END_MAIN_TAB = ResourceKey.create(Registries.CREATIVE_MODE_TAB,
             KaleidoscopeEnd.id("cookery_end_main"));
@@ -23,7 +23,7 @@ public final class KECreativeTabs {
         Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, COOKERY_END_MAIN_TAB,
                 FabricItemGroup.builder()
                         .title(Component.translatable("itemGroup.kaleidoscope_end_foods"))
-                        .icon(() -> BuiltInRegistries.ITEM.get(MAIN_ICON_ID).getDefaultInstance())
+                        .icon(() -> BuiltInRegistries.ITEM.getValue(MAIN_ICON_ID).getDefaultInstance())
                         .displayItems((par, output) -> {
                             output.accept(KEItem.DRAGON_TOOTH_KNIFE);
                             output.accept(KEItem.VOID_CONCH);
@@ -43,7 +43,7 @@ public final class KECreativeTabs {
                             output.accept(KEItem.OPTIC_NERVE_ITEM);
 
                             KEFoodBiteRegistry.getRegisteredFoodIds().stream()
-                                    .map(BuiltInRegistries.ITEM::get)
+                                    .map(BuiltInRegistries.ITEM::getValue)
                                     .forEach(output::accept);
 
                             output.accept(KEItem.SHULKER_SHELL_MEAT_ITEM);

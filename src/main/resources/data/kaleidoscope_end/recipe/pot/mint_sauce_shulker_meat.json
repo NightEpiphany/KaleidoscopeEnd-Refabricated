@@ -1,36 +1,36 @@
 {
   "type": "kaleidoscope_cookery:pot",
-  "carrier": {
-    "item": "minecraft:bowl"
-  },
+  "carrier": 
+    "minecraft:bowl"
+  ,
   "ingredients": [
-    {
-      "tag": "c:shulker_meat"
-    },
-    {
-      "tag": "c:shulker_meat"
-    },
-    {
-      "item": "kaleidoscope_end:ender_mint"
-    },
-    {
-      "item": "kaleidoscope_end:ender_mint"
-    },
+    
+      "#c:shulker_meat"
+    ,
+    
+      "#c:shulker_meat"
+    ,
+    
+      "kaleidoscope_end:ender_mint"
+    ,
+    
+      "kaleidoscope_end:ender_mint"
+    ,
     [
-      {
-        "tag": "c:fruits/chorus"
-      },
-      {
-        "item": "kaleidoscope_end:chorus_seed"
-      }
+      
+        "minecraft:chorus_fruit"
+      ,
+      
+        "kaleidoscope_end:chorus_seed"
+      
     ],
     [
-      {
-        "tag": "c:fruits/chorus"
-      },
-      {
-        "item": "kaleidoscope_end:chorus_seed"
-      }
+      
+        "minecraft:chorus_fruit"
+      ,
+      
+        "kaleidoscope_end:chorus_seed"
+      
     ]
   ],
   "result": {

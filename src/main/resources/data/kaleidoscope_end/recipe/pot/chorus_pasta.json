@@ -1,42 +1,42 @@
 {
   "type": "kaleidoscope_cookery:pot",
-  "carrier": {
-    "item": "minecraft:bowl"
-  },
+  "carrier": 
+    "minecraft:bowl"
+  ,
   "ingredients": [
     [
-      {
-        "tag": "c:fruits/chorus"
-      },
-      {
-        "item": "kaleidoscope_end:chorus_seed"
-      }
+      
+        "minecraft:chorus_fruit"
+      ,
+      
+        "kaleidoscope_end:chorus_seed"
+      
     ],
     [
-      {
-        "tag": "c:fruits/chorus"
-      },
-      {
-        "item": "kaleidoscope_end:chorus_seed"
-      }
+      
+        "minecraft:chorus_fruit"
+      ,
+      
+        "kaleidoscope_end:chorus_seed"
+      
     ],
     [
-      {
-        "tag": "c:fruits/chorus"
-      },
-      {
-        "item": "kaleidoscope_end:chorus_seed"
-      }
+      
+        "minecraft:chorus_fruit"
+      ,
+
+        "kaleidoscope_end:chorus_seed"
+      
     ],
-    {
-      "tag": "c:pasta"
-    },
-    {
-      "tag": "c:pasta"
-    },
-    {
-      "tag": "c:pasta"
-    }
+    
+      "#c:pasta"
+    ,
+    
+      "#c:pasta"
+    ,
+    
+      "#c:pasta"
+    
   ],
   "result": {
     "id":  "kaleidoscope_end:chorus_pasta"

@@ -12,11 +12,11 @@ import com.bmt.kaleidoscope_end.init.KEBlocks;
 import com.github.ysbbbbbb.kaleidoscopecookery.block.food.FoodBiteBlock;
 import com.github.ysbbbbbb.kaleidoscopecookery.init.registry.FoodBiteRegistry;
 
-import net.minecraft.advancements.critereon.StatePropertiesPredicate;
+import net.minecraft.advancements.criterion.StatePropertiesPredicate;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.loot.BlockLootSubProvider;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantments;
@@ -75,9 +75,9 @@ public class KEBlockLoot extends BlockLootSubProvider {
                 .withPool(LootPool.lootPool().when(ageCondition).add(LootItem.lootTableItem(crop).apply(ApplyBonusCount.addBonusBinomialDistributionCount(this.registries.lookupOrThrow(net.minecraft.core.registries.Registries.ENCHANTMENT).getOrThrow(Enchantments.FORTUNE), 0.5714286F, 1))))));
     }
 
-    private void dropFoodBite(ResourceLocation id, FoodBiteRegistry.FoodData data) {
-        Block block = BuiltInRegistries.BLOCK.get(id);
-        Item food = BuiltInRegistries.ITEM.get(id);
+    private void dropFoodBite(Identifier id, FoodBiteRegistry.FoodData data) {
+        Block block = BuiltInRegistries.BLOCK.getValue(id);
+        Item food = BuiltInRegistries.ITEM.getValue(id);
         if (block instanceof FoodBiteBlock foodBiteBlock) {
             ConstantValue exactly = ConstantValue.exactly(1.0F);
             StatePropertiesPredicate.Builder notBite = StatePropertiesPredicate.Builder.properties().hasProperty(foodBiteBlock.getBites(), 0);

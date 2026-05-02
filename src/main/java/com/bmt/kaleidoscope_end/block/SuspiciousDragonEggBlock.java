@@ -15,7 +15,8 @@ import net.minecraft.world.entity.item.FallingBlockEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.ScheduledTickAccess;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.BrushableBlock;
 import net.minecraft.world.level.block.Fallable;
@@ -41,14 +42,23 @@ public class SuspiciousDragonEggBlock extends BrushableBlock implements Fallable
     }
 
     @Override
-    public @NotNull BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor level, BlockPos pos, BlockPos neighborPos) {
-        level.scheduleTick(pos, this, getDelayAfterPlace());
-        return super.updateShape(state, direction, neighborState, level, pos, neighborPos);
+    public @NotNull BlockState updateShape(
+            BlockState state,
+            LevelReader levelReader,
+            ScheduledTickAccess scheduledTickAccess,
+            BlockPos pos,
+            Direction direction,
+            BlockPos neighborPos,
+            BlockState neighborState,
+            RandomSource randomSource
+    ) {
+        scheduledTickAccess.scheduleTick(pos, this, getDelayAfterPlace());
+        return super.updateShape(state, levelReader, scheduledTickAccess, pos, direction, neighborPos, neighborState, randomSource);
     }
 
     @Override
     public void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
-        if (isFree(level.getBlockState(pos.below())) && pos.getY() >= level.getMinBuildHeight()) {
+        if (isFree(level.getBlockState(pos.below())) && pos.getY() >= level.getMinY()) {
             FallingBlockEntity.fall(level, pos, state);
         }
     }
@@ -72,7 +82,7 @@ public class SuspiciousDragonEggBlock extends BrushableBlock implements Fallable
         for (int i = 0; i < 1000; ++i) {
             BlockPos targetPos = pos.offset(level.random.nextInt(16) - level.random.nextInt(16), level.random.nextInt(8) - level.random.nextInt(8), level.random.nextInt(16) - level.random.nextInt(16));
             if (level.getBlockState(targetPos).isAir() && worldBorder.isWithinBounds(targetPos)) {
-                if (level.isClientSide) {
+                if (level.isClientSide()) {
                     for (int j = 0; j < 128; ++j) {
                         double progress = level.random.nextDouble();
                         float xSpeed = (level.random.nextFloat() - 0.5F) * 0.2F;

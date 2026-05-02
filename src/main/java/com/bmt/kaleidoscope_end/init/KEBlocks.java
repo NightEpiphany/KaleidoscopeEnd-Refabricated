@@ -26,22 +26,23 @@ import net.minecraft.world.level.material.PushReaction;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.function.Function;
 import java.util.function.Supplier;
 
 public final class KEBlocks {
     public static final Supplier<BlockBehaviour.Properties> CROP_DEFAULT_PROPERTIES =
-            () -> BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.CROP).pushReaction(PushReaction.DESTROY);
+            () -> BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollision().randomTicks().instabreak().sound(SoundType.CROP).pushReaction(PushReaction.DESTROY);
     public static final Supplier<BlockBehaviour.Properties> CAVE_VINES_PROPERTIES =
-            () -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_CYAN).randomTicks().noCollission().instabreak().sound(SoundType.WEEPING_VINES).pushReaction(PushReaction.DESTROY);
+            () -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_CYAN).randomTicks().noCollision().instabreak().sound(SoundType.WEEPING_VINES).pushReaction(PushReaction.DESTROY);
 
-    public static final DreamBerryPlantBlock DREAM_BERRY_PLANT = new DreamBerryPlantBlock(CAVE_VINES_PROPERTIES.get());
-    public static final DreamBerryHeadBlock DREAM_BERRY_HEAD = new DreamBerryHeadBlock(CAVE_VINES_PROPERTIES.get());
-    public static final EnderMint ENDER_MINT = new EnderMint(CROP_DEFAULT_PROPERTIES.get());
-    public static final Block SUSPICIOUS_END_STONE = new BrushableBlock(
+    public static final DreamBerryPlantBlock DREAM_BERRY_PLANT = register("dream_berry_plant", DreamBerryPlantBlock::new, CAVE_VINES_PROPERTIES.get());
+    public static final DreamBerryHeadBlock DREAM_BERRY_HEAD = register("dream_berry_head", DreamBerryHeadBlock::new, CAVE_VINES_PROPERTIES.get());
+    public static final EnderMint ENDER_MINT = register("ender_mint", EnderMint::new, CROP_DEFAULT_PROPERTIES.get());
+    public static final Block SUSPICIOUS_END_STONE = register("suspicious_end_stone", properties -> new BrushableBlock(
             Blocks.END_STONE,
             SoundEvents.BRUSH_SAND,
             SoundEvents.BRUSH_SAND_COMPLETED,
-            BlockBehaviour.Properties.of().mapColor(MapColor.SAND).instrument(NoteBlockInstrument.SNARE).strength(0.25F).sound(SoundType.SUSPICIOUS_SAND).pushReaction(PushReaction.DESTROY)
+            properties
     ) {
         @Override
         public @Nullable BlockEntity newBlockEntity(@NotNull BlockPos pos, @NotNull BlockState state) {
@@ -51,24 +52,38 @@ public final class KEBlocks {
             }
             return blockEntity;
         }
-    };
-    public static final SuspiciousDragonEggBlock SUSPICIOUS_DRAGON_EGG = new SuspiciousDragonEggBlock(
-            Blocks.DRAGON_EGG,
-            SoundEvents.BRUSH_SAND,
-            SoundEvents.BRUSH_SAND_COMPLETED,
+    }, BlockBehaviour.Properties.of().mapColor(MapColor.SAND).instrument(NoteBlockInstrument.SNARE).strength(0.25F).sound(SoundType.SUSPICIOUS_SAND).pushReaction(PushReaction.DESTROY));
+    public static final SuspiciousDragonEggBlock SUSPICIOUS_DRAGON_EGG = register("suspicious_dragon_egg",
+            properties -> new SuspiciousDragonEggBlock(
+                    Blocks.DRAGON_EGG,
+                    SoundEvents.BRUSH_SAND,
+                    SoundEvents.BRUSH_SAND_COMPLETED,
+                    properties
+            ),
             BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).strength(3.0F, 9.0F).lightLevel(state -> 1).noOcclusion().pushReaction(PushReaction.DESTROY)
     );
-    public static final StoveBlock END_STOVE = new StoveBlock();
+    public static final StoveBlock END_STOVE = register("end_stove",
+            StoveBlock::new,
+            BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.STONE)
+                    .sound(SoundType.STONE)
+                    .requiresCorrectToolForDrops()
+                    .lightLevel(state -> state.getValue(StoveBlock.LIT) ? 13 : 0)
+                    .randomTicks()
+                    .strength(1.5F, 6.0F)
+    );
 
     private KEBlocks() {
     }
 
+    private static <T extends Block> T register(String name, Function<BlockBehaviour.Properties, T> factory, BlockBehaviour.Properties properties) {
+        ResourceKey<Block> resourceKey = ResourceKey.create(Registries.BLOCK, KaleidoscopeEnd.id(name));
+        T block = factory.apply(properties.setId(resourceKey));
+        Registry.register(BuiltInRegistries.BLOCK, resourceKey, block);
+        return block;
+    }
+
     public static void registerBlocks() {
-        Registry.register(BuiltInRegistries.BLOCK, KaleidoscopeEnd.id("dream_berry_plant"), DREAM_BERRY_PLANT);
-        Registry.register(BuiltInRegistries.BLOCK, KaleidoscopeEnd.id("dream_berry_head"), DREAM_BERRY_HEAD);
-        Registry.register(BuiltInRegistries.BLOCK, KaleidoscopeEnd.id("ender_mint"), ENDER_MINT);
-        Registry.register(BuiltInRegistries.BLOCK, KaleidoscopeEnd.id("suspicious_end_stone"), SUSPICIOUS_END_STONE);
-        Registry.register(BuiltInRegistries.BLOCK, KaleidoscopeEnd.id("suspicious_dragon_egg"), SUSPICIOUS_DRAGON_EGG);
-        Registry.register(BuiltInRegistries.BLOCK, KaleidoscopeEnd.id("end_stove"), END_STOVE);
+        // 由静态字段完成注册，保留空方法作为统一入口。
     }
 }

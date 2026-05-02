@@ -1,31 +1,31 @@
 {
   "type": "kaleidoscope_cookery:stockpot",
-  "carrier": {
-    "item": "minecraft:bowl"
-  },
+  "carrier": 
+    "minecraft:bowl"
+  ,
   "cooking_bubble_color": 16772291,
   "cooking_texture": "kaleidoscope_cookery:stockpot/default_cooking",
   "finished_bubble_color": 16034443,
   "finished_texture": "kaleidoscope_cookery:stockpot/default_finished",
   "ingredients": [
-    {
-      "tag": "c:crops/chorus"
-    },
-    {
-      "tag": "c:crops/chorus"
-    },
-    {
-      "tag": "c:crops/chorus"
-    },
-    {
-      "tag": "c:fruits/chorus"
-    },
-    {
-      "tag": "c:fruits/chorus"
-    },
-    {
-      "tag": "c:fruits/chorus"
-    }
+    
+      "#c:crops/chorus"
+    ,
+    
+      "#c:crops/chorus"
+    ,
+    
+      "#c:crops/chorus"
+    ,
+    
+      "#c:fruits/chorus"
+    ,
+    
+      "#c:fruits/chorus"
+    ,
+    
+      "#c:fruits/chorus"
+    
   ],
   "result": {
     "count": 3,

@@ -1,27 +1,27 @@
 {
   "type": "kaleidoscope_cookery:pot",
-  "carrier": {
-    "item": "minecraft:shulker_shell"
-  },
+  "carrier": 
+    "minecraft:shulker_shell"
+  ,
   "ingredients": [
-    {
-      "item": "minecraft:carrot"
-    },
-    {
-      "item": "minecraft:carrot"
-    },
-    {
-      "item": "minecraft:potato"
-    },
-    {
-      "item": "minecraft:potato"
-    },
-    {
-      "tag": "c:shulker_meat"
-    },
-    {
-      "tag": "c:shulker_meat"
-    }
+    
+      "minecraft:carrot"
+    ,
+    
+      "minecraft:carrot"
+    ,
+    
+      "minecraft:potato"
+    ,
+    
+      "minecraft:potato"
+    ,
+    
+      "#c:shulker_meat"
+    ,
+    
+      "#c:shulker_meat"
+    
   ],
   "result": {
     "id":  "kaleidoscope_end:stuffed_shulker"

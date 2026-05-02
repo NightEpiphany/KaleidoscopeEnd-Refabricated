@@ -18,7 +18,6 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.AreaEffectCloud;
@@ -74,17 +73,17 @@ public final class KEPlayerEvents {
         return InteractionResult.PASS;
     }
 
-    private static InteractionResultHolder<ItemStack> onUseItem(Player player, Level level, InteractionHand hand) {
+    private static InteractionResult onUseItem(Player player, Level level, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         if (!stack.is(Items.BUCKET)) {
-            return InteractionResultHolder.pass(stack);
+            return InteractionResult.PASS;
         }
 
         AABB area = player.getBoundingBox().inflate(2.0D);
         List<AreaEffectCloud> clouds = level.getEntitiesOfClass(AreaEffectCloud.class, area, cloud ->
                 cloud.isAlive() && cloud.getOwner() instanceof EnderDragon);
         if (clouds.isEmpty()) {
-            return InteractionResultHolder.pass(stack);
+            return InteractionResult.PASS;
         }
 
         AreaEffectCloud cloud = clouds.getFirst();
@@ -105,7 +104,7 @@ public final class KEPlayerEvents {
             player.drop(dragonBreathBucket, false);
         }
 
-        return InteractionResultHolder.success(player.getItemInHand(hand));
+        return level.isClientSide() ? InteractionResult.SUCCESS : InteractionResult.SUCCESS_SERVER;
     }
 
     private static InteractionResult onUseEntity(Player player, Level level, InteractionHand hand, Entity entity, EntityHitResult hitResult) {
@@ -157,10 +156,10 @@ public final class KEPlayerEvents {
             return;
         }
 
-        for (int i = 0; i < player.getInventory().items.size(); i++) {
-            ItemStack stack = player.getInventory().items.get(i);
+        for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
+            ItemStack stack = player.getInventory().getItem(i);
             if (stack.is(Items.DRAGON_EGG)) {
-                player.getInventory().items.set(i, new ItemStack(KEItem.SUSPICIOUS_DRAGON_EGG_ITEM, stack.getCount()));
+                player.getInventory().setItem(i, new ItemStack(KEItem.SUSPICIOUS_DRAGON_EGG_ITEM, stack.getCount()));
             }
         }
     }

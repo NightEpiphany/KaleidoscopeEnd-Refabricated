@@ -1,7 +1,7 @@
 package com.bmt.kaleidoscope_end.mixins.kaleidoscope_end;
 
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -15,7 +15,7 @@ public abstract class EnchantmentSlotMixin {
 
     @Unique
     private static final TagKey<Item> EXTRA_FUEL =
-            TagKey.create(Registries.ITEM,  ResourceLocation.fromNamespaceAndPath("fabric", "enchanting_fuels"));
+            TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("fabric", "enchanting_fuels"));
 
     @Redirect(
             method = "mayPlace",

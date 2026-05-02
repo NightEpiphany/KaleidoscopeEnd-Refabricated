@@ -1,30 +1,30 @@
 {
   "type": "kaleidoscope_cookery:pot",
-  "carrier": {
-    "item": "minecraft:shulker_shell"
-  },
+  "carrier": 
+    "minecraft:shulker_shell"
+  ,
   "ingredients": [
-    {
-      "item": "minecraft:dragon_breath"
-    },
-    {
-      "item": "kaleidoscope_end:optic_nerve"
-    },
-    {
-      "item": "kaleidoscope_end:optic_nerve"
-    },
-    {
-      "item": "kaleidoscope_end:ender_mint"
-    },
-    {
-      "item": "kaleidoscope_end:ender_mint"
-    },
-    {
-      "item": "kaleidoscope_end:dream_berry"
-    },
-    {
-      "item": "kaleidoscope_end:dream_berry"
-    }
+    
+      "minecraft:dragon_breath"
+    ,
+    
+      "kaleidoscope_end:optic_nerve"
+    ,
+    
+      "kaleidoscope_end:optic_nerve"
+    ,
+    
+      "kaleidoscope_end:ender_mint"
+    ,
+    
+      "kaleidoscope_end:ender_mint"
+    ,
+    
+      "kaleidoscope_end:dream_berry"
+    ,
+    
+      "kaleidoscope_end:dream_berry"
+    
   ],
   "result": {
     "id":  "kaleidoscope_end:dragon_breath_mixed_stew"

@@ -1,36 +1,36 @@
 {
   "type": "kaleidoscope_cookery:pot",
-  "carrier": {
-    "item": "minecraft:bowl"
-  },
+  "carrier": 
+    "minecraft:bowl"
+  ,
   "ingredients": [
-    {
-      "item": "kaleidoscope_end:ender_mint"
-    },
-    {
-      "item": "kaleidoscope_end:ender_mint"
-    },
-    {
-      "item": "kaleidoscope_end:dream_berry"
-    },
-    {
-      "item": "kaleidoscope_end:dream_berry"
-    },
+    
+      "kaleidoscope_end:ender_mint"
+    ,
+    
+      "kaleidoscope_end:ender_mint"
+    ,
+    
+      "kaleidoscope_end:dream_berry"
+    ,
+    
+      "kaleidoscope_end:dream_berry"
+    ,
     [
-      {
-        "tag": "c:crops/chorus"
-      },
-      {
-        "item": "kaleidoscope_end:chorus_petal"
-      }
+      
+        "minecraft:chorus_flower"
+      ,
+      
+        "kaleidoscope_end:chorus_petal"
+      
     ],
     [
-      {
-        "tag": "c:crops/chorus"
-      },
-      {
-        "item": "kaleidoscope_end:chorus_petal"
-      }
+      
+        "minecraft:chorus_flower"
+      ,
+      
+        "kaleidoscope_end:chorus_petal"
+      
     ]
   ],
   "result": {

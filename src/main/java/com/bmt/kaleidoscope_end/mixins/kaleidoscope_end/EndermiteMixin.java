@@ -10,6 +10,8 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -19,6 +21,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(Endermite.class)
 public abstract class EndermiteMixin extends Monster implements IEndermiteExtension {
+    @Unique
+    private static final String NBT_KEY = "ke_endermite_info";
     @Shadow
     protected abstract void registerGoals();
 
@@ -35,13 +39,13 @@ public abstract class EndermiteMixin extends Monster implements IEndermiteExtens
     }
 
     @Inject(method = "addAdditionalSaveData", at = @At("RETURN"))
-    public void addAdditionalSaveData(CompoundTag compound, CallbackInfo ci) {
-        compound.put("ke_endermite_info", ke$endermiteInfo.serializeNBT());
+    public void addAdditionalSaveData(ValueOutput valueOutput, CallbackInfo ci) {
+        valueOutput.store(NBT_KEY, CompoundTag.CODEC, ke$endermiteInfo.serializeNBT());
     }
 
     @Inject(method = "readAdditionalSaveData", at = @At("RETURN"))
-    public void readAdditionalSaveData(CompoundTag compound, CallbackInfo ci) {
-        ke$endermiteInfo.deserializeNBT(compound.getCompound("ke_endermite_info"));
+    public void readAdditionalSaveData(ValueInput valueInput, CallbackInfo ci) {
+        valueInput.childOrEmpty(NBT_KEY).read(NBT_KEY, CompoundTag.CODEC).ifPresent(ke$endermiteInfo::deserializeNBT);
     }
 
     @Inject(method = "aiStep", at = @At("RETURN"))

@@ -4,25 +4,25 @@ import com.bmt.kaleidoscope_end.KaleidoscopeEnd;
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.NestedLootTable;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 
 public final class KEExtraLootTableDrop {
-    private static final ResourceLocation ENDERMITE = ResourceLocation.fromNamespaceAndPath("minecraft", "entities/endermite");
-    private static final ResourceLocation ENDERMAN = ResourceLocation.fromNamespaceAndPath("minecraft", "entities/enderman");
-    private static final ResourceLocation SHULKER = ResourceLocation.fromNamespaceAndPath("minecraft", "entities/shulker");
-    private static final ResourceLocation ENDER_DRAGON = ResourceLocation.fromNamespaceAndPath("minecraft", "entities/ender_dragon");
-    private static final ResourceLocation CHORUS_PLANT = ResourceLocation.fromNamespaceAndPath("minecraft", "blocks/chorus_plant");
+    private static final Identifier ENDERMITE = Identifier.fromNamespaceAndPath("minecraft", "entities/endermite");
+    private static final Identifier ENDERMAN = Identifier.fromNamespaceAndPath("minecraft", "entities/enderman");
+    private static final Identifier SHULKER = Identifier.fromNamespaceAndPath("minecraft", "entities/shulker");
+    private static final Identifier ENDER_DRAGON = Identifier.fromNamespaceAndPath("minecraft", "entities/ender_dragon");
+    private static final Identifier CHORUS_PLANT = Identifier.fromNamespaceAndPath("minecraft", "blocks/chorus_plant");
 
     private KEExtraLootTableDrop() {
     }
 
     public static void register() {
         LootTableEvents.MODIFY.register((key, tableBuilder, source, registries) -> {
-            ResourceLocation id = key.location();
+            Identifier id = key.identifier();
             if (id.equals(ENDERMITE)) {
                 addReference(tableBuilder, "endermite");
             } else if (id.equals(ENDERMAN)) {
