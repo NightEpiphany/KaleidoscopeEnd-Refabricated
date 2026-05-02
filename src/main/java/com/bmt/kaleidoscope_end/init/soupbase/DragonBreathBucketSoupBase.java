@@ -1,5 +1,6 @@
 package com.bmt.kaleidoscope_end.init.soupbase;
 
+import com.bmt.kaleidoscope_end.KaleidoscopeEnd;
 import com.bmt.kaleidoscope_end.init.KEItem;
 import com.github.ysbbbbbb.kaleidoscopecookery.api.recipe.soupbase.ISoupBase;
 import com.github.ysbbbbbb.kaleidoscopecookery.client.render.soupbase.SimpleSoupBaseRender;
@@ -10,7 +11,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 
 public class DragonBreathBucketSoupBase implements ISoupBase {
-    private static final ResourceLocation NAME = ResourceLocation.fromNamespaceAndPath("kaleidoscope_end", "dragon_breath");
+    private static final ResourceLocation NAME = ResourceLocation.fromNamespaceAndPath(KaleidoscopeEnd.MOD_ID, "dragon_breath");
     private static final int BUBBLE_COLOR = 0xFF00FF;
     
     private static final ResourceLocation DRAGON_BREATH_TEXTURE = ResourceLocation.fromNamespaceAndPath("minecraft", "block/water_still");

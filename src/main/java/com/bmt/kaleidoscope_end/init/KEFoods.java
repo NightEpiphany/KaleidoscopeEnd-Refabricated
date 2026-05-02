@@ -9,7 +9,7 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
 import org.jetbrains.annotations.Nullable;
 
-public class KEFoods {
+public interface KEFoods {
     public static final FoodProperties DRAGON_BREATH_CHORUS_SOUP = new FoodProperties.Builder()
             .nutrition(16)
             .saturationModifier(0.643f)
