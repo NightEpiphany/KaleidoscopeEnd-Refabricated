@@ -3,6 +3,10 @@ package com.bmt.kaleidoscope_end.init;
 import net.minecraft.world.food.FoodProperties;
 
 public interface KEFoods {
+    FoodProperties END_CATERPILLAR_SASHIMI_ITEM = new FoodProperties.Builder().nutrition(5).saturationModifier(1.8F).build();
+    FoodProperties END_CATERPILLAR_SASHIMI_BLOCK = new FoodProperties.Builder().nutrition(5).saturationModifier(1.8F).build();
+    FoodProperties DRAGON_EGG_ICE_CREAM_ITEM = new FoodProperties.Builder().nutrition(16).saturationModifier(1.8F).build();
+    FoodProperties DRAGON_EGG_ICE_CREAM_BLOCK = new FoodProperties.Builder().nutrition(16).saturationModifier(1.8F).build();
     FoodProperties DRAGON_BREATH_CHORUS_SOUP = new FoodProperties.Builder().nutrition(16).saturationModifier(0.643f).alwaysEdible().build();
     FoodProperties STUFFED_SHULKER = new FoodProperties.Builder().nutrition(13).saturationModifier(0.615f).alwaysEdible().build();
     FoodProperties CHORUS_PASTA = new FoodProperties.Builder().nutrition(9).saturationModifier(0.611f).alwaysEdible().build();

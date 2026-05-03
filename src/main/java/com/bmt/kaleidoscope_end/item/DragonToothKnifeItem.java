@@ -16,8 +16,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class DragonToothKnifeItem extends KitchenKnifeItem {
-    private static final Set<Identifier> END_MOBS_CACHE = new HashSet<>();
-    private static final Identifier THE_END_DIMENSION = Identifier.fromNamespaceAndPath("minecraft", "the_end");
+    public static final Set<Identifier> END_MOBS_CACHE = new HashSet<>();
+    public static final Identifier THE_END_DIMENSION = Identifier.fromNamespaceAndPath("minecraft", "the_end");
 
     public DragonToothKnifeItem(Item.Properties properties) {
         super(properties.durability(3542).fireResistant(), DragonToothTier.INSTANCE, 3.0F, -2.4F);
@@ -48,7 +48,7 @@ public class DragonToothKnifeItem extends KitchenKnifeItem {
         return END_MOBS_CACHE.contains(entityId);
     }
 
-    private static void loadEndMobsFromConfig() {
+    public static void loadEndMobsFromConfig() {
         END_MOBS_CACHE.clear();
         for (String mobId : MainConfig.DRAGON_TOOTH_KNIFE_EXTRA_END_MOBS.get()) {
             try {

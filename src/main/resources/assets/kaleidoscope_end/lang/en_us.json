@@ -87,13 +87,13 @@
   "tooltip.kaleidoscope_end.chorus_flower_cake.maxim": "A pastry made from chorus flowers, delicately sweet and fragrant, imbued with the serenity of the End.",
   "item.kaleidoscope_end.chorus_seed_cookie": "Chorus Seed Cookie",
   "tooltip.kaleidoscope_end.chorus_seed_cookie.maxim": "Crisp little cookies baked with chorus seeds, delicious with a faint dream-like aura.",
-  "item.kaleidoscope_end.dragon_egg_ice_cream": "Dragon Egg Ice Cream",
+  "block.kaleidoscope_end.dragon_egg_ice_cream": "Dragon Egg Ice Cream",
   "tooltip.kaleidoscope_end.dragon_egg_ice_cream.maxim": "Ice cream made from dragon eggs, cold and sweet, carrying the mysterious aura of dragons.",
   "item.kaleidoscope_end.stuffed_void_conch": "Stuffed Void Conch",
   "tooltip.kaleidoscope_end.stuffed_void_conch.maxim": "A void conch filled with savory stuffing, each bite feels like floating in the Void.",
   "block.kaleidoscope_end.optic_nerve_sweet_and_sour_pork": "Optic Nerve Sweet and Sour Pork",
   "tooltip.kaleidoscope_end.optic_nerve_sweet_and_sour_pork.maxim": "Optic nerve paired with sweet and sour sauce, unique texture said to enhance visual acuity.",
-  "item.kaleidoscope_end.end_caterpillar_sashimi": "End Caterpillar Sashimi",
+  "block.kaleidoscope_end.end_caterpillar_sashimi": "End Caterpillar Sashimi",
   "tooltip.kaleidoscope_end.end_caterpillar_sashimi.maxim": "Fresh end caterpillar sashimi, tender meat carrying the purity of the End.",
   "block.kaleidoscope_end.void_mutton_steak": "Void Mutton Steak",
   "tooltip.kaleidoscope_end.void_mutton_steak.maxim": "A steak made from void conch, firm in texture, imbued with the mysterious power of the Void.",
@@ -104,6 +104,10 @@
 
   "enchantment.kaleidoscope_end.void_assault": "Void Assault",
   "enchantment.kaleidoscope_end.void_assault.desc": "Chance to deal multiple times the damage based on enchantment level.",
+  "enchantment.kaleidoscope_end.void_echo": "Void Echo",
+  "enchantment.kaleidoscope_end.void_echo.desc": "Range DMG based on ench level.",
+  "enchantment.kaleidoscope_end.void_walker": "Void Walker",
+  "enchantment.kaleidoscope_end.void_walker.desc": "Levitate in the void.",
 
   "effect.kaleidoscope_end.dream": "Dream",
   "effect.kaleidoscope_end.dream.description": "Allows swimming through the sky.",
@@ -135,5 +139,7 @@
   "advancements.kaleidoscope_end.dragon_egg_diet.title": "A Feast of Dragons",
   "advancements.kaleidoscope_end.dragon_egg_diet.description": "Consume all grand meals served in Dragon Eggshells.",
   "advancements.kaleidoscope_end.dragon_tooth_knife.title": "The Blade of Ending",
-  "advancements.kaleidoscope_end.dragon_tooth_knife.description": "This weapon displays overwhelming sharpness against End creatures."
+  "advancements.kaleidoscope_end.dragon_tooth_knife.description": "This weapon displays overwhelming sharpness against End creatures.",
+  "item.kaleidoscope_end.ender_dragon_smithing_template.base_slot_description": "Base",
+  "item.kaleidoscope_end.ender_dragon_smithing_template.additions_slot_description": "Addition"
 }

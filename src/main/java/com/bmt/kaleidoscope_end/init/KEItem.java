@@ -58,9 +58,7 @@ public final class KEItem {
     public static BowlFoodOnlyItem CHORUS_FLOWER_TEA_ITEM;
     public static FoodWithEffectsItem CHORUS_FLOWER_CAKE_ITEM;
     public static FoodWithEffectsItem CHORUS_SEED_COOKIE_ITEM;
-    public static DragonEggShellFoodItem DRAGON_EGG_ICE_CREAM_ITEM;
     public static FoodWithEffectsItem STUFFED_VOID_CONCH_ITEM;
-    public static BowlFoodOnlyItem END_CATERPILLAR_SASHIMI_ITEM;
     public static DragonBreathBucket DRAGON_BREATH_BUCKET_ITEM;
 
     private KEItem() {
@@ -107,9 +105,7 @@ public final class KEItem {
         CHORUS_FLOWER_TEA_ITEM = new BowlFoodOnlyItem(properties("chorus_flower_tea"), KEFoods.CHORUS_FLOWER_TEA, KEConsumables.CHORUS_FLOWER_TEA);
         CHORUS_FLOWER_CAKE_ITEM = new FoodWithEffectsItem(properties("chorus_flower_cake"), KEFoods.CHORUS_FLOWER_CAKE, KEConsumables.CHORUS_FLOWER_CAKE);
         CHORUS_SEED_COOKIE_ITEM = new FoodWithEffectsItem(properties("chorus_seed_cookie"), KEFoods.CHORUS_SEED_COOKIE, KEConsumables.CHORUS_SEED_COOKIE);
-        DRAGON_EGG_ICE_CREAM_ITEM = new DragonEggShellFoodItem(properties("dragon_egg_ice_cream"), KEFoods.DRAGON_EGG_ICE_CREAM, KEConsumables.DRAGON_EGG_ICE_CREAM);
         STUFFED_VOID_CONCH_ITEM = new FoodWithEffectsItem(properties("stuffed_void_conch"), KEFoods.STUFFED_VOID_CONCH, KEConsumables.STUFFED_VOID_CONCH);
-        END_CATERPILLAR_SASHIMI_ITEM = new BowlFoodOnlyItem(properties("end_caterpillar_sashimi"), KEFoods.END_CATERPILLAR_SASHIMI, KEConsumables.END_CATERPILLAR_SASHIMI);
         DRAGON_BREATH_BUCKET_ITEM = new DragonBreathBucket(properties("dragon_breath_bucket"));
 
         register("dragon_tooth_knife", DRAGON_TOOTH_KNIFE);
@@ -152,9 +148,7 @@ public final class KEItem {
         register("chorus_flower_tea", CHORUS_FLOWER_TEA_ITEM);
         register("chorus_flower_cake", CHORUS_FLOWER_CAKE_ITEM);
         register("chorus_seed_cookie", CHORUS_SEED_COOKIE_ITEM);
-        register("dragon_egg_ice_cream", DRAGON_EGG_ICE_CREAM_ITEM);
         register("stuffed_void_conch", STUFFED_VOID_CONCH_ITEM);
-        register("end_caterpillar_sashimi", END_CATERPILLAR_SASHIMI_ITEM);
         register("dragon_breath_bucket", DRAGON_BREATH_BUCKET_ITEM);
     }
 

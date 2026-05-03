@@ -14,6 +14,11 @@ import java.util.List;
 import java.util.Objects;
 
 public interface KEConsumables {
+    Consumable DRAGON_EGG_ICE_CREAM_ITEM = buildConsumable(createVanillaEffect("strength", 300 * 20), createVanillaEffect("regeneration", 300 * 20), createEndEffect("void_erosion", 35 * 20));
+    Consumable DRAGON_EGG_ICE_CREAM_BLOCK = buildConsumable(createVanillaEffect("strength", 300 * 20), createVanillaEffect("regeneration", 300 * 20), createEndEffect("void_erosion", 35 * 20));
+    Consumable END_CATERPILLAR_SASHIMI_ITEM = buildConsumable(createVanillaEffect("water_breathing", 120 * 20));
+    Consumable END_CATERPILLAR_SASHIMI_BLOCK = buildConsumable(createVanillaEffect("water_breathing", 120 * 20));
+
     Consumable DRAGON_BREATH_CHORUS_SOUP = buildConsumable(createCookeryEffect("vigor", 480 * 20));
     Consumable STUFFED_SHULKER = buildConsumable(createCookeryEffect("satiated_shield", 90 * 20));
     Consumable CHORUS_PASTA = buildConsumable(createCookeryEffect("sulfur", 90 * 20));
@@ -93,11 +98,9 @@ public interface KEConsumables {
     Consumable CHORUS_SEED_COOKIE = buildConsumable(0.5F, createEndEffect("dream", 30 * 20));
     Consumable DRAGON_EGG_LIQUID_FOOD = buildConsumable(0.3F, new MobEffectInstance(MobEffects.REGENERATION, 10 * 20, 0));
     Consumable CHORUS_SEED_FOOD = buildConsumable();
-    Consumable DRAGON_EGG_ICE_CREAM = buildConsumable(new MobEffectInstance(MobEffects.SLOW_FALLING, 60 * 20, 0));
     Consumable STUFFED_VOID_CONCH = buildConsumable(createEndEffect("void_erosion", 30 * 20));
     Consumable OPTIC_NERVE_SWEET_AND_SOUR_PORK_ITEM = buildConsumable(new MobEffectInstance(MobEffects.NIGHT_VISION, 480 * 20, 0));
     Consumable OPTIC_NERVE_SWEET_AND_SOUR_PORK_BLOCK = buildConsumable(new MobEffectInstance(MobEffects.NIGHT_VISION, 480 * 20, 0));
-    Consumable END_CATERPILLAR_SASHIMI = buildConsumable(new MobEffectInstance(MobEffects.WATER_BREATHING, 120 * 20, 0));
     Consumable VOID_MUTTON_STEAK_ITEM = buildConsumable(createEndEffect("void_erosion", 180 * 20));
     Consumable VOID_MUTTON_STEAK_BLOCK = buildConsumable(createEndEffect("void_erosion", 30 * 20));
 
@@ -124,6 +127,11 @@ public interface KEConsumables {
     @Nullable
     private static MobEffectInstance createEndEffect(String path, int duration) {
         return createEffect("kaleidoscope_end", path, duration, 0);
+    }
+
+    @Nullable
+    private static MobEffectInstance createVanillaEffect(String path, int duration) {
+        return createEffect("minecraft", path, duration, 0);
     }
 
     @Nullable

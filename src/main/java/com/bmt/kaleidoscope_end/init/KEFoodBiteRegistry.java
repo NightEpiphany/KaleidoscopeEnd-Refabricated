@@ -31,6 +31,8 @@ public final class KEFoodBiteRegistry {
     public static Identifier DRAGON_HEAD_WITH_SAUCE;
     public static Identifier DARK_DRAGON_EGG_STEW;
     public static Identifier DRAGON_EGG_CUSTARD;
+    public static Identifier END_CATERPILLAR_SASHIMI;
+    public static Identifier DRAGON_EGG_ICE_CREAM;
     private static final Map<Identifier, FoodBiteRegistry.FoodData> FOOD_DATA_MAP = new ConcurrentHashMap<>();
     private static final CopyOnWriteArrayList<Identifier> FOOD_DATA_ORDER = new CopyOnWriteArrayList<>();
 
@@ -40,6 +42,16 @@ public final class KEFoodBiteRegistry {
     public static void init() {
         FOOD_DATA_MAP.clear();
         FOOD_DATA_ORDER.clear();
+
+        // 龙蛋冰淇淋
+        DRAGON_EGG_ICE_CREAM = registerFoodData(KaleidoscopeEnd.id("dragon_egg_ice_cream"), FoodBiteRegistry.FoodData
+                .create(3, KEFoods.DRAGON_EGG_ICE_CREAM_BLOCK, KEFoods.DRAGON_EGG_ICE_CREAM_ITEM, KEConsumables.DRAGON_EGG_ICE_CREAM_BLOCK, KEConsumables.DRAGON_EGG_ICE_CREAM_ITEM)
+                .setLootItem(KEItem.DRAGON_EGG_SHELL)
+                .setAABB(Block.box(1, 0, 1, 15, 11, 15)));
+
+        // 末地猪儿虫刺身
+        END_CATERPILLAR_SASHIMI = registerFoodData(KaleidoscopeEnd.id("end_caterpillar_sashimi"), FoodBiteRegistry.FoodData
+                .create(3, KEFoods.END_CATERPILLAR_SASHIMI_BLOCK, KEFoods.END_CATERPILLAR_SASHIMI_ITEM, KEConsumables.END_CATERPILLAR_SASHIMI_BLOCK, KEConsumables.END_CATERPILLAR_SASHIMI_ITEM));
 
         // 末地沙拉
         END_SALAD = registerFoodData(KaleidoscopeEnd.id("end_salad"), FoodBiteRegistry.FoodData

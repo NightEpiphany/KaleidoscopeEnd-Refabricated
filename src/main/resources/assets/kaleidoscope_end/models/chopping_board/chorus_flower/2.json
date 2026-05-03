@@ -1,5 +1,5 @@
 {
-	"format_version": "1.9.0",
+	"format_version": "1.21.11",
     "parent": "block/block",
     "textures": {
         "bottom": "block/chorus_plant",
