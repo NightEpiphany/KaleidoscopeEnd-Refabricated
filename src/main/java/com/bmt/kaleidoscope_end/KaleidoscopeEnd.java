@@ -13,7 +13,7 @@ import net.neoforged.fml.config.ModConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class KaleidoscopeEnd implements ModInitializer {
+public final class KaleidoscopeEnd implements ModInitializer {
     public static final String MOD_ID = "kaleidoscope_end";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 

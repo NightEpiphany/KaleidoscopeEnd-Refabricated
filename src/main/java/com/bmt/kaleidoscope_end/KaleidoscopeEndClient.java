@@ -6,7 +6,7 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 
 @Environment(EnvType.CLIENT)
-public class KaleidoscopeEndClient implements ClientModInitializer {
+public final class KaleidoscopeEndClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         KEBlockRenderLayers.register();
