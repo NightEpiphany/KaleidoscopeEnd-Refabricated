@@ -9,7 +9,39 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
 import org.jetbrains.annotations.Nullable;
 
+import static com.bmt.kaleidoscope_end.init.KEEffects.VOID_EROSION;
+
 public interface KEFoods {
+    // 龙蛋冰淇淋
+    public static final FoodProperties DRAGON_EGG_ICE_CREAM_ITEM = new FoodProperties.Builder()
+            .nutrition(16)
+            .saturationModifier(1.8F)
+            .effect(createVanillaEffect("strength", 300 * 20), 1.0F)
+            .effect(createVanillaEffect("regeneration", 300 * 20), 1.0f)
+            .effect(createEndEffect("void_erosion", 35 * 20), 1.0F)
+            .alwaysEdible().build();
+
+    public static final FoodProperties DRAGON_EGG_ICE_CREAM_BLOCK = new FoodProperties.Builder()
+            .nutrition(5)
+            .saturationModifier(1.8F)
+            .effect(createVanillaEffect("strength", 300 * 20), 1.0F)
+            .effect(createVanillaEffect("regeneration", 300 * 20), 1.0f)
+            .effect(createEndEffect("void_erosion", 35 * 20), 1.0F)
+            .alwaysEdible().build();
+
+    // 末地猪儿虫刺身
+    public static final FoodProperties END_CATERPILLAR_SASHIMI_ITEM = new FoodProperties.Builder()
+            .nutrition(18)
+            .saturationModifier(1.8F)
+            .effect(createVanillaEffect("water_breathing", 120 * 20), 1.0f)
+            .alwaysEdible().build();
+
+    public static final FoodProperties END_CATERPILLAR_SASHIMI_BLOCK = new FoodProperties.Builder()
+            .nutrition(5)
+            .saturationModifier(1.8F)
+            .effect(createVanillaEffect("water_breathing", 120 * 20), 1.0f)
+            .alwaysEdible().build();
+
     public static final FoodProperties DRAGON_BREATH_CHORUS_SOUP = new FoodProperties.Builder()
             .nutrition(16)
             .saturationModifier(0.643f)
@@ -308,6 +340,11 @@ public interface KEFoods {
     @Nullable
     private static MobEffectInstance createEndEffect(String path, int duration) {
         return createEffect("kaleidoscope_end", path, duration, 0);
+    }
+
+    @Nullable
+    private static MobEffectInstance createVanillaEffect(String path, int duration) {
+        return createEffect("minecraft", path, duration, 0);
     }
 
     @Nullable

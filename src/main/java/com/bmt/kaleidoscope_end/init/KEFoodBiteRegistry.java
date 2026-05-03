@@ -24,6 +24,8 @@ public final class KEFoodBiteRegistry {
     public static ResourceLocation DRAGON_HEAD_WITH_SAUCE;
     public static ResourceLocation DARK_DRAGON_EGG_STEW;
     public static ResourceLocation DRAGON_EGG_CUSTARD;
+    public static ResourceLocation END_CATERPILLAR_SASHIMI;
+    public static ResourceLocation DRAGON_EGG_ICE_CREAM;
     private static final Map<ResourceLocation, FoodBiteRegistry.FoodData> FOOD_DATA_MAP = new LinkedHashMap<>();
 
     private KEFoodBiteRegistry() {
@@ -31,6 +33,17 @@ public final class KEFoodBiteRegistry {
 
     public static void init() {
         FOOD_DATA_MAP.clear();
+
+        // 龙蛋冰淇淋
+                DRAGON_EGG_ICE_CREAM = registerFoodData(KaleidoscopeEnd.id("dragon_egg_ice_cream"), FoodBiteRegistry.FoodData
+                .create(3, KEFoods.DRAGON_EGG_ICE_CREAM_BLOCK, KEFoods.DRAGON_EGG_ICE_CREAM_ITEM)
+                .setLootItem(KEItem.DRAGON_EGG_SHELL)
+                .setAABB(Block.box(1, 0, 1, 15, 11, 15)));
+
+        // 末地猪儿虫刺身
+        END_CATERPILLAR_SASHIMI = registerFoodData(KaleidoscopeEnd.id("end_caterpillar_sashimi"), FoodBiteRegistry.FoodData
+                .create(3, KEFoods.END_CATERPILLAR_SASHIMI_BLOCK, KEFoods.END_CATERPILLAR_SASHIMI_ITEM));
+
 
         // 末地沙拉
         END_SALAD = registerFoodData(KaleidoscopeEnd.id("end_salad"), FoodBiteRegistry.FoodData

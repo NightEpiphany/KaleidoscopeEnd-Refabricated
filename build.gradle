@@ -8,11 +8,9 @@ group = project.maven_group
 
 repositories {
 	maven {
-        url "https://cursemaven.com"
-        content {
-            includeGroup "curse.maven"
-        }
-    }
+		name = "Modrinth"
+		url = "https://api.modrinth.com/maven"
+	}
     maven {
         // location of the maven that hosts JEI files since January 2023
         // Patchouli
@@ -36,7 +34,7 @@ dependencies {
 	mappings loom.officialMojangMappings()
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 	modImplementation("mezz.jei:jei-${project.minecraft_version}-fabric:${project.jei_version}")
-	modImplementation "curse.maven:kaleidoscope-cookery-refabricated-1394201:7966794"
+	modImplementation "maven.modrinth:kaleidoscope-cookery-refabricated:${project.kaleidoscope_cookery_version}-fabric+mc${project.minecraft_version}"
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
 	modImplementation "fuzs.forgeconfigapiport:forgeconfigapiport-fabric:21.1.6"
 }

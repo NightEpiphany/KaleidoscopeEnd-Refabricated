@@ -60,9 +60,7 @@ public final class KEItem {
     public static BowlFoodOnlyItem CHORUS_FLOWER_TEA_ITEM;
     public static FoodWithEffectsItem CHORUS_FLOWER_CAKE_ITEM;
     public static FoodWithEffectsItem CHORUS_SEED_COOKIE_ITEM;
-    public static DragonEggShellFoodItem DRAGON_EGG_ICE_CREAM_ITEM;
     public static FoodWithEffectsItem STUFFED_VOID_CONCH_ITEM;
-    public static BowlFoodOnlyItem END_CATERPILLAR_SASHIMI_ITEM;
     public static DragonBreathBucket DRAGON_BREATH_BUCKET_ITEM;
 
     private KEItem() {
@@ -118,9 +116,7 @@ public final class KEItem {
         CHORUS_FLOWER_TEA_ITEM = new BowlFoodOnlyItem(KEFoods.CHORUS_FLOWER_TEA);
         CHORUS_FLOWER_CAKE_ITEM = new FoodWithEffectsItem(KEFoods.CHORUS_FLOWER_CAKE);
         CHORUS_SEED_COOKIE_ITEM = new FoodWithEffectsItem(KEFoods.CHORUS_SEED_COOKIE);
-        DRAGON_EGG_ICE_CREAM_ITEM = new DragonEggShellFoodItem(KEFoods.DRAGON_EGG_ICE_CREAM);
         STUFFED_VOID_CONCH_ITEM = new FoodWithEffectsItem(KEFoods.STUFFED_VOID_CONCH);
-        END_CATERPILLAR_SASHIMI_ITEM = new BowlFoodOnlyItem(KEFoods.END_CATERPILLAR_SASHIMI);
         DRAGON_BREATH_BUCKET_ITEM = new DragonBreathBucket(new Item.Properties());
 
         register("dragon_tooth_knife", DRAGON_TOOTH_KNIFE);
@@ -163,9 +159,7 @@ public final class KEItem {
         register("chorus_flower_tea", CHORUS_FLOWER_TEA_ITEM);
         register("chorus_flower_cake", CHORUS_FLOWER_CAKE_ITEM);
         register("chorus_seed_cookie", CHORUS_SEED_COOKIE_ITEM);
-        register("dragon_egg_ice_cream", DRAGON_EGG_ICE_CREAM_ITEM);
         register("stuffed_void_conch", STUFFED_VOID_CONCH_ITEM);
-        register("end_caterpillar_sashimi", END_CATERPILLAR_SASHIMI_ITEM);
         register("dragon_breath_bucket", DRAGON_BREATH_BUCKET_ITEM);
     }
 

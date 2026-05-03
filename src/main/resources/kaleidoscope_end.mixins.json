@@ -4,6 +4,7 @@
   "compatibilityLevel": "JAVA_21",
   "plugin": "com.bmt.kaleidoscope_end.mixins.MainMixinPlugin",
   "mixins": [
+    "BlockBehaviourMixin",
     "BlockEntityTypeMixin",
     "EnchantmentMenuMixin",
     "EnchantmentSlotMixin",
