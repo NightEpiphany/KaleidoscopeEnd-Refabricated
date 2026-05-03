@@ -24,7 +24,6 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.BlockColumnConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.RandomizedIntStateProvider;
@@ -90,21 +89,5 @@ public class ModFeatures {
                 )
         );
 
-        FeatureUtils.register(
-                context,
-                ENDER_MINT,
-                Feature.RANDOM_PATCH,
-                new RandomPatchConfiguration(
-                        96,
-                        7,
-                        3,
-                        PlacementUtils.filtered(
-                                Feature.SIMPLE_BLOCK,
-                                new SimpleBlockConfiguration(
-                                        BlockStateProvider.simple(KEBlocks.ENDER_MINT.defaultBlockState().setValue(CropBlock.AGE, 7))
-                                ),
-                                ModFeatureUtils.simplePatchPredicate(KETags.Blocks.END_STONE_GROWABLE)
-                        )
-                ));
     }
 }

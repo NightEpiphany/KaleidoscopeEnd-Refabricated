@@ -5,7 +5,7 @@ import com.bmt.kaleidoscope_end.util.EnchantmentScreenHelper;
 import com.mojang.blaze3d.pipeline.RenderPipeline;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.screens.inventory.EnchantmentScreen;
 import net.minecraft.client.renderer.RenderPipelines;
@@ -50,13 +50,13 @@ public abstract class EnchantmentScreenMixin extends AbstractContainerScreen<Enc
         super(p_97741_, p_97742_, p_97743_);
     }
 
-    @ModifyArg(method = "renderBg", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/GuiGraphics;drawString(Lnet/minecraft/client/gui/Font;Ljava/lang/String;III)V"), index = 4)
+    @ModifyArg(method = "extractBackground", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/GuiGraphicsExtractor;text(Lnet/minecraft/client/gui/Font;Ljava/lang/String;III)V"), index = 4)
     private int onDrawString(int color) {
         return EnchantmentScreenHelper.warpColor(color, menu);
     }
 
-    @Redirect(method = "renderBg", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/GuiGraphics;blitSprite(Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lnet/minecraft/resources/Identifier;IIII)V"))
-    private void redirectBlitSprite(GuiGraphics guiGraphics, RenderPipeline renderPipeline, Identifier sprite, int x, int y, int width, int height) {
+    @Redirect(method = "extractBackground", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/GuiGraphicsExtractor;blitSprite(Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lnet/minecraft/resources/Identifier;IIII)V"))
+    private void redirectBlitSprite(GuiGraphicsExtractor guiGraphics, RenderPipeline renderPipeline, Identifier sprite, int x, int y, int width, int height) {
         RenderPipeline pipeline = renderPipeline == null ? RenderPipelines.GUI_TEXTURED : renderPipeline;
         if (!menu.slots.get(1).getItem().is(KEItem.VOID_CONCH)) {
             guiGraphics.blitSprite(pipeline, sprite, x, y, width, height);

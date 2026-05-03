@@ -137,11 +137,11 @@ public abstract class EnchantmentMenuMixin {
             method = "quickMoveStack",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/world/item/ItemStack;is(Lnet/minecraft/world/item/Item;)Z"
+                    target = "Lnet/minecraft/world/item/ItemStack;is(Ljava/lang/Object;)Z"
             )
     )
-    private boolean kaleidoscope$shiftMove(ItemStack stack, Item item) {
-        if (stack.is(item)) return true;
-        return stack.is(EXTRA_FUEL);
+    private boolean kaleidoscope$shiftMove(ItemStack instance, Object o) {
+        if (instance.is((Item) o)) return true;
+        return instance.is(EXTRA_FUEL);
     }
 }

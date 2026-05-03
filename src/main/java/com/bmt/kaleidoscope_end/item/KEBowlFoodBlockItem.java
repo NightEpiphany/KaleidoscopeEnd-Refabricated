@@ -46,7 +46,7 @@ import java.util.function.Consumer;
 
 public class KEBowlFoodBlockItem extends BlockItem {
     private final List<MobEffectInstance> effectInstances = Lists.newArrayList();
-    private final Optional<ItemStack> usingConvertsTo;
+    private final Optional<ItemLike> usingConvertsTo;
 
     public KEBowlFoodBlockItem(Block block, FoodProperties properties, Consumable consumable, @Nullable ItemLike usingConvertsTo, String name) {
         super(block, new Item.Properties()
@@ -54,7 +54,7 @@ public class KEBowlFoodBlockItem extends BlockItem {
                 .useBlockDescriptionPrefix()
                 .food(properties, consumable)
                 .setId(ResourceKey.create(Registries.ITEM, KaleidoscopeEnd.id(name))));
-        this.usingConvertsTo = usingConvertsTo == null ? Optional.empty() : Optional.of(new ItemStack(usingConvertsTo));
+        this.usingConvertsTo = Optional.ofNullable(usingConvertsTo);
         consumable.onConsumeEffects().forEach(effect -> {
             if (effect instanceof ApplyStatusEffectsConsumeEffect(List<MobEffectInstance> effects, float probability)) {
                 effectInstances.addAll(effects);
@@ -76,7 +76,7 @@ public class KEBowlFoodBlockItem extends BlockItem {
                 if (itemStack.isEmpty()) {
                     return;
                 }
-                if (this.usingConvertsTo.isPresent() && ItemStack.isSameItem(itemStack, this.usingConvertsTo.get())) {
+                if (this.usingConvertsTo.isPresent() && ItemStack.isSameItem(itemStack, this.usingConvertsTo.get().asItem().getDefaultInstance())) {
                     return;
                 }
                 if (entity instanceof Player player) {

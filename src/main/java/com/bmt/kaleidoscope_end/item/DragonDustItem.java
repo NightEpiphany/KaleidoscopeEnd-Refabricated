@@ -72,8 +72,8 @@ public class DragonDustItem extends BoneMealItem {
         if (blockstate.getBlock() instanceof BonemealableBlock bonemealableblock) {
             if (bonemealableblock.isValidBonemealTarget(level, pos, blockstate)) {
                 if (level instanceof ServerLevel) {
-                    if (bonemealableblock.isBonemealSuccess(level, level.random, pos, blockstate)) {
-                        bonemealableblock.performBonemeal((ServerLevel)level, level.random, pos, blockstate);
+                    if (bonemealableblock.isBonemealSuccess(level, level.getRandom(), pos, blockstate)) {
+                        bonemealableblock.performBonemeal((ServerLevel)level, level.getRandom(), pos, blockstate);
                     }
                 }
                 return true;
@@ -105,7 +105,7 @@ public class DragonDustItem extends BoneMealItem {
                         if (i == 0 && direction != null && direction.getAxis().isHorizontal()) {
                             blockstate = level.registryAccess().lookupOrThrow(Registries.BLOCK)
                                     .get(BlockTags.WALL_CORALS)
-                                    .flatMap(holders -> holders.getRandomElement(level.random))
+                                    .flatMap(holders -> holders.getRandomElement(level.getRandom()))
                                     .map(blockHolder -> blockHolder.value().defaultBlockState())
                                     .orElse(blockstate);
                             if (blockstate.hasProperty(BaseCoralWallFanBlock.FACING)) {
@@ -114,7 +114,7 @@ public class DragonDustItem extends BoneMealItem {
                         } else if (randomsource.nextInt(4) == 0) {
                             blockstate = level.registryAccess().lookupOrThrow(Registries.BLOCK)
                                     .get(BlockTags.UNDERWATER_BONEMEALS)
-                                    .flatMap(holders -> holders.getRandomElement(level.random))
+                                    .flatMap(holders -> holders.getRandomElement(level.getRandom()))
                                     .map(blockHolder -> blockHolder.value().defaultBlockState())
                                     .orElse(blockstate);
                         }

@@ -28,6 +28,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.NonNull;
 
 public class SuspiciousDragonEggBlock extends BrushableBlock implements Fallable {
     private static final VoxelShape SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
@@ -37,20 +38,20 @@ public class SuspiciousDragonEggBlock extends BrushableBlock implements Fallable
     }
 
     @Override
-    public void onPlace(BlockState state, Level level, BlockPos pos, BlockState oldState, boolean movedByPiston) {
+    public void onPlace(@NonNull BlockState state, Level level, @NonNull BlockPos pos, @NonNull BlockState oldState, boolean movedByPiston) {
         level.scheduleTick(pos, this, getDelayAfterPlace());
     }
 
     @Override
     public @NotNull BlockState updateShape(
-            BlockState state,
-            LevelReader levelReader,
+            @NonNull BlockState state,
+            @NonNull LevelReader levelReader,
             ScheduledTickAccess scheduledTickAccess,
-            BlockPos pos,
-            Direction direction,
-            BlockPos neighborPos,
-            BlockState neighborState,
-            RandomSource randomSource
+            @NonNull BlockPos pos,
+            @NonNull Direction direction,
+            @NonNull BlockPos neighborPos,
+            @NonNull BlockState neighborState,
+            @NonNull RandomSource randomSource
     ) {
         scheduledTickAccess.scheduleTick(pos, this, getDelayAfterPlace());
         return super.updateShape(state, levelReader, scheduledTickAccess, pos, direction, neighborPos, neighborState, randomSource);
@@ -68,29 +69,29 @@ public class SuspiciousDragonEggBlock extends BrushableBlock implements Fallable
     }
 
     @Override
-    public @NotNull VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+    public @NotNull VoxelShape getShape(@NonNull BlockState state, @NonNull BlockGetter level, @NonNull BlockPos pos, @NonNull CollisionContext context) {
         return SHAPE;
     }
 
     @Override
-    public void attack(BlockState state, Level level, BlockPos pos, Player player) {
+    public void attack(@NonNull BlockState state, @NonNull Level level, @NonNull BlockPos pos, @NonNull Player player) {
         teleport(state, level, pos);
     }
 
     private void teleport(BlockState state, Level level, BlockPos pos) {
         WorldBorder worldBorder = level.getWorldBorder();
         for (int i = 0; i < 1000; ++i) {
-            BlockPos targetPos = pos.offset(level.random.nextInt(16) - level.random.nextInt(16), level.random.nextInt(8) - level.random.nextInt(8), level.random.nextInt(16) - level.random.nextInt(16));
+            BlockPos targetPos = pos.offset(level.getRandom().nextInt(16) - level.getRandom().nextInt(16), level.getRandom().nextInt(8) - level.getRandom().nextInt(8), level.getRandom().nextInt(16) - level.getRandom().nextInt(16));
             if (level.getBlockState(targetPos).isAir() && worldBorder.isWithinBounds(targetPos)) {
                 if (level.isClientSide()) {
                     for (int j = 0; j < 128; ++j) {
-                        double progress = level.random.nextDouble();
-                        float xSpeed = (level.random.nextFloat() - 0.5F) * 0.2F;
-                        float ySpeed = (level.random.nextFloat() - 0.5F) * 0.2F;
-                        float zSpeed = (level.random.nextFloat() - 0.5F) * 0.2F;
-                        double x = Mth.lerp(progress, targetPos.getX(), pos.getX()) + (level.random.nextDouble() - 0.5D) + 0.5D;
-                        double y = Mth.lerp(progress, targetPos.getY(), pos.getY()) + level.random.nextDouble() - 0.5D;
-                        double z = Mth.lerp(progress, targetPos.getZ(), pos.getZ()) + (level.random.nextDouble() - 0.5D) + 0.5D;
+                        double progress = level.getRandom().nextDouble();
+                        float xSpeed = (level.getRandom().nextFloat() - 0.5F) * 0.2F;
+                        float ySpeed = (level.getRandom().nextFloat() - 0.5F) * 0.2F;
+                        float zSpeed = (level.getRandom().nextFloat() - 0.5F) * 0.2F;
+                        double x = Mth.lerp(progress, targetPos.getX(), pos.getX()) + (level.getRandom().nextDouble() - 0.5D) + 0.5D;
+                        double y = Mth.lerp(progress, targetPos.getY(), pos.getY()) + level.getRandom().nextDouble() - 0.5D;
+                        double z = Mth.lerp(progress, targetPos.getZ(), pos.getZ()) + (level.getRandom().nextDouble() - 0.5D) + 0.5D;
                         level.addParticle(ParticleTypes.PORTAL, x, y, z, xSpeed, ySpeed, zSpeed);
                     }
                 } else {
