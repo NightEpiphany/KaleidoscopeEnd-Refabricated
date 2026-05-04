@@ -66,7 +66,7 @@ public final class KEItem {
 
     public static synchronized void registerItems() {
         DRAGON_TOOTH_KNIFE = new DragonToothKnifeItem(properties("dragon_tooth_knife"));
-        ENDER_MINT = new KEBlockItem(KEBlocks.ENDER_MINT, blockProperties("ender_mint"));
+        ENDER_MINT = new KEBlockItem(KEBlocks.ENDER_MINT, properties("ender_mint"));
         VOID_CONCH = new Item(properties("void_conch"));
         DRAGON_DUST = new DragonDustItem(properties("dragon_dust"));
         DRAGON_TOOTH = new Item(properties("dragon_tooth"));
