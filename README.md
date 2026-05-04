@@ -7,11 +7,11 @@
 ## Compendium
 - This is the **fabric port** for [**Kaleidoscope End**](https://modrinth.com/mod/kaleidoscope-end) mod.
 - Requires [**Kaleidoscope Cookery Refabricated**](https://modrinth.com/mod/kaleidoscope-cookery-refabricated).
-- Sorry, but no backport planned. Higher versions may be supported in the future.
+- Sorry, but no backport planned.
 
 ## Overview
 ![Minecraft](https://img.shields.io/badge/Minecraft-Java%20Edition-brightgreen)
-![Fabric](https://img.shields.io/badge/Fabric-%201.21.1-orange)
+![Fabric](https://img.shields.io/badge/Fabric-%201.21.1|%201.21.11|%2026.1.2-orange)
 ![License](https://img.shields.io/badge/License-MIT-blue)  
 The End needs delicious food too! This mod brings End-related expansions to Kaleidoscope: Kitchen.
 
