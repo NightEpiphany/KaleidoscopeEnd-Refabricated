@@ -52,38 +52,38 @@
                                                                 }
                                                   },
                                                   {
-                                                      "name":  "chopping_board/chorus_fruit/0",
+                                                      "name":  "chopping_board/chorus_seed/0",
                                                       "model":  {
                                                                     "type":  "minecraft:model",
-                                                                    "model":  "kaleidoscope_end:item/chopping_board/chorus_fruit/0"
+                                                                    "model":  "kaleidoscope_end:item/chopping_board/chorus_seed/0"
                                                                 }
                                                   },
                                                   {
-                                                      "name":  "chopping_board/chorus_fruit/1",
+                                                      "name":  "chopping_board/chorus_seed/1",
                                                       "model":  {
                                                                     "type":  "minecraft:model",
-                                                                    "model":  "kaleidoscope_end:item/chopping_board/chorus_fruit/1"
+                                                                    "model":  "kaleidoscope_end:item/chopping_board/chorus_seed/1"
                                                                 }
                                                   },
                                                   {
-                                                      "name":  "chopping_board/chorus_fruit/2",
+                                                      "name":  "chopping_board/chorus_seed/2",
                                                       "model":  {
                                                                     "type":  "minecraft:model",
-                                                                    "model":  "kaleidoscope_end:item/chopping_board/chorus_fruit/2"
+                                                                    "model":  "kaleidoscope_end:item/chopping_board/chorus_seed/2"
                                                                 }
                                                   },
                                                   {
-                                                      "name":  "chopping_board/chorus_fruit/3",
+                                                      "name":  "chopping_board/chorus_seed/3",
                                                       "model":  {
                                                                     "type":  "minecraft:model",
-                                                                    "model":  "kaleidoscope_end:item/chopping_board/chorus_fruit/3"
+                                                                    "model":  "kaleidoscope_end:item/chopping_board/chorus_seed/3"
                                                                 }
                                                   },
                                                   {
-                                                      "name":  "chopping_board/chorus_fruit/4",
+                                                      "name":  "chopping_board/chorus_seed/4",
                                                       "model":  {
                                                                     "type":  "minecraft:model",
-                                                                    "model":  "kaleidoscope_end:item/chopping_board/chorus_fruit/4"
+                                                                    "model":  "kaleidoscope_end:item/chopping_board/chorus_seed/4"
                                                                 }
                                                   },
                                                   {

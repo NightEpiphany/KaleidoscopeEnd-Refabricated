@@ -3,7 +3,11 @@ package com.bmt.kaleidoscope_end.datagen;
 import com.bmt.kaleidoscope_end.KaleidoscopeEnd;
 import com.bmt.kaleidoscope_end.init.KEBlocks;
 import com.bmt.kaleidoscope_end.init.KETags;
+import com.bmt.kaleidoscope_end.worldgen.KEWorldgen;
+import com.bmt.kaleidoscope_end.worldgen.configuration.EndVegetationFeatureConfiguration;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Holder;
+import net.minecraft.core.Vec3i;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.features.FeatureUtils;
@@ -28,6 +32,8 @@ import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConf
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.RandomizedIntStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
+import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 
@@ -87,6 +93,22 @@ public class ModFeatures {
                         BlockPredicate.ONLY_IN_AIR_PREDICATE,
                         true
                 )
+        );
+
+        Holder<PlacedFeature> enderMintPatch = PlacementUtils.inlinePlaced(
+                Feature.SIMPLE_BLOCK,
+                new SimpleBlockConfiguration(BlockStateProvider.simple(KEBlocks.ENDER_MINT.defaultBlockState().setValue(CropBlock.AGE, 7))),
+                BlockPredicateFilter.forPredicate(BlockPredicate.allOf(
+                        BlockPredicate.ONLY_IN_AIR_PREDICATE,
+                        BlockPredicate.matchesTag(new Vec3i(0, -1, 0), KETags.Blocks.END_STONE_GROWABLE)
+                ))
+        );
+
+        FeatureUtils.register(
+                context,
+                ENDER_MINT,
+                KEWorldgen.END_VEGETATION.get(),
+                new EndVegetationFeatureConfiguration(96, 7, 3, enderMintPatch)
         );
 
     }
