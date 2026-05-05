@@ -12,14 +12,13 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.Unique;
+import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(Endermite.class)
+@Implements(@Interface(iface = IEndermiteExtension.class, prefix = "$kaleidoscope_end$"))
 public abstract class EndermiteMixin extends Monster implements IEndermiteExtension {
     @Unique
     private static final String NBT_KEY = "ke_endermite_info";
