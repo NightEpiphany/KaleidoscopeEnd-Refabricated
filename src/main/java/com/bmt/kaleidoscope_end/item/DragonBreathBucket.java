@@ -1,7 +1,6 @@
 package com.bmt.kaleidoscope_end.item;
 
 import net.minecraft.core.component.DataComponents;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
@@ -9,7 +8,7 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.AreaEffectCloud;
 import net.minecraft.world.entity.EntitySpawnReason;
-import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.boss.enderdragon.EnderDragon;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -19,6 +18,7 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.NonNull;
 
 public class DragonBreathBucket extends Item {
     @Nullable
@@ -29,10 +29,10 @@ public class DragonBreathBucket extends Item {
     }
 
     @Override
-    public InteractionResult useOn(UseOnContext context) {
+    public @NonNull InteractionResult useOn(UseOnContext context) {
         Level level = context.getLevel();
         if (fakeDragon == null) {
-            fakeDragon = EntityType.ENDER_DRAGON.create(level, EntitySpawnReason.MOB_SUMMONED);
+            fakeDragon = EntityTypes.ENDER_DRAGON.create(level, EntitySpawnReason.MOB_SUMMONED);
         }
         if (fakeDragon == null) {
             return InteractionResult.PASS;

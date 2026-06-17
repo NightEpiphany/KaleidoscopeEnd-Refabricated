@@ -9,6 +9,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
+import org.jspecify.annotations.NonNull;
 
 public final class KEEffects {
     public static Holder<MobEffect> DREAM;
@@ -21,7 +22,7 @@ public final class KEEffects {
     public static void registerEffects() {
         DREAM = Registry.registerForHolder(BuiltInRegistries.MOB_EFFECT, id("dream"), new MobEffect(MobEffectCategory.BENEFICIAL, 0xFFFFFF) {
             @Override
-            public boolean applyEffectTick(ServerLevel serverLevel, LivingEntity livingEntity, int amplifier) {
+            public boolean applyEffectTick(@NonNull ServerLevel serverLevel, @NonNull LivingEntity livingEntity, int amplifier) {
                 livingEntity.fallDistance = 1.0F;
                 return true;
             }

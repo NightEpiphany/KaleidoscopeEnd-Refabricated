@@ -24,10 +24,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
-import net.minecraft.world.entity.AreaEffectCloud;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.boss.enderdragon.EnderDragon;
 import net.minecraft.world.entity.monster.Endermite;
 import net.minecraft.world.entity.player.Player;
@@ -260,7 +257,7 @@ public final class KEPlayerEvents {
     }
 
     private static void onAfterDeath(LivingEntity entity, DamageSource source) {
-        if (entity.getType() != EntityType.ENDER_DRAGON || !(source.getEntity() instanceof ServerPlayer player)) {
+        if (entity.getType() != EntityTypes.ENDER_DRAGON || !(source.getEntity() instanceof ServerPlayer player)) {
             return;
         }
 

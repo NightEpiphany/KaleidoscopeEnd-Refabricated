@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import com.bmt.kaleidoscope_end.init.KEItem;
+import net.minecraft.advancements.predicates.StatePropertiesPredicate;
 import net.minecraft.world.item.Items;
 import org.jetbrains.annotations.NotNull;
 
@@ -12,7 +13,7 @@ import com.bmt.kaleidoscope_end.init.KEBlocks;
 import com.github.ysbbbbbb.kaleidoscopecookery.block.food.FoodBiteBlock;
 import com.github.ysbbbbbb.kaleidoscopecookery.init.registry.FoodBiteRegistry;
 
-import net.minecraft.advancements.criterion.StatePropertiesPredicate;
+
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.loot.BlockLootSubProvider;
