@@ -2,6 +2,7 @@ package com.bmt.kaleidoscope_end.event;
 
 import com.bmt.kaleidoscope_end.api.IEndermiteExtension;
 import com.bmt.kaleidoscope_end.api.event.EnderManAngerEvent;
+import com.bmt.kaleidoscope_end.common.DragonBreathCloudService;
 import com.bmt.kaleidoscope_end.common.KEEndermiteInfo;
 import com.bmt.kaleidoscope_end.init.*;
 import net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents;
@@ -25,7 +26,6 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.boss.enderdragon.EnderDragon;
 import net.minecraft.world.entity.monster.Endermite;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -185,8 +185,11 @@ public final class KEPlayerEvents {
         }
 
         AABB area = player.getBoundingBox().inflate(2.0D);
-        List<AreaEffectCloud> clouds = level.getEntitiesOfClass(AreaEffectCloud.class, area, cloud ->
-                cloud.isAlive() && cloud.getOwner() instanceof EnderDragon);
+        List<AreaEffectCloud> clouds = level.getEntitiesOfClass(
+                AreaEffectCloud.class,
+                area,
+                DragonBreathCloudService::isCollectible
+        );
         if (clouds.isEmpty()) {
             return InteractionResult.PASS;
         }
