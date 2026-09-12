@@ -13,5 +13,5 @@ pluginManagement {
 	}
 }
 
-// Should match your modid
-rootProject.name = "kaleidoscope_end"
+// Title for the project
+rootProject.name = "KE-26.1.2-fabric"

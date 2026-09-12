@@ -48,9 +48,9 @@ public class ModPlacements {
         Holder<ConfiguredFeature<?, ?>> holder1 = holdergetter.getOrThrow(ModFeatures.SUSPICIOUS_END_STONE_LARGE);
         Holder<ConfiguredFeature<?, ?>> holder2 = holdergetter.getOrThrow(ModFeatures.SUSPICIOUS_END_STONE_BURIED);
 
-        PlacementUtils.register(context, SUSPICIOUS_END_STONE_SMALL, holder, commonOrePlacement(7, HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(0), VerticalAnchor.aboveBottom(80))));
-        PlacementUtils.register(context, SUSPICIOUS_END_STONE_LARGE, holder1, rareOrePlacement(HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(0), VerticalAnchor.aboveBottom(80))));
-        PlacementUtils.register(context, SUSPICIOUS_END_STONE_BURIED, holder2, commonOrePlacement(4, HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(0), VerticalAnchor.aboveBottom(80))));
+        PlacementUtils.register(context, SUSPICIOUS_END_STONE_SMALL, holder, commonOrePlacement(7, HeightRangePlacement.triangle(VerticalAnchor.absolute(0), VerticalAnchor.absolute(80))));
+        PlacementUtils.register(context, SUSPICIOUS_END_STONE_LARGE, holder1, rareOrePlacement(HeightRangePlacement.triangle(VerticalAnchor.absolute(0), VerticalAnchor.absolute(80))));
+        PlacementUtils.register(context, SUSPICIOUS_END_STONE_BURIED, holder2, commonOrePlacement(4, HeightRangePlacement.triangle(VerticalAnchor.absolute(0), VerticalAnchor.absolute(80))));
 
         PlacementUtils.register(
                 context,

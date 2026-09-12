@@ -127,7 +127,10 @@ public final class KEPlayerEvents {
                         weapon
                 );
 
-                if (voidEchoLevel > 0 && livingAttacker.getRandom().nextFloat() < 0.25F) {
+                // Echo damage uses sonic boom and fires this callback again; do not echo an echo.
+                if (!source.is(DamageTypes.SONIC_BOOM)
+                        && voidEchoLevel > 0
+                        && livingAttacker.getRandom().nextFloat() < 0.25F) {
                     float echoDamage = amount * (0.40F + (voidEchoLevel - 1) * 0.15F);
 
                     Level level = livingAttacker.level();
