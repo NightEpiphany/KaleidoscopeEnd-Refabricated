@@ -41,6 +41,14 @@ dependencies {
 	implementation ("fuzs.forgeconfigapiport:forgeconfigapiport-fabric:${providers.gradleProperty("forge_config_api_version").get()}")
 }
 
+fabricApi {
+	configureTests {
+		createSourceSet = true
+		modId = "kaleidoscope_end_test"
+		enableClientGameTests = false
+	}
+}
+
 tasks.processResources {
 	val version = version
 	inputs.property("version", version)
