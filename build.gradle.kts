@@ -8,6 +8,10 @@ plugins {
 version = providers.gradleProperty("mod_version").get()
 group = providers.gradleProperty("maven_group").get()
 
+base {
+	archivesName = providers.gradleProperty("archives_base_name")
+}
+
 repositories {
 	maven {
 		name = "Modrinth"
