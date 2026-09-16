@@ -2,6 +2,7 @@ package com.bmt.kaleidoscope_end.item;
 
 import com.github.ysbbbbbb.kaleidoscopecookery.api.item.IHasContainer;
 import com.github.ysbbbbbb.kaleidoscopecookery.item.FoodWithEffectsItem;
+import net.minecraft.util.Prediction;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
@@ -26,7 +27,7 @@ public class ShulkerShellFoodItem extends FoodWithEffectsItem implements IHasCon
             return shulkerShell;
         }
         if (entity instanceof Player player) {
-            player.getInventory().placeItemBackInInventory(shulkerShell);
+            player.getInventory().placeItemBackInInventory(shulkerShell, Prediction.PREDICTED);
         } else {
             level.addFreshEntity(new ItemEntity(level, entity.getX(), entity.getY(), entity.getZ(), shulkerShell));
         }

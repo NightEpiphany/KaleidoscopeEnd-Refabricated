@@ -1,8 +1,8 @@
 package com.bmt.kaleidoscope_end.worldgen;
 
 import com.bmt.kaleidoscope_end.KaleidoscopeEnd;
-import com.bmt.kaleidoscope_end.worldgen.configuration.EndVegetationFeatureConfiguration;
 import com.bmt.kaleidoscope_end.worldgen.feature.EndVegetationFeature;
+import com.mojang.serialization.MapCodec;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.minecraft.core.Registry;
@@ -24,13 +24,13 @@ public final class KEWorldgen {
     private static final ResourceKey<PlacedFeature> SUSPICIOUS_END_STONE_LARGE = ResourceKey.create(Registries.PLACED_FEATURE, KaleidoscopeEnd.id("suspicious_end_stone_large"));
     private static final ResourceKey<PlacedFeature> SUSPICIOUS_END_STONE_BURIED = ResourceKey.create(Registries.PLACED_FEATURE, KaleidoscopeEnd.id("suspicious_end_stone_buried"));
 
-    public static final Supplier<Feature<EndVegetationFeatureConfiguration>> END_VEGETATION = regFeature("end_vegetation", () -> new EndVegetationFeature(EndVegetationFeatureConfiguration.CODEC));
+    public static final Supplier<MapCodec<EndVegetationFeature>> END_VEGETATION = regFeature("end_vegetation", () -> EndVegetationFeature.CODEC);
 
     private KEWorldgen() {
     }
 
-    public static <B extends Feature<?>> Supplier<B> regFeature(String name, Supplier<B> supplier) {
-        return register(name, supplier, BuiltInRegistries.FEATURE);
+    public static <B extends Feature> Supplier<MapCodec<B>> regFeature(String name, Supplier<MapCodec<B>> supplier) {
+        return register(name, supplier, BuiltInRegistries.FEATURE_TYPE);
     }
 
     public static <R, T extends R> Supplier<T> register(String name, Supplier<T> supplier, Registry<R> reg) {

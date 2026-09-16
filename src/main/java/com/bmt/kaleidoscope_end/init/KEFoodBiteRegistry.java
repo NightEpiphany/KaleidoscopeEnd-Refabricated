@@ -120,7 +120,7 @@ public final class KEFoodBiteRegistry {
                 .instabreak()
                 .mapColor(MapColor.WOOD)
                 .sound(SoundType.WOOD)
-                .pushReaction(PushReaction.DESTROY)
+                .pushReaction(PushReaction.POPPED)
                 .noOcclusion();
 
         FoodBiteBlock biteBlock = data.blockType() == FoodBiteRegistry.BlockType.ONE_BY_TWO

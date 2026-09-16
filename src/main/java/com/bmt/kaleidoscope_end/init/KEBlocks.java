@@ -31,9 +31,9 @@ import java.util.function.Supplier;
 
 public final class KEBlocks {
     public static final Supplier<BlockBehaviour.Properties> CROP_DEFAULT_PROPERTIES =
-            () -> BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollision().randomTicks().instabreak().sound(SoundType.CROP).pushReaction(PushReaction.DESTROY);
+            () -> BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollision().randomTicks().instabreak().sound(SoundType.CROP).pushReaction(PushReaction.POPPED);
     public static final Supplier<BlockBehaviour.Properties> CAVE_VINES_PROPERTIES =
-            () -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_CYAN).randomTicks().noCollision().instabreak().sound(SoundType.WEEPING_VINES).pushReaction(PushReaction.DESTROY);
+            () -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_CYAN).randomTicks().noCollision().instabreak().sound(SoundType.WEEPING_VINES).pushReaction(PushReaction.POPPED);
 
     public static final DreamBerryPlantBlock DREAM_BERRY_PLANT = register("dream_berry_plant", DreamBerryPlantBlock::new, CAVE_VINES_PROPERTIES.get());
     public static final DreamBerryHeadBlock DREAM_BERRY_HEAD = register("dream_berry_head", DreamBerryHeadBlock::new, CAVE_VINES_PROPERTIES.get());
@@ -52,7 +52,7 @@ public final class KEBlocks {
             }
             return blockEntity;
         }
-    }, BlockBehaviour.Properties.of().mapColor(MapColor.SAND).instrument(NoteBlockInstrument.SNARE).strength(0.25F).sound(SoundType.SUSPICIOUS_SAND).pushReaction(PushReaction.DESTROY));
+    }, BlockBehaviour.Properties.of().mapColor(MapColor.SAND).instrument(NoteBlockInstrument.SNARE).strength(0.25F).sound(SoundType.SUSPICIOUS_SAND).pushReaction(PushReaction.POPPED));
     public static final SuspiciousDragonEggBlock SUSPICIOUS_DRAGON_EGG = register("suspicious_dragon_egg",
             properties -> new SuspiciousDragonEggBlock(
                     Blocks.DRAGON_EGG,
@@ -60,7 +60,7 @@ public final class KEBlocks {
                     SoundEvents.BRUSH_SAND_COMPLETED,
                     properties
             ),
-            BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).strength(3.0F, 9.0F).lightLevel(state -> 1).noOcclusion().pushReaction(PushReaction.DESTROY)
+            BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).strength(3.0F, 9.0F).lightLevel(state -> 1).noOcclusion().pushReaction(PushReaction.POPPED)
     );
     public static final StoveBlock END_STOVE = register("end_stove",
             StoveBlock::new,

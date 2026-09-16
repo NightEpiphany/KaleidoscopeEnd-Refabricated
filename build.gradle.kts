@@ -39,6 +39,10 @@ dependencies {
 	implementation ("maven.modrinth:kaleidoscope-cookery-refabricated:${providers.gradleProperty("kaleidoscope_cookery_version").get()}-fabric+mc${providers.gradleProperty("minecraft_version").get()}")
 	implementation("net.fabricmc.fabric-api:fabric-api:${providers.gradleProperty("fabric_api_version").get()}")
 	implementation ("fuzs.forgeconfigapiport:forgeconfigapiport-fabric:${providers.gradleProperty("forge_config_api_version").get()}")
+	implementation("maven.modrinth:rrv:${providers.gradleProperty("rrv_version").get()}") {
+		exclude(group = "net.fabricmc.fabric-api")
+		exclude(group = "eu.pb4")
+	}
 }
 
 fabricApi {

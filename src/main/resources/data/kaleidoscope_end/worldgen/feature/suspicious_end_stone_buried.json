@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:ore",
+  "discard_chance_on_air_exposure": 1.0,
+  "size": 8,
+  "targets": [
+    {
+      "state": {
+        "id": "kaleidoscope_end:suspicious_end_stone",
+        "properties": {
+          "dusted": "0"
+        }
+      },
+      "target": {
+        "block": "minecraft:end_stone",
+        "predicate_type": "minecraft:block_match"
+      }
+    }
+  ]
+}

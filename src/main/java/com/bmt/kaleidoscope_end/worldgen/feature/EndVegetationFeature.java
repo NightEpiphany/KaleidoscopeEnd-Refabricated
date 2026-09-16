@@ -1,25 +1,34 @@
 package com.bmt.kaleidoscope_end.worldgen.feature;
 
 import com.bmt.kaleidoscope_end.worldgen.configuration.EndVegetationFeatureConfiguration;
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
+import net.minecraft.world.level.chunk.ChunkGenerator;
 import org.jspecify.annotations.NonNull;
 
-public class EndVegetationFeature extends Feature<EndVegetationFeatureConfiguration> {
-    public EndVegetationFeature(Codec<EndVegetationFeatureConfiguration> codec) {
-        super(codec);
+import java.util.stream.Stream;
+
+public record EndVegetationFeature(EndVegetationFeatureConfiguration config) implements Feature {
+    public static final MapCodec<EndVegetationFeature> CODEC =
+            EndVegetationFeatureConfiguration.CODEC.xmap(EndVegetationFeature::new, EndVegetationFeature::config);
+
+    @Override
+    public @NonNull MapCodec<EndVegetationFeature> codec() {
+        return CODEC;
     }
 
     @Override
-    public boolean place(@NonNull FeaturePlaceContext<EndVegetationFeatureConfiguration> context) {
-        EndVegetationFeatureConfiguration config = context.config();
-        RandomSource random = context.random();
-        BlockPos origin = context.origin();
-        WorldGenLevel level = context.level();
+    public @NonNull Stream<Holder<Feature>> getSubFeatures() {
+        return config.feature().value().getFeatures();
+    }
+
+    @Override
+    public boolean place(@NonNull WorldGenLevel level, @NonNull ChunkGenerator chunkGenerator,
+                         @NonNull RandomSource random, @NonNull BlockPos origin) {
         BlockPos.MutableBlockPos mutablePos = new BlockPos.MutableBlockPos();
         int successes = 0;
         int xzSpread = config.xzSpread() + 1;
@@ -33,7 +42,7 @@ public class EndVegetationFeature extends Feature<EndVegetationFeatureConfigurat
                     random.nextInt(xzSpread) - random.nextInt(xzSpread)
             );
 
-            if (config.feature().value().place(level, context.chunkGenerator(), random, mutablePos)) {
+            if (config.feature().value().place(level, chunkGenerator, random, mutablePos)) {
                 ++successes;
             }
         }

@@ -4,6 +4,7 @@ import com.bmt.kaleidoscope_end.common.DragonBreathCloudService;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.Prediction;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -59,7 +60,7 @@ public class DragonBreathBucket extends Item {
             if (itemInHand.isEmpty()) {
                 player.setItemInHand(context.getHand(), Items.BUCKET.getDefaultInstance());
             } else if (!player.getInventory().add(Items.BUCKET.getDefaultInstance())) {
-                player.drop(Items.BUCKET.getDefaultInstance(), false);
+                player.drop(Items.BUCKET.getDefaultInstance(), false, Prediction.SERVER_ONLY);
             }
         }
         level.playSound(null, clickLocation.x(), clickLocation.y(), clickLocation.z(), SoundEvents.BUCKET_EMPTY, SoundSource.NEUTRAL, 1.0F, 1.0F);

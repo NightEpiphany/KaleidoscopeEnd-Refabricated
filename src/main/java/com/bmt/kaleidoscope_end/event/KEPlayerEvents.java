@@ -21,6 +21,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.DamageTypeTags;
+import net.minecraft.util.Prediction;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
@@ -209,7 +210,7 @@ public final class KEPlayerEvents {
         if (stack.isEmpty()) {
             player.setItemInHand(hand, dragonBreathBucket);
         } else if (!player.getInventory().add(dragonBreathBucket)) {
-            player.drop(dragonBreathBucket, false);
+            player.drop(dragonBreathBucket, false, Prediction.PREDICTED);
         }
 
         return level.isClientSide() ? InteractionResult.SUCCESS : InteractionResult.SUCCESS_SERVER;

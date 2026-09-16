@@ -3,6 +3,7 @@ package com.bmt.kaleidoscope_end.item;
 import com.bmt.kaleidoscope_end.init.KEItem;
 import com.github.ysbbbbbb.kaleidoscopecookery.api.item.IHasContainer;
 import com.github.ysbbbbbb.kaleidoscopecookery.item.FoodWithEffectsItem;
+import net.minecraft.util.Prediction;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
@@ -26,7 +27,7 @@ public class DragonEggShellFoodItem extends FoodWithEffectsItem implements IHasC
             return dragonEggShell;
         }
         if (entity instanceof Player player) {
-            player.getInventory().placeItemBackInInventory(dragonEggShell);
+            player.getInventory().placeItemBackInInventory(dragonEggShell, Prediction.PREDICTED);
         } else {
             level.addFreshEntity(new ItemEntity(level, entity.getX(), entity.getY(), entity.getZ(), dragonEggShell));
         }

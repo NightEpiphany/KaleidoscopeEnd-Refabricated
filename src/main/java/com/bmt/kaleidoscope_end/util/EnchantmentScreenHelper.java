@@ -18,29 +18,19 @@ public class EnchantmentScreenHelper {
     private static final int CUSTOM_HIGHLIGHTED_COLOR = 14745855;
 
     public static int warpColor(int color, EnchantmentMenu menu) {
-        if (!menu.slots.get(1).getItem().is(KEItem.VOID_CONCH)) {
+        if (!menu.getSlot(1).getItem().is(KEItem.VOID_CONCH)) {
             return color;
         }
 
-        if (color == VANILLA_ENABLED_COLOR) {
-            return CUSTOM_ENABLED_COLOR;
-        }
-
-        if (color == VANILLA_DISABLED_COLOR) {
-            return CUSTOM_DISABLED_COLOR;
-        }
-
-        if (color == VANILLA_DISABLED_HALF) {
-            return CUSTOM_DISABLED_HALF;
-        }
-
-        if (color == VANILLA_LEVEL_COLOR) {
-            return CUSTOM_LEVEL_COLOR;
-        }
-
-        if (color == VANILLA_HIGHLIGHTED_COLOR) {
-            return CUSTOM_HIGHLIGHTED_COLOR;
-        }
-        return color;
+        int rgb = color & 0x00FFFFFF;
+        int replacement = switch (rgb) {
+            case VANILLA_ENABLED_COLOR -> CUSTOM_ENABLED_COLOR;
+            case VANILLA_DISABLED_COLOR -> CUSTOM_DISABLED_COLOR;
+            case VANILLA_DISABLED_HALF -> CUSTOM_DISABLED_HALF;
+            case VANILLA_LEVEL_COLOR -> CUSTOM_LEVEL_COLOR;
+            case VANILLA_HIGHLIGHTED_COLOR -> CUSTOM_HIGHLIGHTED_COLOR;
+            default -> rgb;
+        };
+        return (color & 0xFF000000) | replacement;
     }
 }

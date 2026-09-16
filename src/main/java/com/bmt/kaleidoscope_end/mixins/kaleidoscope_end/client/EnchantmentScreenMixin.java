@@ -2,13 +2,10 @@ package com.bmt.kaleidoscope_end.mixins.kaleidoscope_end.client;
 
 import com.bmt.kaleidoscope_end.init.KEItem;
 import com.bmt.kaleidoscope_end.util.EnchantmentScreenHelper;
-import com.mojang.blaze3d.pipeline.RenderPipeline;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.screens.inventory.EnchantmentScreen;
-import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.player.Inventory;
@@ -19,7 +16,6 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
-import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Environment(EnvType.CLIENT)
 @Mixin(EnchantmentScreen.class)
@@ -55,28 +51,29 @@ public abstract class EnchantmentScreenMixin extends AbstractContainerScreen<Enc
         return EnchantmentScreenHelper.warpColor(color, menu);
     }
 
-    @Redirect(method = "extractBackground", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/GuiGraphicsExtractor;blitSprite(Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lnet/minecraft/resources/Identifier;IIII)V"))
-    private void redirectBlitSprite(GuiGraphicsExtractor guiGraphics, RenderPipeline renderPipeline, Identifier sprite, int x, int y, int width, int height) {
-        RenderPipeline pipeline = renderPipeline == null ? RenderPipelines.GUI_TEXTURED : renderPipeline;
-        if (!menu.slots.get(1).getItem().is(KEItem.VOID_CONCH)) {
-            guiGraphics.blitSprite(pipeline, sprite, x, y, width, height);
-            return;
+    @ModifyArg(method = "extractBackground", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/GuiGraphicsExtractor;textWithWordWrap(Lnet/minecraft/client/gui/Font;Lnet/minecraft/network/chat/FormattedText;IIIIZ)I"), index = 5)
+    private int onDrawEnchantmentName(int color) {
+        return EnchantmentScreenHelper.warpColor(color, menu);
+    }
+
+    @ModifyArg(method = "extractBackground", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/GuiGraphicsExtractor;blitSprite(Lcom/mojang/renderpearl/api/pipeline/RenderPipeline;Lnet/minecraft/resources/Identifier;IIII)V"), index = 1)
+    private Identifier replaceLevelSprite(Identifier sprite) {
+        if (!menu.getSlot(1).getItem().is(KEItem.VOID_CONCH)) {
+            return sprite;
         }
 
         for (int i = 0; i < ENABLED_LEVEL_SPRITES.length; i++) {
             if (sprite.equals(ENABLED_LEVEL_SPRITES[i])) {
-                guiGraphics.blitSprite(pipeline, CUSTOM_ENABLED_SPRITES[i], x, y, width, height);
-                return;
+                return CUSTOM_ENABLED_SPRITES[i];
             }
         }
 
         for (int i = 0; i < DISABLED_LEVEL_SPRITES.length; i++) {
             if (sprite.equals(DISABLED_LEVEL_SPRITES[i])) {
-                guiGraphics.blitSprite(pipeline, CUSTOM_DISABLED_SPRITES[i], x, y, width, height);
-                return;
+                return CUSTOM_DISABLED_SPRITES[i];
             }
         }
 
-        guiGraphics.blitSprite(pipeline, sprite, x, y, width, height);
+        return sprite;
     }
 }

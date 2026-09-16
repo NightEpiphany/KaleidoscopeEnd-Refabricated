@@ -18,6 +18,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.BaseCoralWallFanBlock;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.BonemealSource;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
@@ -70,10 +71,10 @@ public class DragonDustItem extends BoneMealItem {
         BlockState blockstate = level.getBlockState(pos);
 
         if (blockstate.getBlock() instanceof BonemealableBlock bonemealableblock) {
-            if (bonemealableblock.isValidBonemealTarget(level, pos, blockstate)) {
+            if (bonemealableblock.isValidBonemealTarget(level, pos, blockstate, BonemealSource.INTERACTION)) {
                 if (level instanceof ServerLevel) {
-                    if (bonemealableblock.isBonemealSuccess(level, level.getRandom(), pos, blockstate)) {
-                        bonemealableblock.performBonemeal((ServerLevel)level, level.getRandom(), pos, blockstate);
+                    if (bonemealableblock.isBonemealSuccess(level, level.getRandom(), pos, blockstate, BonemealSource.INTERACTION)) {
+                        bonemealableblock.performBonemeal((ServerLevel)level, level.getRandom(), pos, blockstate, BonemealSource.INTERACTION);
                     }
                 }
                 return true;
@@ -131,7 +132,7 @@ public class DragonDustItem extends BoneMealItem {
                         if (blockstate1.is(Blocks.WATER) && level.getFluidState(blockpos).getAmount() == 8) {
                             level.setBlock(blockpos, blockstate, 3);
                         } else if (blockstate1.is(Blocks.SEAGRASS) && randomsource.nextInt(10) == 0) {
-                            ((BonemealableBlock) Blocks.SEAGRASS).performBonemeal(serverlevel, randomsource, blockpos, blockstate1);
+                            ((BonemealableBlock) Blocks.SEAGRASS).performBonemeal(serverlevel, randomsource, blockpos, blockstate1, BonemealSource.INTERACTION);
                         }
                     }
                 }
