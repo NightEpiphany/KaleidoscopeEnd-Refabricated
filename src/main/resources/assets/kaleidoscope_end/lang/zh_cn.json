@@ -1,4 +1,6 @@
 {
+  "modmenu.nameTranslation.kaleidoscope_end": "森罗物语：末地-重织",
+  "modmenu.descriptionTranslation.kaleidoscope_end": "为森罗厨房模组带来末地风味的美食！",
   "itemGroup.kaleidoscope_end_foods": "森罗物语：末地",
 
   "item.kaleidoscope_end.dragon_tooth_knife": "龙之刃",
@@ -139,5 +141,7 @@
   "advancements.kaleidoscope_end.dragon_egg_diet.description": "食用所有龙蛋壳承装的大餐",
   "advancements.kaleidoscope_end.dragon_tooth_knife.title": "终焉利刃",
   "advancements.kaleidoscope_end.dragon_tooth_knife.description": "这把武器对末地生物展现出压倒性的锋芒",
-  "item.kaleidoscope_end.optic_nerve_sweet_and_sour_pork": "视神经咕咾肉"
+  "item.kaleidoscope_end.optic_nerve_sweet_and_sour_pork": "视神经咕咾肉",
+  "item.kaleidoscope_end.ender_dragon_smithing_template.base_slot_description": "基底",
+  "item.kaleidoscope_end.ender_dragon_smithing_template.additions_slot_description": "附加物"
 }
