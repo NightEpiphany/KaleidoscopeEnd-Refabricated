@@ -3,19 +3,11 @@
   "pools": [
     {
       "bonus_rolls": 0.0,
-      "conditions": [
-        {
-          "condition": "kaleidoscope_cookery:advance_entity_match_tool",
-          "predicate": {
-            "items": "#kaleidoscope_cookery:kitchen_knife"
-          },
-          "slot": "mainhand"
-        }
-      ],
       "entries": [
         {
           "type": "minecraft:item",
-          "functions": [
+          "name": "kaleidoscope_end:optic_nerve",
+          "modifier": [
             {
               "add": false,
               "count": {
@@ -23,13 +15,19 @@
                 "max": 3.0,
                 "min": 1.0
               },
-              "function": "minecraft:set_count"
+              "type": "minecraft:set_count"
             }
-          ],
-          "name": "kaleidoscope_end:optic_nerve"
+          ]
         }
       ],
-      "rolls": 1.0
+      "rolls": 1.0,
+      "condition": {
+        "predicate": {
+          "items": "#kaleidoscope_cookery:kitchen_knife"
+        },
+        "slot": "mainhand",
+        "type": "kaleidoscope_cookery:advance_entity_match_tool"
+      }
     }
   ],
   "random_sequence": "kaleidoscope_end:enderman"

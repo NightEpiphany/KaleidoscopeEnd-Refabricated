@@ -1,10 +1,5 @@
 {
   "type": "minecraft:block",
-  "functions": [
-    {
-      "function": "minecraft:explosion_decay"
-    }
-  ],
   "pools": [
     {
       "bonus_rolls": 0.0,
@@ -18,34 +13,37 @@
     },
     {
       "bonus_rolls": 0.0,
-      "conditions": [
-        {
-          "block": "kaleidoscope_end:ender_mint",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "age": "7"
-          }
-        }
-      ],
       "entries": [
         {
           "type": "minecraft:item",
-          "functions": [
+          "name": "kaleidoscope_end:ender_mint",
+          "modifier": [
             {
               "enchantment": "minecraft:fortune",
               "formula": "minecraft:binomial_with_bonus_count",
-              "function": "minecraft:apply_bonus",
               "parameters": {
                 "extra": 1,
                 "probability": 0.5714286
-              }
+              },
+              "type": "minecraft:apply_bonus"
             }
-          ],
-          "name": "kaleidoscope_end:ender_mint"
+          ]
         }
       ],
-      "rolls": 1.0
+      "rolls": 1.0,
+      "condition": {
+        "type": "minecraft:match_block",
+        "blocks": "kaleidoscope_end:ender_mint",
+        "state": {
+          "age": "7"
+        }
+      }
     }
   ],
-  "random_sequence": "kaleidoscope_end:blocks/ender_mint"
+  "random_sequence": "kaleidoscope_end:blocks/ender_mint",
+  "modifier": [
+    {
+      "type": "minecraft:explosion_decay"
+    }
+  ]
 }

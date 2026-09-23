@@ -3,22 +3,20 @@
   "pools": [
     {
       "bonus_rolls": 0.0,
-      "conditions": [
-        {
-          "block": "kaleidoscope_end:dream_berry_plant",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "berries": "true"
-          }
-        }
-      ],
       "entries": [
         {
           "type": "minecraft:item",
           "name": "kaleidoscope_end:dream_berry"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1.0,
+      "condition": {
+        "type": "minecraft:match_block",
+        "blocks": "kaleidoscope_end:dream_berry_plant",
+        "state": {
+          "berries": "true"
+        }
+      }
     },
     {
       "bonus_rolls": 0.0,

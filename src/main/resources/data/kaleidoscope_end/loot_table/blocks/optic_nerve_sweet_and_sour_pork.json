@@ -3,27 +3,20 @@
   "pools": [
     {
       "bonus_rolls": 0.0,
-      "conditions": [
-        {
-          "condition": "minecraft:survives_explosion"
-        }
-      ],
       "entries": [
         {
           "type": "minecraft:alternatives",
           "children": [
             {
               "type": "minecraft:item",
-              "conditions": [
-                {
-                  "block": "kaleidoscope_end:optic_nerve_sweet_and_sour_pork",
-                  "condition": "minecraft:block_state_property",
-                  "properties": {
-                    "bites": "0"
-                  }
+              "name": "kaleidoscope_end:optic_nerve_sweet_and_sour_pork",
+              "condition": {
+                "type": "minecraft:match_block",
+                "blocks": "kaleidoscope_end:optic_nerve_sweet_and_sour_pork",
+                "state": {
+                  "bites": "0"
                 }
-              ],
-              "name": "kaleidoscope_end:optic_nerve_sweet_and_sour_pork"
+              }
             },
             {
               "type": "minecraft:item",
@@ -32,7 +25,10 @@
           ]
         }
       ],
-      "rolls": 1.0
+      "rolls": 1.0,
+      "condition": {
+        "type": "minecraft:survives_explosion"
+      }
     }
   ],
   "random_sequence": "kaleidoscope_end:blocks/optic_nerve_sweet_and_sour_pork"

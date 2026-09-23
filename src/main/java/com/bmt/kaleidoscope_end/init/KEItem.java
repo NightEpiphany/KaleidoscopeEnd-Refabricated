@@ -3,7 +3,6 @@ package com.bmt.kaleidoscope_end.init;
 import com.bmt.kaleidoscope_end.KaleidoscopeEnd;
 import com.bmt.kaleidoscope_end.item.DragonBreathBucket;
 import com.bmt.kaleidoscope_end.item.DragonDustItem;
-import com.bmt.kaleidoscope_end.item.DragonEggShellFoodItem;
 import com.bmt.kaleidoscope_end.item.DragonToothKnifeItem;
 import com.bmt.kaleidoscope_end.item.KEBlockItem;
 import com.bmt.kaleidoscope_end.item.ShulkerShellFoodItem;
