@@ -2,6 +2,8 @@ package com.bmt.kaleidoscope_end.mixins.kaleidoscope_end;
 
 import com.bmt.kaleidoscope_end.init.KEItem;
 import com.bmt.kaleidoscope_end.init.KETags;
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.minecraft.core.Holder;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.registries.Registries;
@@ -19,7 +21,6 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.ArrayList;
@@ -28,7 +29,7 @@ import java.util.List;
 @Mixin(EnchantmentMenu.class)
 public abstract class EnchantmentMenuMixin {
     @Shadow
-    protected abstract List<EnchantmentInstance> getEnchantmentList(RegistryAccess registryAccess, ItemStack stack, int slot, int cost);
+    protected abstract List<EnchantmentInstance> getEnchantmentList(RegistryAccess access, ItemStack itemStack, int slot, int enchantmentCost);
 
     @Shadow
     @Final
@@ -46,7 +47,7 @@ public abstract class EnchantmentMenuMixin {
     private boolean kaleidoscope$calling = false;
 
     @Inject(method = "getEnchantmentList", at = @At("RETURN"), cancellable = true)
-    private void modifyEnchantments(RegistryAccess registryAccess, ItemStack stack, int slot, int cost, CallbackInfoReturnable<List<EnchantmentInstance>> cir) {
+    private void modifyEnchantments(RegistryAccess access, ItemStack itemStack, int slot, int enchantmentCost, CallbackInfoReturnable<List<EnchantmentInstance>> cir) {
 
         if (kaleidoscope$calling) return;
 
@@ -58,7 +59,7 @@ public abstract class EnchantmentMenuMixin {
         kaleidoscope$calling = true;
 
         List<EnchantmentInstance> olds = new ArrayList<>(cir.getReturnValue());
-        List<EnchantmentInstance> news = getEnchantmentList(registryAccess, stack, slot + 1, cost);
+        List<EnchantmentInstance> news = getEnchantmentList(access, itemStack, slot + 1, enchantmentCost);
         List<EnchantmentInstance> toAdd = new ArrayList<>();
         
         for (int i = 0; i < news.size(); i++) {
@@ -95,7 +96,7 @@ public abstract class EnchantmentMenuMixin {
         olds.addAll(toAdd);
 
         if (random.nextFloat() <= 0.6F) {
-            var enchantmentRegistry = registryAccess.lookupOrThrow(Registries.ENCHANTMENT);
+            var enchantmentRegistry = access.lookupOrThrow(Registries.ENCHANTMENT);
             enchantmentRegistry.get(KETags.Enchantments.KE_ENCHANTMENTS).ifPresent(holders -> {
                 List<Holder<Enchantment>> holderList = holders.stream().toList();
                 if (!holderList.isEmpty()) {
@@ -104,7 +105,7 @@ public abstract class EnchantmentMenuMixin {
                     int add = 1;
                     int maxLevel = holder.value().getMaxLevel();
                     for (int i = 1; i <= maxLevel; i++) {
-                        if (holder.value().getMinCost(i) > cost) {
+                        if (holder.value().getMinCost(i) > enchantmentCost) {
                             maxLevel = maxLevel - 1;
                             break;
                         }
@@ -132,15 +133,12 @@ public abstract class EnchantmentMenuMixin {
     @Unique
     private static final TagKey<Item> EXTRA_FUEL = KETags.Items.ENCHANTING_FUELS;
 
-
-    @Redirect(
-            method = "quickMoveStack",
+    @WrapOperation( method = "quickMoveStack",
             at = @At(
                     value = "INVOKE",
                     target = "Lnet/minecraft/world/item/ItemStack;is(Ljava/lang/Object;)Z"
-            )
-    )
-    private boolean kaleidoscope$shiftMove(ItemStack instance, Object o) {
+            ))
+    private boolean kaleidoscope$shiftMove(ItemStack instance, Object o, Operation<Boolean> original) {
         if (instance.is((Item) o)) return true;
         return instance.is(EXTRA_FUEL);
     }
