@@ -30,7 +30,7 @@ public final class KECreativeTabs {
                             output.accept(KEItem.DRAGON_DUST);
                             output.accept(KEItem.DRAGON_TOOTH);
                             output.accept(KEItem.DRAGON_EGG_SHELL);
-//                        output.accept(KEItem.ENDERMITE_EGG);
+                            //output.accept(KEItem.ENDERMITE_EGG);
                             output.accept(KEItem.ENDER_DRAGON_SMITHING_TEMPLATE);
                             output.accept(KEItem.ENDER_MINT);
                             output.accept(KEItem.DRAGON_BREATH_CHORUS_SOUP_ITEM);
@@ -41,10 +41,6 @@ public final class KECreativeTabs {
                             output.accept(KEItem.DREAM_BERRY_ITEM);
                             output.accept(KEItem.MINT_CHORUS_MOUSSE_ITEM);
                             output.accept(KEItem.OPTIC_NERVE_ITEM);
-
-                            KEFoodBiteRegistry.getRegisteredFoodIds().stream()
-                                    .map(BuiltInRegistries.ITEM::getValue)
-                                    .forEach(output::accept);
 
                             output.accept(KEItem.SHULKER_SHELL_MEAT_ITEM);
                             output.accept(KEItem.SHULKER_SHELL_STEW_ITEM);
@@ -68,16 +64,25 @@ public final class KECreativeTabs {
                             output.accept(KEItem.CHORUS_PETAL);
                             output.accept(KEItem.FRIED_DRAGON_EGG_ITEM);
                             //output.accept(KEItem.DRAGON_EGG_CUSTARD_ITEM);
-                            output.accept(KEItem.CHORUS_FLOWER_TEA_ITEM);
+                            output.accept(KEItem.CHORUS_FLOWER_SOUP_ITEM);
                             output.accept(KEItem.CHORUS_FLOWER_CAKE_ITEM);
                             output.accept(KEItem.CHORUS_SEED_COOKIE_ITEM);
 
                             output.accept(KEItem.STUFFED_VOID_CONCH_ITEM);
-//                        output.accept(KEItem.OPTIC_NERVE_SWEET_AND_SOUR_PORK_ITEM);
+                            //output.accept(KEItem.OPTIC_NERVE_SWEET_AND_SOUR_PORK_ITEM);
 
                             //output.accept(KEItem.VOID_MUTTON_STEAK_ITEM);
                             output.accept(KEItem.DRAGON_BREATH_BUCKET_ITEM);
                             output.accept(KEItem.END_STOVE_ITEM);
+                            output.accept(KEItem.DRAGON_BREATH_POPPING_CANDY);
+
+                            KEFoodBiteRegistry.getRegisteredFoodIds().stream()
+                                    .map(BuiltInRegistries.ITEM::getValue)
+                                    .forEach(output::accept);
+
+                            KETeacupRegistry.getRegisteredTeaIds().stream()
+                                    .map(BuiltInRegistries.ITEM::getValue)
+                                    .forEach(output::accept);
                         }).build());
     }
 }
