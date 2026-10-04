@@ -93,7 +93,7 @@ public interface KEConsumables {
             new MobEffectInstance(MobEffects.REGENERATION, 300 * 20, 1),
             createEndEffect("void_erosion", 40 * 20)
     );
-    Consumable CHORUS_FLOWER_TEA = buildConsumable(createCookeryEffect("preservation", 180 * 20));
+    Consumable CHORUS_FLOWER_SOUP = buildConsumable(createCookeryEffect("preservation", 180 * 20));
     Consumable CHORUS_FLOWER_CAKE = buildConsumable(createCookeryEffect("preservation", 120 * 20));
     Consumable CHORUS_SEED_COOKIE = buildConsumable(0.5F, createEndEffect("dream", 30 * 20));
     Consumable DRAGON_EGG_LIQUID_FOOD = buildConsumable(0.3F, new MobEffectInstance(MobEffects.REGENERATION, 10 * 20, 0));
@@ -103,6 +103,8 @@ public interface KEConsumables {
     Consumable OPTIC_NERVE_SWEET_AND_SOUR_PORK_BLOCK = buildConsumable(new MobEffectInstance(MobEffects.NIGHT_VISION, 480 * 20, 0));
     Consumable VOID_MUTTON_STEAK_ITEM = buildConsumable(createEndEffect("void_erosion", 180 * 20));
     Consumable VOID_MUTTON_STEAK_BLOCK = buildConsumable(createEndEffect("void_erosion", 30 * 20));
+    Consumable DRAGON_BREATH_POPPING_CANDY = buildConsumable(createCookeryEffect("projectile_dodge", 30 * 20));
+
 
     private static Consumable buildConsumable(MobEffectInstance... effects) {
         return buildConsumable(1.0F, effects);

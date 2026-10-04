@@ -1,0 +1,10 @@
+{
+  "type": "kaleidoscope_cookery:teapot",
+  "ingredient": "kaleidoscope_end:chorus_petal",
+  "result": {
+    "count": 1,
+    "id": "kaleidoscope_end:chorus_flower_tea"
+  },
+  "tea_fluid": "minecraft:water",
+  "time": 240
+}

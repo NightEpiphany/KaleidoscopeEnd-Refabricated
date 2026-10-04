@@ -1,0 +1,10 @@
+{
+  "type": "kaleidoscope_cookery:teapot",
+  "ingredient": "kaleidoscope_end:void_conch",
+  "result": {
+    "count": 1,
+    "id": "kaleidoscope_end:void_tea"
+  },
+  "tea_fluid": "minecraft:water",
+  "time": 240
+}
