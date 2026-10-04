@@ -1,7 +1,10 @@
 package com.bmt.kaleidoscope_end.init;
 
-import net.minecraft.core.registries.BuiltInRegistries;
+import com.bmt.kaleidoscope_end.KaleidoscopeEnd;
+import com.github.ysbbbbbb.kaleidoscopecookery.init.ModEffects;
+import net.minecraft.core.Holder;
 import net.minecraft.resources.Identifier;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.component.Consumable;
@@ -123,25 +126,49 @@ public interface KEConsumables {
 
     @Nullable
     private static MobEffectInstance createCookeryEffect(String path, int duration) {
-        return createEffect("kaleidoscope_cookery", path, duration, 0);
+        Holder<MobEffect> effect = switch (path) {
+            case "vigor" -> ModEffects.VIGOR;
+            case "satiated_shield" -> ModEffects.SATIATED_SHIELD;
+            case "sulfur" -> ModEffects.SULFUR;
+            case "tundra_strider" -> ModEffects.TUNDRA_STRIDER;
+            case "preservation" -> ModEffects.PRESERVATION;
+            case "projectile_dodge" -> ModEffects.PROJECTILE_DODGE;
+            default -> null;
+        };
+        return createEffect("kaleidoscope_cookery", path, effect, duration, 1);
     }
 
     @Nullable
     private static MobEffectInstance createEndEffect(String path, int duration) {
-        return createEffect("kaleidoscope_end", path, duration, 0);
+        Holder<MobEffect> effect = switch (path) {
+            case "dream" -> KEEffects.DREAM;
+            case "void_erosion" -> KEEffects.VOID_EROSION;
+            case "mint" -> KEEffects.MINT;
+            default -> null;
+        };
+        return createEffect("kaleidoscope_end", path, effect, duration, 1);
     }
 
     @Nullable
     private static MobEffectInstance createVanillaEffect(String path, int duration) {
-        return createEffect("minecraft", path, duration, 0);
+        Holder<MobEffect> effect = switch (path) {
+            case "strength" -> MobEffects.STRENGTH;
+            case "regeneration" -> MobEffects.REGENERATION;
+            case "water_breathing" -> MobEffects.WATER_BREATHING;
+            default -> null;
+        };
+        return createEffect("minecraft", path, effect, duration, 2);
     }
 
     @Nullable
-    private static MobEffectInstance createEffect(String namespace, String path, int duration, int amplifier) {
-        Identifier id = Identifier.fromNamespaceAndPath(namespace, path);
-        return BuiltInRegistries.MOB_EFFECT.get(id)
-                .map(effect -> new MobEffectInstance(effect, duration, amplifier))
-                .orElse(null);
+    private static MobEffectInstance createEffect(String namespace, String path, @Nullable Holder<MobEffect> effect,
+                                                  int duration, int amplifier) {
+        if (effect == null) {
+            Identifier id = Identifier.fromNamespaceAndPath(namespace, path);
+            KaleidoscopeEnd.LOGGER.warn("Food effect {} is not registered; this consumable will have no effect", id);
+            return null;
+        }
+        return new MobEffectInstance(effect, duration, amplifier);
     }
 
     static void init() {
