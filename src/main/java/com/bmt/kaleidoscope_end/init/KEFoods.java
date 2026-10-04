@@ -41,7 +41,7 @@ public interface KEFoods {
     FoodProperties FRIED_DRAGON_EGG = new FoodProperties.Builder().nutrition(18).saturationModifier(0.8f).alwaysEdible().build();
     FoodProperties DRAGON_EGG_CUSTARD_ITEM = new FoodProperties.Builder().nutrition(20).saturationModifier(1.8F).build();
     FoodProperties DRAGON_EGG_CUSTARD_BLOCK = new FoodProperties.Builder().nutrition(5).saturationModifier(1.8F).build();
-    FoodProperties CHORUS_FLOWER_TEA = new FoodProperties.Builder().nutrition(6).saturationModifier(0.667f).alwaysEdible().build();
+    FoodProperties CHORUS_FLOWER_SOUP = new FoodProperties.Builder().nutrition(6).saturationModifier(0.667f).alwaysEdible().build();
     FoodProperties CHORUS_FLOWER_CAKE = new FoodProperties.Builder().nutrition(8).saturationModifier(0.6f).alwaysEdible().build();
     FoodProperties CHORUS_SEED_COOKIE = new FoodProperties.Builder().nutrition(4).saturationModifier(0.3f).alwaysEdible().build();
     FoodProperties DRAGON_EGG_LIQUID_FOOD = new FoodProperties.Builder().nutrition(3).saturationModifier(0.2f).alwaysEdible().build();
@@ -53,6 +53,7 @@ public interface KEFoods {
     FoodProperties END_CATERPILLAR_SASHIMI = new FoodProperties.Builder().nutrition(10).saturationModifier(0.5f).alwaysEdible().build();
     FoodProperties VOID_MUTTON_STEAK_ITEM = new FoodProperties.Builder().nutrition(16).saturationModifier(1.2F).alwaysEdible().build();
     FoodProperties VOID_MUTTON_STEAK_BLOCK = new FoodProperties.Builder().nutrition(4).saturationModifier(1.2F).alwaysEdible().build();
+    FoodProperties DRAGON_BREATH_POPPING_CANDY = new FoodProperties.Builder().nutrition(1).saturationModifier(1.2F).alwaysEdible().build();
 
     static void init() {
     }

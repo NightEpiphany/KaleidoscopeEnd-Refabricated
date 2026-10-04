@@ -12,6 +12,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
@@ -22,6 +23,7 @@ public final class KEItem {
     public static Item VOID_CONCH;
     public static Item DRAGON_DUST;
     public static Item DRAGON_TOOTH;
+    public static Item DRAGON_BREATH_POPPING_CANDY;
     public static BlockItem END_STOVE_ITEM;
     public static BlockItem SUSPICIOUS_END_STONE_ITEM;
     public static BlockItem SUSPICIOUS_DRAGON_EGG_ITEM;
@@ -54,7 +56,7 @@ public final class KEItem {
     public static Item CHORUS_SEED;
     public static Item CHORUS_PETAL;
     public static FoodWithEffectsItem FRIED_DRAGON_EGG_ITEM;
-    public static BowlFoodOnlyItem CHORUS_FLOWER_TEA_ITEM;
+    public static BowlFoodOnlyItem CHORUS_FLOWER_SOUP_ITEM;
     public static FoodWithEffectsItem CHORUS_FLOWER_CAKE_ITEM;
     public static FoodWithEffectsItem CHORUS_SEED_COOKIE_ITEM;
     public static FoodWithEffectsItem STUFFED_VOID_CONCH_ITEM;
@@ -68,6 +70,7 @@ public final class KEItem {
         ENDER_MINT = new KEBlockItem(KEBlocks.ENDER_MINT, properties("ender_mint"));
         VOID_CONCH = new Item(properties("void_conch"));
         DRAGON_DUST = new DragonDustItem(properties("dragon_dust"));
+        DRAGON_BREATH_POPPING_CANDY = new Item(properties("dragon_breath_popping_candy").food(KEFoods.DRAGON_BREATH_POPPING_CANDY, KEConsumables.DRAGON_BREATH_POPPING_CANDY));
         DRAGON_TOOTH = new Item(properties("dragon_tooth"));
         END_STOVE_ITEM = new BlockItem(KEBlocks.END_STOVE, blockProperties("end_stove"));
         SUSPICIOUS_END_STONE_ITEM = new BlockItem(KEBlocks.SUSPICIOUS_END_STONE, blockProperties("suspicious_end_stone"));
@@ -101,7 +104,7 @@ public final class KEItem {
         CHORUS_SEED = new Item(properties("chorus_seed").food(KEFoods.CHORUS_SEED_FOOD, KEConsumables.CHORUS_SEED_FOOD));
         CHORUS_PETAL = new Item(properties("chorus_petal"));
         FRIED_DRAGON_EGG_ITEM = new FoodWithEffectsItem(properties("fried_dragon_egg"), KEFoods.FRIED_DRAGON_EGG, KEConsumables.FRIED_DRAGON_EGG);
-        CHORUS_FLOWER_TEA_ITEM = new BowlFoodOnlyItem(properties("chorus_flower_tea"), KEFoods.CHORUS_FLOWER_TEA, KEConsumables.CHORUS_FLOWER_TEA);
+        CHORUS_FLOWER_SOUP_ITEM = new BowlFoodOnlyItem(properties("chorus_flower_soup"), KEFoods.CHORUS_FLOWER_SOUP, KEConsumables.CHORUS_FLOWER_SOUP);
         CHORUS_FLOWER_CAKE_ITEM = new FoodWithEffectsItem(properties("chorus_flower_cake"), KEFoods.CHORUS_FLOWER_CAKE, KEConsumables.CHORUS_FLOWER_CAKE);
         CHORUS_SEED_COOKIE_ITEM = new FoodWithEffectsItem(properties("chorus_seed_cookie"), KEFoods.CHORUS_SEED_COOKIE, KEConsumables.CHORUS_SEED_COOKIE);
         STUFFED_VOID_CONCH_ITEM = new FoodWithEffectsItem(properties("stuffed_void_conch"), KEFoods.STUFFED_VOID_CONCH, KEConsumables.STUFFED_VOID_CONCH);
@@ -112,6 +115,7 @@ public final class KEItem {
         register("void_conch", VOID_CONCH);
         register("dragon_dust", DRAGON_DUST);
         register("dragon_tooth", DRAGON_TOOTH);
+        register("dragon_breath_popping_candy", DRAGON_BREATH_POPPING_CANDY);
         register("end_stove", END_STOVE_ITEM);
         register("suspicious_end_stone", SUSPICIOUS_END_STONE_ITEM);
         register("suspicious_dragon_egg", SUSPICIOUS_DRAGON_EGG_ITEM);
@@ -144,7 +148,7 @@ public final class KEItem {
         register("chorus_seed", CHORUS_SEED);
         register("chorus_petal", CHORUS_PETAL);
         register("fried_dragon_egg", FRIED_DRAGON_EGG_ITEM);
-        register("chorus_flower_tea", CHORUS_FLOWER_TEA_ITEM);
+        register("chorus_flower_soup", CHORUS_FLOWER_SOUP_ITEM);
         register("chorus_flower_cake", CHORUS_FLOWER_CAKE_ITEM);
         register("chorus_seed_cookie", CHORUS_SEED_COOKIE_ITEM);
         register("stuffed_void_conch", STUFFED_VOID_CONCH_ITEM);
