@@ -103,7 +103,7 @@ public interface KEConsumables {
     Consumable OPTIC_NERVE_SWEET_AND_SOUR_PORK_BLOCK = buildConsumable(new MobEffectInstance(MobEffects.NIGHT_VISION, 480 * 20, 0));
     Consumable VOID_MUTTON_STEAK_ITEM = buildConsumable(createEndEffect("void_erosion", 180 * 20));
     Consumable VOID_MUTTON_STEAK_BLOCK = buildConsumable(createEndEffect("void_erosion", 30 * 20));
-    Consumable DRAGON_BREATH_POPPING_CANDY = buildConsumable(createCookeryEffect("projectile_dodge", 30 * 20));
+    Consumable DRAGON_BREATH_POPPING_CANDY = buildConsumable(createCookeryEffect("projectile_dodge", 60 * 20));
 
 
     private static Consumable buildConsumable(MobEffectInstance... effects) {
