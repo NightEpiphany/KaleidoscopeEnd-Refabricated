@@ -2,6 +2,8 @@
   "modmenu.nameTranslation.kaleidoscope_end": "Kaleidoscope End Refabricated",
   "modmenu.descriptionTranslation.kaleidoscope_end": "Brought an expansion about the End to Kaleidoscope Cookery.",
   "itemGroup.kaleidoscope_end_foods": "Kaleidoscope: End",
+  "section.kaleidoscope_end.foods": "Foods",
+  "section.kaleidoscope_end.others": "Other Items",
 
   "item.kaleidoscope_end.dragon_tooth_knife": "Dragon's Tooth Knife",
 
@@ -12,6 +14,8 @@
   "item.kaleidoscope_end.dragon_tooth": "Dragon Tooth",
   "item.kaleidoscope_end.dragon_tooth.description": "Obtained by defeating the Ender Dragon.",
   "item.kaleidoscope_end.dragon_egg_shell": "Dragon Eggshell",
+  "block.kaleidoscope_end.dragon_egg_shell": "Dragon Egg Shell",
+  "tooltip.kaleidoscope_end.dragon_egg_shell": "Can be placed.",
   "item.kaleidoscope_end.endermite_egg": "Endermite Egg",
   "item.kaleidoscope_end.ender_dragon_smithing_template": "Smithing Template",
   "item.kaleidoscope_end.ender_mint": "Ender Mint",
@@ -91,6 +95,10 @@
   "tooltip.kaleidoscope_end.void_tea.maxim": "Emptiness...",
   "block.kaleidoscope_end.ender_mint_tea": "Ender Mint Tea",
   "tooltip.kaleidoscope_end.ender_mint_tea.maxim": "Tea with a strange flavor...",
+  "item.kaleidoscope_end.void_tea_bag": "Void Tea Bag",
+  "item.kaleidoscope_end.ender_mint_tea_bag": "Ender Mint Tea Bag",
+  "item.kaleidoscope_end.chorus_flower_tea_bag": "Chorus Flower Tea Bag",
+  "item.kaleidoscope_end.ender_dragon_tea_bag": "Ender Dragon Tea Bag",
   "item.kaleidoscope_end.chorus_flower_soup": "Chorus Flower Soup",
   "tooltip.kaleidoscope_end.chorus_flower_soup.maxim": "Quite unique...",
   "item.kaleidoscope_end.dragon_breath_popping_candy": "Dragon Breath Popping Candy",
@@ -119,6 +127,8 @@
   "enchantment.kaleidoscope_end.void_echo.desc": "Range DMG based on ench level.",
   "enchantment.kaleidoscope_end.void_walker": "Void Walker",
   "enchantment.kaleidoscope_end.void_walker.desc": "Levitate in the void.",
+  "enchantment.kaleidoscope_end.void_shot": "Void Shot",
+  "enchantment.kaleidoscope_end.void_shot.desc": "Chance to deal multiplied projectile damage based on enchantment level.",
 
   "effect.kaleidoscope_end.dream": "Dream",
   "effect.kaleidoscope_end.dream.description": "Allows swimming through the sky.",
@@ -128,6 +138,7 @@
   "effect.kaleidoscope_end.mint.description": "Endermen are not angered by eye contact. Significantly reduces magic damage taken.",
 
   "block.kaleidoscope_end.suspicious_end_stone": "Suspicious End Stone",
+  "block.kaleidoscope_end.suspicious_purpur_block": "Suspicious Purpur Block",
   "block.kaleidoscope_end.suspicious_dragon_egg": "Suspicious Dragon Egg",
   "block.kaleidoscope_end.end_stove": "End Stove",
 
@@ -152,5 +163,9 @@
   "advancements.kaleidoscope_end.dragon_tooth_knife.title": "The Blade of Ending",
   "advancements.kaleidoscope_end.dragon_tooth_knife.description": "This weapon displays overwhelming sharpness against End creatures.",
   "item.kaleidoscope_end.ender_dragon_smithing_template.base_slot_description": "Base",
-  "item.kaleidoscope_end.ender_dragon_smithing_template.additions_slot_description": "Addition"
+  "item.kaleidoscope_end.ender_dragon_smithing_template.additions_slot_description": "Addition",
+  "config.kaleidoscope_end.void_shot.chance": "Void Shot Chance",
+  "config.kaleidoscope_end.void_shot.chance.comment": "Chance for Void Shot to deal multiplied projectile damage (0 to 1)",
+  "config.kaleidoscope_end.void_shot.base_multiplier": "Void Shot Base Multiplier",
+  "config.kaleidoscope_end.void_shot.base_multiplier.comment": "Base damage multiplier; enchantment level is added to this value"
 }

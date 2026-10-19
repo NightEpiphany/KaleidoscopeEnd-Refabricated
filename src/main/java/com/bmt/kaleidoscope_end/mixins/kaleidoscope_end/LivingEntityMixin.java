@@ -1,6 +1,9 @@
 package com.bmt.kaleidoscope_end.mixins.kaleidoscope_end;
 
+import com.bmt.kaleidoscope_end.event.KEPlayerEvents;
 import com.bmt.kaleidoscope_end.init.KEEnchantments;
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
@@ -21,6 +24,22 @@ import net.minecraft.world.entity.LivingEntity;
 
 @Mixin(LivingEntity.class)
 public class LivingEntityMixin {
+    @WrapOperation(
+            method = "actuallyHurt",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/entity/LivingEntity;getDamageAfterArmorAbsorb(Lnet/minecraft/world/damagesource/DamageSource;F)F"
+            )
+    )
+    private float kaleidoscope_end$applyVoidShot(
+            LivingEntity entity,
+            DamageSource source,
+            float amount,
+            Operation<Float> original
+    ) {
+        return original.call(entity, source, KEPlayerEvents.applyVoidShotDamage(source, amount));
+    }
+
     @Inject(method = {"getDamageAfterArmorAbsorb", "getDamageAfterMagicAbsorb"}, at = @At("HEAD"), cancellable = true)
     private void onGetDamageAfterArmorAbsorb(DamageSource damageSource, float damage, CallbackInfoReturnable<Float> cir) {
         if (damageSource.getEntity() instanceof LivingEntity living && living.hasEffect(KEEffects.VOID_EROSION)) {

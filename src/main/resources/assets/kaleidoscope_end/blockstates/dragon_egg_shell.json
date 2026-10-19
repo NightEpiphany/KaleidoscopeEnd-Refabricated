@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "kaleidoscope_end:block/food/dragon_egg_ice_cream/dragon_egg_ice_cream_3"
+    },
+    "facing=south": {
+      "model": "kaleidoscope_end:block/food/dragon_egg_ice_cream/dragon_egg_ice_cream_3"
+    },
+    "facing=west": {
+      "model": "kaleidoscope_end:block/food/dragon_egg_ice_cream/dragon_egg_ice_cream_3"
+    },
+    "facing=east": {
+      "model": "kaleidoscope_end:block/food/dragon_egg_ice_cream/dragon_egg_ice_cream_3"
+    }
+  }
+}

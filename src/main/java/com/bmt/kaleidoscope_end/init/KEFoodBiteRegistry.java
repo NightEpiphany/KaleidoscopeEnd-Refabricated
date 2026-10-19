@@ -72,7 +72,7 @@ public final class KEFoodBiteRegistry {
 
         // 浇汁龙首
         DRAGON_HEAD_WITH_SAUCE = registerFoodData(KaleidoscopeEnd.id("dragon_head_with_sauce"), FoodBiteRegistry.FoodData
-                .createOneByTwo(6, KEFoods.DRAGON_HEAD_WITH_SAUCE_BLOCK, KEFoods.DRAGON_HEAD_WITH_SAUCE_ITEM,
+                .createOneByTwo(7, KEFoods.DRAGON_HEAD_WITH_SAUCE_BLOCK, KEFoods.DRAGON_HEAD_WITH_SAUCE_ITEM,
                         KEConsumables.DRAGON_HEAD_WITH_SAUCE_BLOCK, KEConsumables.DRAGON_HEAD_WITH_SAUCE_ITEM));
 
         // 龙蛋煲

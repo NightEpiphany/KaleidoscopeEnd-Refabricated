@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "kaleidoscope_end:void_conch",
+    "L": "kaleidoscope_cookery:dried_tea_leaves"
+  },
+  "pattern": [
+    "LLL",
+    "L#L",
+    "LLL"
+  ],
+  "result": {
+    "count": 1,
+    "id": "kaleidoscope_end:void_tea_bag"
+  }
+}

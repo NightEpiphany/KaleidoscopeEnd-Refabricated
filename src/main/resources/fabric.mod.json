@@ -26,7 +26,8 @@
 		]
 	},
 	"mixins": [
-		"kaleidoscope_end.mixins.json"
+		"kaleidoscope_end.mixins.json",
+      "kaleidoscope_lib.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.18",

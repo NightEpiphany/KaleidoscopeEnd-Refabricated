@@ -58,7 +58,7 @@ public class SuspiciousDragonEggBlock extends BrushableBlock implements Fallable
     }
 
     @Override
-    public void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+    public void tick(@NonNull BlockState state, ServerLevel level, BlockPos pos, @NonNull RandomSource random) {
         if (isFree(level.getBlockState(pos.below())) && pos.getY() >= level.getMinY()) {
             FallingBlockEntity.fall(level, pos, state);
         }
@@ -108,7 +108,7 @@ public class SuspiciousDragonEggBlock extends BrushableBlock implements Fallable
     }
 
     @Override
-    public @Nullable BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+    public @Nullable BlockEntity newBlockEntity(@NonNull BlockPos pos, @NonNull BlockState state) {
         BrushableBlockEntity blockEntity = (BrushableBlockEntity) super.newBlockEntity(pos, state);
         if (blockEntity != null) {
             blockEntity.setLootTable(ResourceKey.create(Registries.LOOT_TABLE, KaleidoscopeEnd.id("archaeology/suspicious_dragon_egg")), 0L);

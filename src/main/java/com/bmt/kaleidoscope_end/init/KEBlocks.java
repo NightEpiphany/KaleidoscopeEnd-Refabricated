@@ -1,6 +1,7 @@
 package com.bmt.kaleidoscope_end.init;
 
 import com.bmt.kaleidoscope_end.KaleidoscopeEnd;
+import com.bmt.kaleidoscope_end.block.DragonEggShellBlock;
 import com.bmt.kaleidoscope_end.block.SuspiciousDragonEggBlock;
 import com.bmt.kaleidoscope_end.block.crops.DreamBerryHeadBlock;
 import com.bmt.kaleidoscope_end.block.crops.DreamBerryPlantBlock;
@@ -37,6 +38,11 @@ public final class KEBlocks {
 
     public static final DreamBerryPlantBlock DREAM_BERRY_PLANT = register("dream_berry_plant", DreamBerryPlantBlock::new, CAVE_VINES_PROPERTIES.get());
     public static final DreamBerryHeadBlock DREAM_BERRY_HEAD = register("dream_berry_head", DreamBerryHeadBlock::new, CAVE_VINES_PROPERTIES.get());
+    public static final DragonEggShellBlock DRAGON_EGG_SHELL = register(
+            "dragon_egg_shell",
+            DragonEggShellBlock::new,
+            BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).instrument(NoteBlockInstrument.BASS).sound(SoundType.BONE_BLOCK).strength(0.5F)
+    );
     public static final EnderMint ENDER_MINT = register("ender_mint", EnderMint::new, CROP_DEFAULT_PROPERTIES.get());
     public static final Block SUSPICIOUS_END_STONE = register("suspicious_end_stone", properties -> new BrushableBlock(
             Blocks.END_STONE,
@@ -53,6 +59,21 @@ public final class KEBlocks {
             return blockEntity;
         }
     }, BlockBehaviour.Properties.of().mapColor(MapColor.SAND).instrument(NoteBlockInstrument.SNARE).strength(0.25F).sound(SoundType.SUSPICIOUS_SAND).pushReaction(PushReaction.POPPED));
+    public static final Block SUSPICIOUS_PURPUR_BLOCK = register("suspicious_purpur_block", properties -> new BrushableBlock(
+            Blocks.PURPUR_BLOCK,
+            SoundEvents.BRUSH_SAND,
+            SoundEvents.BRUSH_SAND_COMPLETED,
+            properties
+    ) {
+        @Override
+        public @Nullable BlockEntity newBlockEntity(@NotNull BlockPos pos, @NotNull BlockState state) {
+            BrushableBlockEntity blockEntity = (BrushableBlockEntity) super.newBlockEntity(pos, state);
+            if (blockEntity != null) {
+                blockEntity.setLootTable(ResourceKey.create(Registries.LOOT_TABLE, KaleidoscopeEnd.id("archaeology/suspicious_purpur_block")), 0L);
+            }
+            return blockEntity;
+        }
+    }, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_MAGENTA).instrument(NoteBlockInstrument.SNARE).strength(0.25F).sound(SoundType.STONE).pushReaction(PushReaction.POPPED));
     public static final SuspiciousDragonEggBlock SUSPICIOUS_DRAGON_EGG = register("suspicious_dragon_egg",
             properties -> new SuspiciousDragonEggBlock(
                     Blocks.DRAGON_EGG,
