@@ -15,6 +15,7 @@ public class BlockEntityTypeMixin {
         BlockEntityType<?> blockEntityType = (BlockEntityType<?>) (Object) this;
         if (blockEntityType == BlockEntityType.BRUSHABLE_BLOCK) {
             if (blockState.getBlock() == KEBlocks.SUSPICIOUS_END_STONE
+                    || blockState.getBlock() == KEBlocks.SUSPICIOUS_PURPUR_BLOCK
                     || blockState.getBlock() == KEBlocks.SUSPICIOUS_DRAGON_EGG) {
                 cir.setReturnValue(true);
             }

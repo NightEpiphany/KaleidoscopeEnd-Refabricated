@@ -26,13 +26,14 @@
 		]
 	},
 	"mixins": [
-		"kaleidoscope_end.mixins.json"
+		"kaleidoscope_end.mixins.json",
+		"kaleidoscope_lib.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.18",
 		"minecraft": "~26.1",
-		"java": ">=21",
+		"java": ">=25",
 		"fabric-api": "*",
-		"kaleidoscope_cookery": ">=1.4.1.6"
+		"kaleidoscope_cookery": ">=1.6.0.5-fabric+mc26.1.2"
 	}
 }

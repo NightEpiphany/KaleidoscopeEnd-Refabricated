@@ -23,6 +23,14 @@ public final class MainConfig {
                     value -> value instanceof String
             );
 
+    public static final ModConfigSpec.DoubleValue VOID_SHOT_CHANCE = BUILDER
+            .comment("Chance for Void Shot to deal multiplied projectile damage.")
+            .defineInRange("voidShotChance", 0.15D, 0.0D, 1.0D);
+
+    public static final ModConfigSpec.DoubleValue VOID_SHOT_BASE_MULTIPLIER = BUILDER
+            .comment("Base damage multiplier for Void Shot; enchantment level is added to this value.")
+            .defineInRange("voidShotBaseMultiplier", 1.0D, 1.0D, 100.0D);
+
     public static final ModConfigSpec SPEC = BUILDER.build();
 
     private MainConfig() {

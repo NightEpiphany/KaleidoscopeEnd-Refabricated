@@ -153,5 +153,20 @@
   "advancements.kaleidoscope_end.dragon_tooth_knife.description": "Esta arma mostra uma nitidez avassaladora contra criaturas do End.",
   "item.kaleidoscope_end.optic_nerve_sweet_and_sour_pork": "Porco agridoce com nervo óptico",
   "item.kaleidoscope_end.ender_dragon_smithing_template.base_slot_description": "Base",
-  "item.kaleidoscope_end.ender_dragon_smithing_template.additions_slot_description": "Adição"
+  "item.kaleidoscope_end.ender_dragon_smithing_template.additions_slot_description": "Adição",
+  "section.kaleidoscope_end.foods": "Comidas",
+  "section.kaleidoscope_end.others": "Outros Itens",
+  "block.kaleidoscope_end.dragon_egg_shell": "Casca de Ovo de Dragão",
+  "tooltip.kaleidoscope_end.dragon_egg_shell": "§oPode ser colocada",
+  "item.kaleidoscope_end.void_tea_bag": "Saquinho de Chá do Vazio",
+  "item.kaleidoscope_end.ender_mint_tea_bag": "Saquinho de Chá de Menta do End",
+  "item.kaleidoscope_end.chorus_flower_tea_bag": "Saquinho de Chá de Flor do Coro",
+  "item.kaleidoscope_end.ender_dragon_tea_bag": "Saquinho de Chá do Dragão do End",
+  "enchantment.kaleidoscope_end.void_shot": "Tiro do Vazio",
+  "enchantment.kaleidoscope_end.void_shot.desc": "Chance de fazer projéteis causarem dano múltiplo com base no nível do encantamento.",
+  "block.kaleidoscope_end.suspicious_purpur_block": "Bloco de Púrpur Suspeito",
+  "config.kaleidoscope_end.void_shot.chance": "Chance do Tiro do Vazio",
+  "config.kaleidoscope_end.void_shot.chance.comment": "Chance do Tiro do Vazio causar dano múltiplo (0 a 1)",
+  "config.kaleidoscope_end.void_shot.base_multiplier": "Multiplicador Base do Tiro do Vazio",
+  "config.kaleidoscope_end.void_shot.base_multiplier.comment": "Multiplicador base de dano; o nível do encantamento é somado a este valor"
 }

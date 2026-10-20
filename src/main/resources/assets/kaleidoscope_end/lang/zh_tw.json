@@ -153,5 +153,20 @@
   "advancements.kaleidoscope_end.dragon_tooth_knife.description": "這把武器對終界生物展現出壓倒性的鋒芒",
   "item.kaleidoscope_end.optic_nerve_sweet_and_sour_pork": "視神經咕咾肉",
   "item.kaleidoscope_end.ender_dragon_smithing_template.base_slot_description": "基底",
-  "item.kaleidoscope_end.ender_dragon_smithing_template.additions_slot_description": "附加物"
+  "item.kaleidoscope_end.ender_dragon_smithing_template.additions_slot_description": "附加物",
+  "section.kaleidoscope_end.foods": "食物",
+  "section.kaleidoscope_end.others": "其他物品",
+  "block.kaleidoscope_end.dragon_egg_shell": "龍蛋殼",
+  "tooltip.kaleidoscope_end.dragon_egg_shell": "§o可放置",
+  "item.kaleidoscope_end.void_tea_bag": "虛空茶包",
+  "item.kaleidoscope_end.ender_mint_tea_bag": "末影薄荷茶包",
+  "item.kaleidoscope_end.chorus_flower_tea_bag": "紫頌花茶包",
+  "item.kaleidoscope_end.ender_dragon_tea_bag": "末影龍茶包",
+  "enchantment.kaleidoscope_end.void_shot": "虛空射擊",
+  "enchantment.kaleidoscope_end.void_shot.desc": "基於魔咒等級，有機率使投射物造成多倍傷害",
+  "block.kaleidoscope_end.suspicious_purpur_block": "可疑的紫珀方塊",
+  "config.kaleidoscope_end.void_shot.chance": "虛空射擊觸發機率",
+  "config.kaleidoscope_end.void_shot.chance.comment": "虛空射擊造成多倍傷害的機率（0 至 1）",
+  "config.kaleidoscope_end.void_shot.base_multiplier": "虛空射擊基礎倍率",
+  "config.kaleidoscope_end.void_shot.base_multiplier.comment": "基礎傷害倍率，實際倍率會加上魔咒等級"
 }

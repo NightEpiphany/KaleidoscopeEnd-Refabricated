@@ -152,5 +152,20 @@
   "advancements.kaleidoscope_end.dragon_tooth_knife.title": "The Blade of Ending",
   "advancements.kaleidoscope_end.dragon_tooth_knife.description": "This weapon displays overwhelming sharpness against End creatures.",
   "item.kaleidoscope_end.ender_dragon_smithing_template.base_slot_description": "Base",
-  "item.kaleidoscope_end.ender_dragon_smithing_template.additions_slot_description": "Addition"
+  "item.kaleidoscope_end.ender_dragon_smithing_template.additions_slot_description": "Addition",
+  "section.kaleidoscope_end.foods": "Foods",
+  "section.kaleidoscope_end.others": "Other Items",
+  "block.kaleidoscope_end.dragon_egg_shell": "Dragon Egg Shell",
+  "tooltip.kaleidoscope_end.dragon_egg_shell": "Can be placed.",
+  "item.kaleidoscope_end.void_tea_bag": "Void Tea Bag",
+  "item.kaleidoscope_end.ender_mint_tea_bag": "Ender Mint Tea Bag",
+  "item.kaleidoscope_end.chorus_flower_tea_bag": "Chorus Flower Tea Bag",
+  "item.kaleidoscope_end.ender_dragon_tea_bag": "Ender Dragon Tea Bag",
+  "enchantment.kaleidoscope_end.void_shot": "Void Shot",
+  "enchantment.kaleidoscope_end.void_shot.desc": "Chance to deal multiplied projectile damage based on enchantment level.",
+  "block.kaleidoscope_end.suspicious_purpur_block": "Suspicious Purpur Block",
+  "config.kaleidoscope_end.void_shot.chance": "Void Shot Chance",
+  "config.kaleidoscope_end.void_shot.chance.comment": "Chance for Void Shot to deal multiplied projectile damage (0 to 1)",
+  "config.kaleidoscope_end.void_shot.base_multiplier": "Void Shot Base Multiplier",
+  "config.kaleidoscope_end.void_shot.base_multiplier.comment": "Base damage multiplier; enchantment level is added to this value"
 }

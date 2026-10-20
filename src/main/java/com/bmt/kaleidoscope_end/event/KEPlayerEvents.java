@@ -4,6 +4,7 @@ import com.bmt.kaleidoscope_end.api.IEndermiteExtension;
 import com.bmt.kaleidoscope_end.api.event.EnderManAngerEvent;
 import com.bmt.kaleidoscope_end.common.DragonBreathCloudService;
 import com.bmt.kaleidoscope_end.common.KEEndermiteInfo;
+import com.bmt.kaleidoscope_end.config.MainConfig;
 import com.bmt.kaleidoscope_end.init.*;
 import net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
@@ -31,6 +32,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.monster.Endermite;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.component.CustomData;
@@ -169,6 +171,34 @@ public final class KEPlayerEvents {
             }
         }
         return true;
+    }
+
+    public static float applyVoidShotDamage(DamageSource source, float amount) {
+        if (!(source.getDirectEntity() instanceof Projectile) || !(source.getEntity() instanceof LivingEntity attacker)) {
+            return amount;
+        }
+
+        ItemStack weapon = attacker.getMainHandItem();
+        int level = EnchantmentHelper.getItemEnchantmentLevel(
+                attacker.level().registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(KEEnchantments.VOID_SHOT),
+                weapon
+        );
+        if (level <= 0 || attacker.getRandom().nextFloat() >= MainConfig.VOID_SHOT_CHANCE.get()) {
+            return amount;
+        }
+
+        float multiplier = (float) (MainConfig.VOID_SHOT_BASE_MULTIPLIER.get() + level);
+        attacker.level().playSound(
+                null,
+                attacker.getX(),
+                attacker.getY(),
+                attacker.getZ(),
+                SoundEvents.ENDERMAN_TELEPORT,
+                attacker.getSoundSource(),
+                1.0F,
+                1.0F
+        );
+        return amount * multiplier;
     }
 
     private static InteractionResult onUseBlock(Player player, Level level, InteractionHand hand, BlockHitResult hitResult) {

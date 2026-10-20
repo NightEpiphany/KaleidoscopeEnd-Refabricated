@@ -153,5 +153,20 @@
   "advancements.kaleidoscope_end.dragon_tooth_knife.description": "이 무기는 엔드 생물에게 압도적인 예리함을 보여준다.",
   "item.kaleidoscope_end.optic_nerve_sweet_and_sour_pork": "시신경 탕수육",
   "item.kaleidoscope_end.ender_dragon_smithing_template.base_slot_description": "기본",
-  "item.kaleidoscope_end.ender_dragon_smithing_template.additions_slot_description": "추가 재료"
+  "item.kaleidoscope_end.ender_dragon_smithing_template.additions_slot_description": "추가 재료",
+  "section.kaleidoscope_end.foods": "음식",
+  "section.kaleidoscope_end.others": "기타 아이템",
+  "block.kaleidoscope_end.dragon_egg_shell": "드래곤 에그 껍질",
+  "tooltip.kaleidoscope_end.dragon_egg_shell": "§o설치 가능",
+  "item.kaleidoscope_end.void_tea_bag": "공허 티백",
+  "item.kaleidoscope_end.ender_mint_tea_bag": "엔더 민트 티백",
+  "item.kaleidoscope_end.chorus_flower_tea_bag": "코러스 꽃 티백",
+  "item.kaleidoscope_end.ender_dragon_tea_bag": "엔더 드래곤 티백",
+  "enchantment.kaleidoscope_end.void_shot": "공허 사격",
+  "enchantment.kaleidoscope_end.void_shot.desc": "마법 부여 레벨에 따라 확률적으로 발사체가 여러 배의 피해를 준다.",
+  "block.kaleidoscope_end.suspicious_purpur_block": "의심스러운 퍼퍼 블록",
+  "config.kaleidoscope_end.void_shot.chance": "공허 사격 발동 확률",
+  "config.kaleidoscope_end.void_shot.chance.comment": "공허 사격이 여러 배의 피해를 줄 확률 (0 ~ 1)",
+  "config.kaleidoscope_end.void_shot.base_multiplier": "공허 사격 기본 배율",
+  "config.kaleidoscope_end.void_shot.base_multiplier.comment": "기본 피해 배율. 실제 배율 = 기본 배율 + 마법 부여 레벨"
 }

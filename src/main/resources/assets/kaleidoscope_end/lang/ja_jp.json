@@ -152,5 +152,20 @@
   "advancements.kaleidoscope_end.dragon_tooth_knife.title": "終焉の刃",
   "advancements.kaleidoscope_end.dragon_tooth_knife.description": "この武器はエンドの生物に対して圧倒的な切れ味を発揮する。",
   "item.kaleidoscope_end.ender_dragon_smithing_template.base_slot_description": "ベース",
-  "item.kaleidoscope_end.ender_dragon_smithing_template.additions_slot_description": "追加素材"
+  "item.kaleidoscope_end.ender_dragon_smithing_template.additions_slot_description": "追加素材",
+  "section.kaleidoscope_end.foods": "食べ物",
+  "section.kaleidoscope_end.others": "その他のアイテム",
+  "block.kaleidoscope_end.dragon_egg_shell": "ドラゴンエッグシェル",
+  "tooltip.kaleidoscope_end.dragon_egg_shell": "§o設置可能",
+  "item.kaleidoscope_end.void_tea_bag": "ヴォイドティーバッグ",
+  "item.kaleidoscope_end.ender_mint_tea_bag": "エンダーミントティーバッグ",
+  "item.kaleidoscope_end.chorus_flower_tea_bag": "コーラスフラワーティーバッグ",
+  "item.kaleidoscope_end.ender_dragon_tea_bag": "エンダードラゴンティーバッグ",
+  "enchantment.kaleidoscope_end.void_shot": "ヴォイドショット",
+  "enchantment.kaleidoscope_end.void_shot.desc": "エンチャントレベルに応じて、確率で発射物が数倍のダメージを与える。",
+  "block.kaleidoscope_end.suspicious_purpur_block": "怪しいプルプァブロック",
+  "config.kaleidoscope_end.void_shot.chance": "ヴォイドショット発動確率",
+  "config.kaleidoscope_end.void_shot.chance.comment": "ヴォイドショットが数倍のダメージを与える確率（0～1）",
+  "config.kaleidoscope_end.void_shot.base_multiplier": "ヴォイドショット基本倍率",
+  "config.kaleidoscope_end.void_shot.base_multiplier.comment": "基本ダメージ倍率。実際の倍率 = 基本倍率 + エンチャントレベル"
 }

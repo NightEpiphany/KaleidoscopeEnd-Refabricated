@@ -24,6 +24,7 @@ public final class KaleidoscopeEnd implements ModInitializer {
         KEFoods.init();
         KEConsumables.init();
         KEBlocks.registerBlocks();
+        KEBlockEntities.registerBlockEntities();
         KEItem.registerItems();
         KETeacupRegistry.init();
         KEFoodBiteRegistry.init();
