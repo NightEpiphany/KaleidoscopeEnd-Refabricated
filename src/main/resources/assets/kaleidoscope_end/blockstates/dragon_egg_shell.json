@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "facing=north,waterlogged=false": {
+      "model": "kaleidoscope_end:block/food/dragon_egg_ice_cream/dragon_egg_ice_cream_3"
+    },
+    "facing=north,waterlogged=true": {
+      "model": "kaleidoscope_end:block/food/dragon_egg_ice_cream/dragon_egg_ice_cream_3"
+    },
+    "facing=south,waterlogged=false": {
+      "model": "kaleidoscope_end:block/food/dragon_egg_ice_cream/dragon_egg_ice_cream_3"
+    },
+    "facing=south,waterlogged=true": {
+      "model": "kaleidoscope_end:block/food/dragon_egg_ice_cream/dragon_egg_ice_cream_3"
+    },
+    "facing=west,waterlogged=false": {
+      "model": "kaleidoscope_end:block/food/dragon_egg_ice_cream/dragon_egg_ice_cream_3"
+    },
+    "facing=west,waterlogged=true": {
+      "model": "kaleidoscope_end:block/food/dragon_egg_ice_cream/dragon_egg_ice_cream_3"
+    },
+    "facing=east,waterlogged=false": {
+      "model": "kaleidoscope_end:block/food/dragon_egg_ice_cream/dragon_egg_ice_cream_3"
+    },
+    "facing=east,waterlogged=true": {
+      "model": "kaleidoscope_end:block/food/dragon_egg_ice_cream/dragon_egg_ice_cream_3"
+    }
+  }
+}

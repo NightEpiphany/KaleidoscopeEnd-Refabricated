@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "package": "com.bmt.kaleidoscope_end.lib.mixins",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "CreativeModeTabMixin"
+  ],
+  "client": [
+    "client.AbstractContainerScreenAccessor",
+    "client.CreativeModeInventoryScreenMixin",
+    "client.ItemPickerMenuMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

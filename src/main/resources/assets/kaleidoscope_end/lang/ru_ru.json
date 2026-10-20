@@ -153,5 +153,20 @@
   "advancements.kaleidoscope_end.dragon_tooth_knife.description": "Это оружие демонстрирует подавляющую остроту против существ Энда.",
   "item.kaleidoscope_end.optic_nerve_sweet_and_sour_pork": "Свинина в кисло-сладком соусе со зрительным нервом",
   "item.kaleidoscope_end.ender_dragon_smithing_template.base_slot_description": "Основа",
-  "item.kaleidoscope_end.ender_dragon_smithing_template.additions_slot_description": "Добавка"
+  "item.kaleidoscope_end.ender_dragon_smithing_template.additions_slot_description": "Добавка",
+  "section.kaleidoscope_end.foods": "Еда",
+  "section.kaleidoscope_end.others": "Прочие предметы",
+  "block.kaleidoscope_end.dragon_egg_shell": "Скорлупа драконьего яйца",
+  "tooltip.kaleidoscope_end.dragon_egg_shell": "§oМожно разместить",
+  "item.kaleidoscope_end.void_tea_bag": "Чайный пакетик Пустоты",
+  "item.kaleidoscope_end.ender_mint_tea_bag": "Чайный пакетик с эндер-мятой",
+  "item.kaleidoscope_end.chorus_flower_tea_bag": "Чайный пакетик из цветка хоруса",
+  "item.kaleidoscope_end.ender_dragon_tea_bag": "Чайный пакетик Дракона Края",
+  "enchantment.kaleidoscope_end.void_shot": "Выстрел Пустоты",
+  "enchantment.kaleidoscope_end.void_shot.desc": "Шанс нанести многократный урон снарядом в зависимости от уровня зачарования.",
+  "block.kaleidoscope_end.suspicious_purpur_block": "Подозрительный пурпурный блок",
+  "config.kaleidoscope_end.void_shot.chance": "Шанс срабатывания Выстрела Пустоты",
+  "config.kaleidoscope_end.void_shot.chance.comment": "Шанс того, что Выстрел Пустоты нанесёт многократный урон (от 0 до 1)",
+  "config.kaleidoscope_end.void_shot.base_multiplier": "Базовый множитель Выстрела Пустоты",
+  "config.kaleidoscope_end.void_shot.base_multiplier.comment": "Базовый множитель урона; фактический множитель = базовый множитель + уровень зачарования"
 }

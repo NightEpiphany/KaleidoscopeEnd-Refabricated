@@ -153,5 +153,20 @@
   "advancements.kaleidoscope_end.dragon_tooth_knife.description": "Esta arma muestra una agudeza abrumadora contra criaturas del End.",
   "item.kaleidoscope_end.optic_nerve_sweet_and_sour_pork": "Cerdo agridulce con nervio óptico",
   "item.kaleidoscope_end.ender_dragon_smithing_template.base_slot_description": "Base",
-  "item.kaleidoscope_end.ender_dragon_smithing_template.additions_slot_description": "Adición"
+  "item.kaleidoscope_end.ender_dragon_smithing_template.additions_slot_description": "Adición",
+  "section.kaleidoscope_end.foods": "Comidas",
+  "section.kaleidoscope_end.others": "Otros Objetos",
+  "block.kaleidoscope_end.dragon_egg_shell": "Cáscara de Huevo de Dragón",
+  "tooltip.kaleidoscope_end.dragon_egg_shell": "§oSe puede colocar",
+  "item.kaleidoscope_end.void_tea_bag": "Bolsa de Té del Vacío",
+  "item.kaleidoscope_end.ender_mint_tea_bag": "Bolsa de Té de Menta del End",
+  "item.kaleidoscope_end.chorus_flower_tea_bag": "Bolsa de Té de Flor del Coro",
+  "item.kaleidoscope_end.ender_dragon_tea_bag": "Bolsa de Té del Dragón del End",
+  "enchantment.kaleidoscope_end.void_shot": "Disparo del Vacío",
+  "enchantment.kaleidoscope_end.void_shot.desc": "Probabilidad de que los proyectiles inflijan daño múltiple según el nivel de encantamiento.",
+  "block.kaleidoscope_end.suspicious_purpur_block": "Bloque de Púrpur Sospechoso",
+  "config.kaleidoscope_end.void_shot.chance": "Probabilidad del Disparo del Vacío",
+  "config.kaleidoscope_end.void_shot.chance.comment": "Probabilidad de que el Disparo del Vacío inflija daño múltiple (0 a 1)",
+  "config.kaleidoscope_end.void_shot.base_multiplier": "Multiplicador Base del Disparo del Vacío",
+  "config.kaleidoscope_end.void_shot.base_multiplier.comment": "Multiplicador base de daño; el nivel de encantamiento se suma a este valor"
 }

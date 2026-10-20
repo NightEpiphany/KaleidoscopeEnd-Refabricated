@@ -1,6 +1,7 @@
 {
   "type": "kaleidoscope_cookery:teapot",
-  "ingredient": "kaleidoscope_end:dragon_dust",
+  "ingredient": "kaleidoscope_end:ender_dragon_tea_bag",
+  "ingredient_count": 1,
   "result": {
     "count": 1,
     "id": "kaleidoscope_end:ender_dragon_tea"

@@ -12,6 +12,7 @@ public interface KETags {
     final class Items {
         public static final TagKey<Item> MOD_ITEMS = TagKey.create(Registries.ITEM, KaleidoscopeEnd.id("mod_items"));
         public static final TagKey<Item> ENCHANTING_FUELS = TagKey.create(Registries.ITEM, KaleidoscopeEnd.id("enchanting_fuels"));
+        public static final TagKey<Item> RANGED_WEAPONS = TagKey.create(Registries.ITEM, KaleidoscopeEnd.id("enchantable/ranged_weapon"));
 
         private Items() {
         }
