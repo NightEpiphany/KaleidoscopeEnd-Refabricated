@@ -6,6 +6,7 @@ import com.bmt.kaleidoscope_end.common.DragonBreathCloudService;
 import com.bmt.kaleidoscope_end.common.KEEndermiteInfo;
 import com.bmt.kaleidoscope_end.config.MainConfig;
 import com.bmt.kaleidoscope_end.init.*;
+import com.github.ysbbbbbb.kaleidoscopecookery.util.event.IKCEvent;
 import net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.fabricmc.fabric.api.event.player.UseEntityCallback;
@@ -61,7 +62,10 @@ public final class KEPlayerEvents {
         ServerLivingEntityEvents.ALLOW_DAMAGE.register(KEPlayerEvents::onAllowDamage);
         ServerLivingEntityEvents.ALLOW_DAMAGE.register(KEPlayerEvents::onLivingIncomingDamage);
         ServerLivingEntityEvents.AFTER_DEATH.register(KEPlayerEvents::onAfterDeath);
-        KEEvents.STARE_ENDERMAN.register(KEPlayerEvents::onStareEnderman);
+        IKCEvent.CALLBACK.register(event -> {
+            if (event instanceof EnderManAngerEvent enderManAngerEvent)
+                onStareEnderman(enderManAngerEvent);
+        });
     }
 
     private static void onStareEnderman(EnderManAngerEvent event) {
