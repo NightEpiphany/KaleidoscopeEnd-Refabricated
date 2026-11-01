@@ -21,9 +21,4 @@ public class EnderManAngerEvent extends CancellableKCEvent {
     public LivingEntity getEntity() {
         return this.livingEntity;
     }
-
-    @FunctionalInterface
-    public interface OnStareEnderMan {
-        void onStare(EnderManAngerEvent var1);
-    }
 }
